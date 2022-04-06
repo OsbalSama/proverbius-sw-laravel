@@ -40,25 +40,33 @@
                                 </thead>
                                 <tbody>
                                     @foreach($users as $user)
+                                    @if(Auth::user()->id == $user->id)
+                                    <tr class="bg-warning">
+                                        @else
                                     <tr>
+                                        @endif
                                         <td>{{$user->id}}</td>
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
                                         <td>{{$user->role}}</td>
+                                        @if(Auth::user()->id != $user->id || $user->id > 1)
                                         <td>
                                             <div class="d-flex justify-content-between">
                                                 <button class="btn btn-outline-primary btn-sm mr-1 ml-1" onclick="viewProfile()">Perfil</button>
-                                                @if($user->id > 1)
                                                 <button class="btn btn-outline-warning btn-sm mr-1 ml-1" onclick="lockUnlockAccount()">Bloquear</button>
                                                 <button class="btn btn-outline-warning btn-sm mr-1 ml-1" onclick="hideShowAccount()">Ocultar</button>
                                                 <button class="btn btn-outline-danger btn-sm mr-1 ml-1" onclick="dropAccount()">Eliminar</button>
-                                                @endif
-
-                                                <!-- <form method="NULL" action="">
-                                                    <button type="submit" class="btn btn-outline-danger btn-sm mr-1 ml-1">Eliminar</button>
-                                                </form> -->
                                             </div>
                                         </td>
+
+
+                                        @else
+                                        <td>
+                                            <div class="d-flex justify-content-between">
+                                                <button class="btn btn-outline-primary btn-sm mr-1 ml-1" onclick="viewProfile()">Perfil</button>
+                                            </div>
+                                        </td>
+                                        @endif
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -78,13 +86,23 @@
 
     @section('scripts')
     <script>
-        function createUser() {
+        function loadAccounts() {
             Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: 'Usuario Agregado',
+                title: 'Accounts Loaded Correctly',
                 showConfirmButton: false,
                 timer: 1500
+            })
+        }
+
+        function createUser() {
+            Swal.fire({
+                title: '<strong>HTML <u>example</u></strong>',
+                showConfirmButton: true,
+                showCancelButton: true,
+                focusConfirm: false,
+                cancelButtonText: 'Cancel'
             })
         }
 
@@ -101,7 +119,8 @@
                 denyButtonText: `Lock/Unlock`,
             }).then((result) => {
                 if (result.isDenied) {
-                    Swal.fire('Account Locked!', '', 'Success')
+                    loadAccounts();
+                    // Swal.fire('Account Locked!', '', 'Success')
                 }
             })
         }
@@ -115,7 +134,7 @@
                 denyButtonText: `Hide/Show`,
             }).then((result) => {
                 if (result.isDenied) {
-                    Swal.fire('Account Hidded!', '', 'Success')
+                    loadAccounts();
                 }
             })
         }
@@ -129,13 +148,7 @@
                 denyButtonText: `Delete`,
             }).then((result) => {
                 if (result.isDenied) {
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Account Deleted',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
+                    loadAccounts();
                 }
             })
 
