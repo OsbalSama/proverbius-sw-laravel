@@ -24,15 +24,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // if (Auth::check()) {
-        //     if (Auth::user()->role == "partner" || Auth::user()->role == "admin") {
-        return view('admin-controlls.admin-home');
-        //     } else {
-        //         return view('home');
-        //     }
-        // } else {
-        // return view('home');
-        // }
+        if (Auth::check()) {
+            if (Auth::user()->role == "partner" || Auth::user()->role == "admin") {
+                return view('admin-controlls.admin-home');
+            } else {
+                return view('home');
+            }
+        } else {
+            return view('home');
+        }
     }
 
     public function topProdsServs()

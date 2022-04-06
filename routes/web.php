@@ -44,3 +44,12 @@ Route::get('/help', 'HomeController@getHelp')->name('global.getHelp');
 //Account Management
 Route::get('/all-accounts', 'accountController@index')->name('admin.all-accounts');
 
+//Product Management
+Route::get('/all-products', 'productController@index')->name('admin.all-products');
+
+//Services Management
+Route::get('/all-services', 'serviceController@index')->name('admin.all-services');
+
+//Stores Management
+Route::get('/all-stores', 'storeController@index')->name('admin.all-stores');
+

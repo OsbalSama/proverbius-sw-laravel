@@ -29,9 +29,7 @@
                     <img src="favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -42,8 +40,7 @@
                             <a class="nav-link" href="{{route('home')}}">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Categories
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -75,28 +72,27 @@
                             <a class="nav-link" href="{{route('global.publicStores')}}">Stores</a>
                         </li>
                         @if (Auth::check() && Auth::user()->isClient())
-                            <li class="nav-item">
-                                <a class="nav-link" href="">History</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="">Sell on Page</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">History</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Sell on Page</a>
+                        </li>
                         @endif
                         @if (Auth::check() && Auth::user()->isRoot())
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Admin Controlls
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="">All Users</a>
-                                    <a class="dropdown-item" href="">All Products</a>
-                                    <a class="dropdown-item" href="">All Services</a>
-                                    <a class="dropdown-item" href="">All Stores</a>
-                                    <br>
-                                    <a class="dropdown-item" href="">Site Settings</a>
-                                </div>
-                            </li>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Admin Controlls
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{route('admin.all-accounts')}}">All Accounts</a>
+                                <a class="dropdown-item" href="{{route('admin.all-products')}}">All Products</a>
+                                <a class="dropdown-item" href="{{route('admin.all-services')}}">All Services</a>
+                                <a class="dropdown-item" href="{{route('admin.all-stores')}}">All Stores</a>
+                                <br>
+                                <a class="dropdown-item" href="">Site Settings</a>
+                            </div>
+                        </li>
                         @endif
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('global.getHelp')}}">Help</a>
@@ -107,52 +103,49 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+                        @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @endif
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                        @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                        @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                                @if (Auth::check())
+                                <a class="dropdown-item" href="">My Profile</a>
+                                @if (Auth::check() && Auth::user()->isClient())
+                                <a class="dropdown-item" href="">My Subscriptions</a>
+                                <a class="dropdown-item" href="">My Purchases</a>
+                                <a class="dropdown-item" href="">Sell in the Shop</a>
+                                @endif
+                                @endif
+                                <br>
+                                <a class="dropdown-item" href="">Questions</a>
+                                <a class="dropdown-item" href="">Security</a>
+                                <a class="dropdown-item" href="">Privacy</a>
+                                <a class="dropdown-item" href="">About Us</a>
+                                <br>
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
-                                    @if (Auth::check())
-                                        <a class="dropdown-item" href="">My Profile</a>
-                                        @if (Auth::check() && Auth::user()->isClient())
-                                            <a class="dropdown-item" href="">My Subscriptions</a>
-                                            <a class="dropdown-item" href="">My Purchases</a>
-                                            <a class="dropdown-item" href="">Sell in the Shop</a>
-                                        @endif
-                                    @endif
-                                    <br>
-                                    <a class="dropdown-item" href="">Questions</a>
-                                    <a class="dropdown-item" href="">Security</a>
-                                    <a class="dropdown-item" href="">Privacy</a>
-                                    <a class="dropdown-item" href="">About Us</a>
-                                    <br>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                                                 document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                        class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                         @endguest
                     </ul>
                 </div>
@@ -163,6 +156,8 @@
             @yield('content')
         </main>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @yield('scripts')
 </body>
 
 </html>
