@@ -73,10 +73,10 @@
                         </li>
                         @if (Auth::check() && Auth::user()->isClient())
                         <li class="nav-item">
-                            <a class="nav-link" href="">History</a>
+                            <a class="nav-link" href="{{route('global.clientHistory')}}">History</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Sell on Page</a>
+                            <a class="nav-link" href="{{route('global.JoinUs')}}">Join Us</a>
                         </li>
                         @endif
                         @if (Auth::check() && Auth::user()->isRoot())
@@ -127,7 +127,7 @@
                                 @if (Auth::check() && Auth::user()->isClient())
                                 <a class="dropdown-item" href="">My Subscriptions</a>
                                 <a class="dropdown-item" href="">My Purchases</a>
-                                <a class="dropdown-item" href="">Sell in the Shop</a>
+                                <a class="dropdown-item" href="{{route('global.JoinUs')}}">Sell in the Shop</a>
                                 @endif
                                 @endif
                                 <br>

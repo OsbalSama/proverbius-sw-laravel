@@ -38,6 +38,8 @@ Route::get('/other-cats', 'HomeController@otherCats')->name('global.oher-cats');
 Route::get('/products', 'HomeController@publicProducts')->name('global.publicProducts');
 Route::get('/services', 'HomeController@publicServices')->name('global.publicServices');
 Route::get('/stores', 'HomeController@publicStores')->name('global.publicStores');
+Route::get('/join-us', 'HomeController@JoinUsInfo')->name('global.JoinUs');
+Route::get('/history', 'HomeController@clientHistory')->name('global.clientHistory');
 Route::get('/help', 'HomeController@getHelp')->name('global.getHelp');
 
 

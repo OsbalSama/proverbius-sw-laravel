@@ -105,6 +105,16 @@ class HomeController extends Controller
         return view('general-views.public-stores');
     }
 
+    public function JoinUsInfo()
+    {
+        return view('general-views.join-us');
+    }
+
+    public function clientHistory()
+    {
+        return view('general-views.history');
+    }
+
     public function getHelp()
     {
         return view('general-views.help');
