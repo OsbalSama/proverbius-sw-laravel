@@ -23,15 +23,15 @@
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <colgroup>
+                                    <col style="width: 1%;">
                                     <col>
                                     <col>
                                     <col>
-                                    <col>
-                                    <col style="width: 25%;">
+                                    <col style="width: 23%;">
                                 </colgroup>
                                 <thead class="thead-ligth">
                                     <tr>
-                                        <th>Codigo</th>
+                                        <th>#</th>
                                         <th>Usuario</th>
                                         <th>Correo</th>
                                         <th>Rol</th>
@@ -48,9 +48,12 @@
                                         <td>
                                             <div class="d-flex justify-content-between">
                                                 <button class="btn btn-outline-primary btn-sm mr-1 ml-1" onclick="viewProfile()">Perfil</button>
+                                                @if($user->id > 1)
                                                 <button class="btn btn-outline-warning btn-sm mr-1 ml-1" onclick="lockUnlockAccount()">Bloquear</button>
                                                 <button class="btn btn-outline-warning btn-sm mr-1 ml-1" onclick="hideShowAccount()">Ocultar</button>
                                                 <button class="btn btn-outline-danger btn-sm mr-1 ml-1" onclick="dropAccount()">Eliminar</button>
+                                                @endif
+
                                                 <!-- <form method="NULL" action="">
                                                     <button type="submit" class="btn btn-outline-danger btn-sm mr-1 ml-1">Eliminar</button>
                                                 </form> -->
@@ -79,7 +82,7 @@
             Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: 'Your work has been saved',
+                title: 'Usuario Agregado',
                 showConfirmButton: false,
                 timer: 1500
             })
