@@ -42,9 +42,24 @@ Route::get('/join-us', 'HomeController@JoinUsInfo')->name('global.JoinUs');
 Route::get('/history', 'HomeController@clientHistory')->name('global.clientHistory');
 Route::get('/help', 'HomeController@getHelp')->name('global.getHelp');
 
+//view Profile
+Route::get('/profile/{User}', 'publicController@viewProfile')->name('public.viewProfile');
 
 //Account Management
-Route::get('/all-accounts', 'accountController@index')->name('admin.all-accounts');
+//create
+Route::get('/accounts/new-account', 'accountController@create')->name('admin.accounts.create');
+Route::post('/accounts/create-account', 'accountController@store')->name('admin.accounts.store');
+
+//read
+//view Profile by ADMIN or ROOT
+Route::get('/accounts/profile/{User}', 'accountController@viewProfile')->name('account.viewProfile');
+
+//delete
+Route::get('/all-accounts', 'accountController@index')->name('admin.accounts.all');
+Route::delete('/all-accounts/account/{user}', 'accountController@delete')->name('admin.accounts.delete');
+
+
+
 
 //Product Management
 Route::get('/all-products', 'productController@index')->name('admin.all-products');
@@ -54,4 +69,3 @@ Route::get('/all-services', 'serviceController@index')->name('admin.all-services
 
 //Stores Management
 Route::get('/all-stores', 'storeController@index')->name('admin.all-stores');
-

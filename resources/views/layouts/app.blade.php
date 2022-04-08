@@ -85,7 +85,7 @@
                                 Admin Controlls
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{route('admin.all-accounts')}}">All Accounts</a>
+                                <a class="dropdown-item" href="{{route('admin.accounts.all')}}">All Accounts</a>
                                 <a class="dropdown-item" href="{{route('admin.all-products')}}">All Products</a>
                                 <a class="dropdown-item" href="{{route('admin.all-services')}}">All Services</a>
                                 <a class="dropdown-item" href="{{route('admin.all-stores')}}">All Stores</a>
@@ -123,7 +123,7 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
                                 @if (Auth::check())
-                                <a class="dropdown-item" href="">My Profile</a>
+                                <a class="dropdown-item" href="{{route('public.viewProfile', [Auth::user()->id])}}">My Profile</a>
                                 @if (Auth::check() && Auth::user()->isClient())
                                 <a class="dropdown-item" href="">My Subscriptions</a>
                                 <a class="dropdown-item" href="">My Purchases</a>

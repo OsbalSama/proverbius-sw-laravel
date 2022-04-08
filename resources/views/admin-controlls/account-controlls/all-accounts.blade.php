@@ -11,8 +11,8 @@
                     <div class="w-100 p-3">
                         <div class="d-flex justify-content-between">
                             <h2>CUENTAS DE USUARIO</h2>
-                            <button class="btn btn-success btn-lg" onclick="createUser()">Nuevo Usuario</button>
-                            <!-- <a class="btn btn-success btn-lg" href="">Nuevo Usuario</a> -->
+                            <!-- <button class="btn btn-success btn-lg" onclick="{{route('admin.accounts.create')}}">Nuevo Usuario</button> -->
+                            <a class="btn btn-success btn-lg" href="{{route('admin.accounts.create')}}">Nuevo Usuario</a>
                         </div>
                         <br>
                         @if($users->isEmpty())
@@ -40,6 +40,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach($users as $user)
+                                    @if($user->id > 1)
                                     @if(Auth::user()->id == $user->id)
                                     <tr class="bg-warning">
                                         @else
@@ -49,25 +50,30 @@
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
                                         <td>{{$user->role}}</td>
-                                        @if(Auth::user()->id != $user->id || $user->id > 1)
+                                        @if(Auth::user()->id != $user->id)
                                         <td>
                                             <div class="d-flex justify-content-between">
-                                                <button class="btn btn-outline-primary btn-sm mr-1 ml-1" onclick="viewProfile()">Perfil</button>
+                                                <a class="btn btn-outline-primary btn-sm mr-1 ml-1" href="{{route('account.viewProfile', ['User'=> $user->id])}}" target="_blank">Perfil</a>
+                                                <!-- <button class="btn btn-outline-primary btn-sm mr-1 ml-1" onclick="viewProfile()">Perfil</button> -->
                                                 <button class="btn btn-outline-warning btn-sm mr-1 ml-1" onclick="lockUnlockAccount()">Bloquear</button>
                                                 <button class="btn btn-outline-warning btn-sm mr-1 ml-1" onclick="hideShowAccount()">Ocultar</button>
-                                                <button class="btn btn-outline-danger btn-sm mr-1 ml-1" onclick="dropAccount()">Eliminar</button>
+                                                <form class="dropUser" method="POST" action="{{route('admin.accounts.delete', ['user'=> $user->id])}}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-outline-danger btn-sm mr-1 ml-1">Eliminar</button>
+                                                </form>
+                                                <!-- <button class="btn btn-outline-danger btn-sm mr-1 ml-1" onclick="dropAccount()">Eliminar</button> -->
                                             </div>
                                         </td>
-
-
                                         @else
                                         <td>
                                             <div class="d-flex justify-content-between">
-                                                <button class="btn btn-outline-primary btn-sm mr-1 ml-1" onclick="viewProfile()">Perfil</button>
+                                                <a class="btn btn-outline-primary btn-sm mr-1 ml-1" href="{{route('account.viewProfile', ['User'=> $user->id])}}" target="_blank">Perfil</a>
                                             </div>
                                         </td>
                                         @endif
                                     </tr>
+                                    @endif
                                     @endforeach
                                 </tbody>
                             </table>
@@ -85,6 +91,28 @@
     @endsection
 
     @section('scripts')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @if(session('delete') == 'ok')
+    <script>
+        Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+        )
+    </script>
+    @endif
+
+    @if(session('create') == 'ok')
+    <script>
+        Swal.fire(
+            'Creaded!',
+            'Your file has been created.',
+            'success'
+        )
+    </script>
+    @endif
+
     <script>
         function loadAccounts() {
             Swal.fire({
@@ -139,19 +167,24 @@
             })
         }
 
+        $('.dropUser').submit(function(e) {
+            e.preventDefault();
+        });
+
         function dropAccount() {
             Swal.fire({
-                title: 'Do you want to Delete this Account?',
-                showConfirmButton: false,
-                showDenyButton: true,
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
                 showCancelButton: true,
-                denyButtonText: `Delete`,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
-                if (result.isDenied) {
-                    loadAccounts();
+                if (result.isConfirmed) {
+
                 }
             })
-
         }
     </script>
     @endsection

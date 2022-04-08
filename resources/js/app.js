@@ -1,3 +1,3 @@
 require('./bootstrap');
-require('./globalMessages');
-window.Swal = require('sweetalert2')
+// require('./globalMessages');
+// window.Swal = require('sweetalert2')
