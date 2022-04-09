@@ -30,7 +30,7 @@ class accountController extends Controller
     public function store()
     {
         User::create(request()->all());
-        return redirect()->route('admin.accounts.all')->with('create' . 'ok');
+        return redirect()->route('admin.accounts.all')->with('created', 'ok');
         //return redirect()->back();
         //return redirect()->action('teacherController@createTeacher');        
         //return redirect('https://www.youtube.com');
@@ -39,7 +39,7 @@ class accountController extends Controller
     public function delete(User $User)
     {
         $User->delete();
-        return redirect()->route('admin.accounts.all')->with('delete' . 'ok');
+        return redirect()->route('admin.accounts.all')->with('deleted', 'ok');
     }
 
     public function viewProfile(User $User)

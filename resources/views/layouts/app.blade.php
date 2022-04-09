@@ -38,46 +38,48 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('home')}}">Home</a>
+                            <a class="nav-link" href="{{route('home')}}">Inicio</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Categories
+                                Categorías
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{route('global.top-prod-servs')}}">Top Products & Services</a>
+                                <!-- <a class="dropdown-item" href="{{route('global.top-prod-servs')}}">Top Products & Services</a>
                                 <a class="dropdown-item" href="{{route('global.top-partners')}}">Top Partners</a>
                                 <a class="dropdown-item" href="{{route('global.best-shops')}}">Best Shops</a>
+                                <br> -->
+                                <a class="dropdown-item" href="{{route('global.best-shops')}}">Nuestros Partners</a>
                                 <br>
-                                <a class="dropdown-item" href="{{route('global.technologies')}}">Technologies</a>
-                                <a class="dropdown-item" href="{{route('global.movile-apps')}}">Mobile apps</a>
+                                <a class="dropdown-item" href="{{route('global.technologies')}}">Tecnologías</a>
+                                <a class="dropdown-item" href="{{route('global.movile-apps')}}">Aplicaciones Móviles</a>
                                 <a class="dropdown-item" href="{{route('global.web-services')}}">Web Services</a>
                                 <br>
-                                <a class="dropdown-item" href="{{route('global.industry')}}">Industry</a>
-                                <a class="dropdown-item" href="{{route('global.restaurants')}}">Restaurants</a>
-                                <a class="dropdown-item" href="{{route('global.sightseeing')}}">Business</a>
+                                <a class="dropdown-item" href="{{route('global.industry')}}">Industria</a>
+                                <a class="dropdown-item" href="{{route('global.restaurants')}}">Restaurantes y Comida Rápida</a>
+                                <a class="dropdown-item" href="{{route('global.sightseeing')}}">Negocios</a>
                                 <a class="dropdown-item" href="{{route('global.e-commerce')}}">E-Commerce</a>
                                 <br>
-                                <a class="dropdown-item" href="{{route('global.oher-cats')}}">Other Categories</a>
+                                <a class="dropdown-item" href="{{route('global.oher-cats')}}">Otras Categorías</a>
                             </div>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('global.publicProducts')}}">Products</a>
+                            <a class="nav-link" href="{{route('global.publicProducts')}}">Productos</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('global.publicServices')}}">Services</a>
+                            <a class="nav-link" href="{{route('global.publicServices')}}">Servicios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('global.publicStores')}}">Stores</a>
+                            <a class="nav-link" href="{{route('global.publicStores')}}">Conocenos</a>
                         </li>
                         @if (Auth::check() && Auth::user()->isClient())
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="{{route('global.clientHistory')}}">History</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('global.JoinUs')}}">Join Us</a>
+                            <a class="nav-link" href="{{route('global.JoinUs')}}">Únete a Nosotros</a>
                         </li>
                         @endif
                         @if (Auth::check() && Auth::user()->isAdmin())
@@ -112,7 +114,7 @@
                         </li>
                         @endif
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('global.getHelp')}}">Help</a>
+                            <a class="nav-link" href="{{route('global.getHelp')}}">Ayuda y Soporte</a>
                         </li>
                     </ul>
 
@@ -140,18 +142,18 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
                                 @if (Auth::check())
-                                <a class="dropdown-item" href="{{route('public.viewProfile', [Auth::user()->id])}}">My Profile</a>
+                                <a class="dropdown-item" href="{{route('public.viewProfile', [Auth::user()->id])}}">Mi Perfil</a>
                                 @if (Auth::check() && Auth::user()->isClient())
-                                <a class="dropdown-item" href="">My Subscriptions</a>
-                                <a class="dropdown-item" href="">My Purchases</a>
-                                <a class="dropdown-item" href="{{route('global.JoinUs')}}">Sell in the Shop</a>
+                                <a class="dropdown-item" href="">Mis Suscripciones</a>
+                                <a class="dropdown-item" href="">Mis Compras</a>
+                                <a class="dropdown-item" href="{{route('global.JoinUs')}}">Vender en la Tienda</a>
                                 @endif
                                 @endif
                                 <br>
-                                <a class="dropdown-item" href="">Questions</a>
-                                <a class="dropdown-item" href="">Security</a>
-                                <a class="dropdown-item" href="">Privacy</a>
-                                <a class="dropdown-item" href="">About Us</a>
+                                <a class="dropdown-item" href="">Preguntas y Sugerencias</a>
+                                <a class="dropdown-item" href="">Seguridad</a>
+                                <a class="dropdown-item" href="">Privacidad</a>
+                                <a class="dropdown-item" href="">Sobre Nosotros</a>
                                 <br>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                                                  document.getElementById('logout-form').submit();">
@@ -174,11 +176,11 @@
         </main>
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     @yield('scripts')
 </body>
 

@@ -2,16 +2,13 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <!-- <div class="col-md-8"> -->
         <div class="card">
             <div class="card-header">All Accounts</div>
             <div class="card-body">
                 <div class="d-flex justify-content-between px-4">
-                    <!-- <div class="w-100 p-3"> -->
                     <div class="w-100 p-3">
                         <div class="d-flex justify-content-between">
-                            <h2>CUENTAS DE USUARIO</h2>
-                            <!-- <button class="btn btn-success btn-lg" onclick="{{route('admin.accounts.create')}}">Nuevo Usuario</button> -->
+                            <h2>CUENTAS DE USUARIO</h2>                            
                             <a class="btn btn-success btn-lg" href="{{route('admin.accounts.create')}}">Nuevo Usuario</a>
                         </div>
                         <br>
@@ -35,6 +32,8 @@
                                         <th>Usuario</th>
                                         <th>Correo</th>
                                         <th>Rol</th>
+                                        <th>Bloqueado</th>
+                                        <th>Visible</th>
                                         <th class="d-flex justify-content-end">Controles</th>
                                     </tr>
                                 </thead>
@@ -50,13 +49,35 @@
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
                                         <td>{{$user->role}}</td>
+                                        @if($user->visible == true)
+                                        <td>VISIBLE</td>
+                                        @else
+                                        <td>OCULTO</td>
+                                        @endif
+
+                                        @if($user->locked == true)
+                                        <td>BLOQUEADO</td>
+                                        @else
+                                        <td>DESBLOQUEADO</td>
+                                        @endif
+
                                         @if(Auth::user()->id != $user->id)
                                         <td>
                                             <div class="d-flex justify-content-between">
                                                 <a class="btn btn-outline-primary btn-sm mr-1 ml-1" href="{{route('account.viewProfile', ['User'=> $user->id])}}" target="_blank">Perfil</a>
-                                                <!-- <button class="btn btn-outline-primary btn-sm mr-1 ml-1" onclick="viewProfile()">Perfil</button> -->
+                                                @if($user->visible == true)
+                                                <button class="btn btn-outline-warning btn-sm mr-1 ml-1" onclick="hideShowAccount()">Ocultar </button>
+                                                @else
+                                                <button class="btn btn-outline-warning btn-sm mr-1 ml-1" onclick="hideShowAccount()">Mostrar</button>
+                                                @endif
+
+                                                @if($user->locked == true)
+                                                <button class="btn btn-outline-warning btn-sm mr-1 ml-1" onclick="lockUnlockAccount()">Desbloquear</button>
+                                                @else
                                                 <button class="btn btn-outline-warning btn-sm mr-1 ml-1" onclick="lockUnlockAccount()">Bloquear</button>
-                                                <button class="btn btn-outline-warning btn-sm mr-1 ml-1" onclick="hideShowAccount()">Ocultar</button>
+                                                @endif
+
+
                                                 <form class="dropUser" method="POST" action="{{route('admin.accounts.delete', ['user'=> $user->id])}}">
                                                     @csrf
                                                     @method('DELETE')
@@ -91,23 +112,22 @@
     @endsection
 
     @section('scripts')
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    @if(session('delete') == 'ok')
+    @if(session('deleted') == 'ok')
     <script>
         Swal.fire(
             'Deleted!',
-            'Your file has been deleted.',
+            'Account deleted.',
             'success'
         )
     </script>
     @endif
 
-    @if(session('create') == 'ok')
+    @if(session('created') == 'ok')
     <script>
         Swal.fire(
             'Creaded!',
-            'Your file has been created.',
+            'Account Created.',
             'success'
         )
     </script>
@@ -169,6 +189,19 @@
 
         $('.dropUser').submit(function(e) {
             e.preventDefault();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.submit();
+                }
+            })
         });
 
         function dropAccount() {
