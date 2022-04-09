@@ -79,12 +79,28 @@
                             <a class="nav-link" href="{{route('global.JoinUs')}}">Join Us</a>
                         </li>
                         @endif
-                        @if (Auth::check() && Auth::user()->isRoot())
+                        @if (Auth::check() && Auth::user()->isAdmin())
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Admin Controlls
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="">Public Dashboard Sections</a>
+                                <br>
+                                <a class="dropdown-item" href="">All Accounts</a>
+                                <a class="dropdown-item" href="">All Accounts</a>
+                                <a class="dropdown-item" href="">All Accounts</a>
+                            </div>
+                        </li>
+                        @endif
+                        @if (Auth::check() && Auth::user()->isRoot())
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Root Controlls
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="">Admin Dashboard Sections</a>
+                                <br>
                                 <a class="dropdown-item" href="{{route('admin.accounts.all')}}">All Accounts</a>
                                 <a class="dropdown-item" href="{{route('admin.all-products')}}">All Products</a>
                                 <a class="dropdown-item" href="{{route('admin.all-services')}}">All Services</a>
@@ -157,6 +173,7 @@
         </main>
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     @yield('scripts')
 </body>
 
