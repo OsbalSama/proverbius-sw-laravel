@@ -114,7 +114,7 @@
                         </li>
                         @endif
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('global.getHelp')}}">Ayuda y Soporte</a>
+                            <a class="nav-link" href="{{route('global.getHelp')}}">Ayuda</a>
                         </li>
                     </ul>
 
@@ -171,7 +171,8 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <!-- <main class="py-4"> -->
+        <main>
             @yield('content')
         </main>
     </div>
