@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
@@ -82,6 +82,20 @@
                             <a class="nav-link" href="{{route('global.JoinUs')}}">Únete a Nosotros</a>
                         </li>
                         @endif
+                        <!-- @if (Auth::check() && Auth::user()->isAdmin())
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Admin Controlls
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                                <br>
+                                <a class="dropdown-item" href="">All Accounts</a>
+                                <a class="dropdown-item" href="">All Accounts</a>
+                                <a class="dropdown-item" href="">All Accounts</a>
+                            </div>
+                        </li>
+                        @endif -->
                         @if (Auth::check() && Auth::user()->isAdmin())
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -89,20 +103,9 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="">Public Dashboard Sections</a>
-                                <br>
-                                <a class="dropdown-item" href="">All Accounts</a>
-                                <a class="dropdown-item" href="">All Accounts</a>
-                                <a class="dropdown-item" href="">All Accounts</a>
-                            </div>
-                        </li>
-                        @endif
-                        @if (Auth::check() && Auth::user()->isRoot())
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Root Controlls
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                @if (Auth::check() && Auth::user()->isRoot())
                                 <a class="dropdown-item" href="">Admin Dashboard Sections</a>
+                                @endif
                                 <br>
                                 <a class="dropdown-item" href="{{route('admin.accounts.all')}}">All Accounts</a>
                                 <a class="dropdown-item" href="{{route('admin.all-products')}}">All Products</a>
@@ -184,5 +187,39 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     @yield('scripts')
 </body>
+<footer class="mt-auto bg-dark text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+            <!-- Facebook -->
+            <a target="_blank" class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/ProverbiusSoftware" role="button"><i class="fab fa-facebook-f"></i></a>
+
+            <!-- Twitter -->
+            <a target="_blank" class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/osbaldo-toledo-ramos-06b249213" role="button"><i class="fab fa-linkedin-in"></i></a>
+
+            <!-- Google -->
+            <a target="_blank" class="btn btn-outline-light btn-floating m-1" href="https://www.youtube.com/channel/UCyHUW3repfp5RBWrDSXJ4Lw/featured" role="button"><i class="fab fa-youtube"></i></a>
+
+            <!-- Instagram -->
+            <a target="_blank" class="btn btn-outline-light btn-floating m-1" href="https://chat.whatsapp.com/G6MDE4LHIOj413q2AD4iUj" role="button"><i class="fab fa-whatsapp"></i></a>
+
+            <!-- Linkedin -->
+            <a target="_blank" class="btn btn-outline-light btn-floating m-1" href="https://t.me/joinchat/MPDEYAUpXTw3MDlh" role="button"><i class="fab fa-telegram"></i></a>
+
+            <!-- Github -->
+            <!-- <a target="_blank" class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a> -->
+        </section>
+        <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2020 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+</footer>
 
 </html>

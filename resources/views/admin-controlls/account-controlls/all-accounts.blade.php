@@ -31,9 +31,9 @@
                                         <th>#</th>
                                         <th>Usuario</th>
                                         <th>Correo</th>
-                                        <th>Rol</th>
-                                        <th>Bloqueado</th>
+                                        <th>Rol</th>                                        
                                         <th>Visible</th>
+                                        <th>Bloqueado</th>
                                         <th class="d-flex justify-content-end">Controles</th>
                                     </tr>
                                 </thead>
@@ -65,6 +65,7 @@
                                         <td>
                                             <div class="d-flex justify-content-between">
                                                 <a class="btn btn-outline-primary btn-sm mr-1 ml-1" href="{{route('account.viewProfile', ['User'=> $user->id])}}" target="_blank">Perfil</a>
+                                                
                                                 @if($user->visible == true)
                                                 <button class="btn btn-outline-warning btn-sm mr-1 ml-1" onclick="hideShowAccount()">Ocultar </button>
                                                 @else
