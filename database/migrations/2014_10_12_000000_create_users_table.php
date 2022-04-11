@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->boolean('visible')->default(true);
             $table->boolean('locked')->default(false);
-            $table->rememberToken();
+            $table->rememberToken();              
             $table->timestamps();
         });
     }

@@ -115,15 +115,15 @@
                                         <a class="dropdown-item" href="">Admin Dashboard Sections</a>
                                     @endif
                                     <br>
-                                    <a class="dropdown-item" href="{{ route('admin.accounts.all') }}">All
+                                    <a class="dropdown-item" href="{{ route('admin.accounts.all') }}">User
                                         Accounts</a>
-                                    <a class="dropdown-item" href="{{ route('admin.all-products') }}">All
-                                        Products</a>
-                                    <a class="dropdown-item" href="{{ route('admin.all-services') }}">All
+                                    <a class="dropdown-item" href="{{ route('admin.all-products') }}">Products &
                                         Services</a>
-                                    <a class="dropdown-item" href="{{ route('admin.all-stores') }}">All Stores</a>
-                                    <br>
-                                    <a class="dropdown-item" href="">Site Settings</a>
+                                    {{-- <a class="dropdown-item" href="{{ route('admin.all-services') }}">All
+                                        Services</a>
+                                    <a class="dropdown-item" href="{{ route('admin.all-stores') }}">All Stores</a> --}}
+                                    {{-- <br>
+                                    <a class="dropdown-item" href="">Site Settings</a> --}}
                                 </div>
                             </li>
                         @endif
@@ -184,7 +184,7 @@
                                     <br>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                 document.getElementById('logout-form').submit();">
+                                                                                                         document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 

@@ -74,14 +74,5 @@ Route::match(['put','patch'], 'account/{User}/unlock', 'accountController@unlock
 Route::get('/all-accounts', 'accountController@index')->name('admin.accounts.all');
 Route::delete('/all-accounts/account/{user}', 'accountController@delete')->name('admin.accounts.delete');
 
-
-
-
 //Product Management
 Route::get('/all-products', 'productController@index')->name('admin.all-products');
-
-//Services Management
-Route::get('/all-services', 'serviceController@index')->name('admin.all-services');
-
-//Stores Management
-Route::get('/all-stores', 'storeController@index')->name('admin.all-stores');
