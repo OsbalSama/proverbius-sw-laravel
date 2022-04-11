@@ -54,6 +54,22 @@ Route::post('/accounts/create-account', 'accountController@store')->name('admin.
 //view Profile by ADMIN or ROOT
 Route::get('/accounts/profile/{User}', 'accountController@viewProfile')->name('account.viewProfile');
 
+
+//update
+Route::get('/account/{User}/edit', 'accountController@edit')->name('admin.accounts.edit');
+Route::match(['put','patch'], '/account/{User}/update', 'accountController@update')->name('admin.accounts.update');
+
+//show
+Route::match(['put','patch'], 'account/{User}/show', 'accountController@showAccount')->name('admin.accounts.show');
+//hide
+Route::match(['put','patch'], 'account/{User}/hide', 'accountController@hideAccount')->name('admin.accounts.hide');
+
+//show
+Route::match(['put','patch'], 'account/{User}/lock', 'accountController@lockAccount')->name('admin.accounts.lock');
+//hide
+Route::match(['put','patch'], 'account/{User}/unlock', 'accountController@unlockAccount')->name('admin.accounts.unlock');
+
+
 //delete
 Route::get('/all-accounts', 'accountController@index')->name('admin.accounts.all');
 Route::delete('/all-accounts/account/{user}', 'accountController@delete')->name('admin.accounts.delete');

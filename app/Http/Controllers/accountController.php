@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class accountController extends Controller
 {
@@ -20,7 +21,6 @@ class accountController extends Controller
         return view('admin-controlls.account-controlls.all-accounts')->with([
             'users' => $users
         ]);
-        // return view('admin-controlls.account-controlls.all-accounts');
     }
 
     public function create()
@@ -32,9 +32,9 @@ class accountController extends Controller
     public function store()
     {
         $rules = [
-            'name' => ['required', 'string', 'max:255', 'unique:users'],
+            'name' => ['required', 'string', 'max:255', 'unique:users', 'min:4'.request()->name],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8'],
+            'password' => ['required', 'string', 'min:5'],
         ];
         request()->validate($rules);
         User::create([
@@ -43,10 +43,33 @@ class accountController extends Controller
             'password' => Hash::make(request()->password),
         ]);
         return redirect()->route('admin.accounts.all')->with('created', 'ok');
-        //return redirect()->back();
-        //return redirect()->action('teacherController@createTeacher');        
-        //return redirect('https://www.youtube.com');
     }
+
+    public function edit(User $User)
+    {      
+        return view('admin-controlls.account-controlls.edit-account')->with([
+            'User' => $User,
+        ]);
+    }
+
+    public function update(User $User)
+    {
+        $rules = [            
+            'name' => ['required', 'string', 'max:255', 'min:4'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'password' => ['required', 'string', 'min:5'],
+        ];
+        request()->validate($rules);
+        $User->update([
+            'name' => request()->name,
+            'email' => request()->email,
+            'password' => Hash::make(request()->password),
+            'role' => request()->role,
+            'visible' => request()->visible,
+            'locked' => request()->locked,
+        ]);
+        return redirect()->route('admin.accounts.all')->with('update', 'ok');
+    }   
 
     public function delete(User $User)
     {
