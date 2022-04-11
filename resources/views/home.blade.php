@@ -69,6 +69,14 @@
         </div>
     </div>
 </div>
+<div class="d-flex justify-content-between">
+    <div>
+        part 1
+    </div>
+    <div>
+        part 2
+    </div>
+</div>
 
 <div class="container">
     <!-- Publicidad 1 -->
