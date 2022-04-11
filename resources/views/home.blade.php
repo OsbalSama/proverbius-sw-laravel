@@ -4,7 +4,7 @@
 <div class="bg-black">
     <div class="container">
         <p>
-            Update
+            Update now
         </p>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
