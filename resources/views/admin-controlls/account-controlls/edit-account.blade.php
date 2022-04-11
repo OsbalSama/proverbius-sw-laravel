@@ -30,7 +30,7 @@
                     </span>
                 @enderror
             </div>
-            <div class="form-row">
+            {{-- <div class="form-row">
                 <h5><label class="col-form-label " for="password">Password</label></h5>
                 <input value="" class="form-control @error('password') is-invalid @enderror" name="password" type="password"
                     autocomplete="off" required>
@@ -39,7 +39,7 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-            </div>
+            </div> --}}
             <div class="form-row">
                 <h5><label class="col-form-label" for="role">Role</label></h5>
                 <select class="form-control" class="custom-select" name="role" required>
@@ -53,16 +53,16 @@
                 <h5><label class="col-form-label" for="visible">Visible</label></h5>
                 <label for="{{ $User->visible }}"></label>
                 <select class="form-control" class="custom-select" name="visible" required>
-                    <option {{ $User->visible == '1' ? '1' : '' }} value="1">Visible</option>
-                    <option {{ $User->visible == '0' ? '0' : '' }} value="0">Oculto</option>
+                    <option {{ $User->visible == 1 ? 'selected' : '' }} value="1">Visible</option>
+                    <option {{ $User->visible == 0 ? 'selected' : '' }} value="0">Oculto</option>
                 </select>
             </div>
 
             <div class="form-row">
                 <h5><label class="col-form-label" for="locked">Block</label></h5>
                 <select class="form-control" class="custom-select" name="locked" required>
-                    <option {{ $User->locked == '1' ? '1' : '' }} value="1">Bloqueado</option>
-                    <option {{ $User->locked == '0' ? '0' : '' }} value="0">Desbloqueado</option>
+                    <option {{ $User->locked == 1 ? 'selected' : '' }} value='1'>Bloqueado</option>
+                    <option {{ $User->locked == 0 ? 'selected' : '' }} value='0'>Desbloqueado</option>
                 </select>
             </div>
 

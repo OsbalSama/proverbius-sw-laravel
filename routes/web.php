@@ -43,7 +43,7 @@ Route::get('/history', 'HomeController@clientHistory')->name('global.clientHisto
 Route::get('/help', 'HomeController@getHelp')->name('global.getHelp');
 
 //view Profile
-Route::get('/profile/{User}', 'publicController@viewProfile')->name('public.viewProfile');
+Route::get('/profile/{User}', 'HomeController@viewProfile')->name('public.viewProfile');
 
 //Account Management
 //create

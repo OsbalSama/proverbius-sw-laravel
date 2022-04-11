@@ -24,7 +24,11 @@
                                         <col>
                                         <col>
                                         <col>
-                                        <col style="width: 23%;">
+                                        <col>
+                                        <col>
+                                        {{-- <col> --}}
+                                        <col style="width: 15%;">
+
                                     </colgroup>
                                     <thead class="thead-ligth">
                                         <tr>
@@ -41,7 +45,7 @@
                                         @foreach ($users as $user)
                                             @if ($user->id > 1)
                                                 @if (Auth::user()->id == $user->id)
-                                                    <tr class="bg-warning">
+                                                    <tr class="font-weight-bold">
                                                     @else
                                                     <tr>
                                                 @endif
@@ -62,47 +66,42 @@
                                                     <td>Desbloqueado</td>
                                                 @endif
 
-                                                @if (Auth::user()->id != $user->id)
+                                                <td>
+                                                    <div class="d-flex justify-content-start">
+                                                        <a class="btn btn-outline-primary btn-sm mr-2"
+                                                            href="{{ route('account.viewProfile', ['User' => $user->id]) }}"
+                                                            target="_blank">Perfil</a>
+
+                                                        <a class="btn btn-outline-success btn-sm mr-2"
+                                                            href="{{ route('admin.accounts.edit', ['User' => $user->id]) }}">Actualizar</a>
+                                                        @if (Auth::user()->id != $user->id)
+                                                            <form class="dropUser" method="POST"
+                                                                action="{{ route('admin.accounts.delete', ['user' => $user->id]) }}">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit"
+                                                                    class="btn btn-outline-danger btn-sm mr-2">Eliminar</button>
+                                                            </form>
+                                                        @endif
+                                                    </div>
+
+                                                </td>
+                                                {{-- @if (Auth::user()->id != $user->id)
                                                     <td>
-                                                        <div class="d-flex justify-content-between">
-                                                            <a class="btn btn-outline-primary btn-sm mr-1 ml-1"
+                                                        <div class="d-flex justify-content-end">
+                                                            <a class="btn btn-outline-primary btn-sm mr-2"
                                                                 href="{{ route('account.viewProfile', ['User' => $user->id]) }}"
                                                                 target="_blank">Perfil</a>
-                                                            {{-- <a class="btn btn-outline-primary btn-sm mr-1 ml-1"
-                                                                href="{{ route('admin.accounts.edit', ['User' => $user->id]) }}">Editar</a> --}}
 
-                                                            <a class="btn btn-outline-success btn-sm mr-1 ml-1"
+                                                            <a class="btn btn-outline-success btn-sm mr-2"
                                                                 href="{{ route('admin.accounts.edit', ['User' => $user->id]) }}">Actualizar</a>
-
-
-                                                            {{-- @if ($user->visible == true)
-                                                                <form method="POST" class="hideAccount"
-                                                                    action="{{ route('admin.accounts.hide', ['User' => $user->id]) }}">
-                                                                    @csrf
-                                                                    @method('PUT')
-                                                                    <button type="submit"
-                                                                        class="btn btn-outline-warning btn-sm mr-1 ml-1">Ocultar</button>
-                                                                </form>
-                                                            @else
-                                                                <button class="btn btn-outline-warning btn-sm mr-1 ml-1"
-                                                                    onclick="hideShowAccount()">Mostrar</button>
-                                                            @endif --}}
-
-                                                            {{-- @if ($user->locked == true)
-                                                                <button class="btn btn-outline-warning btn-sm mr-1 ml-1"
-                                                                    onclick="lockUnlockAccount()">Desbloquear</button>
-                                                            @else
-                                                                <button class="btn btn-outline-warning btn-sm mr-1 ml-1"
-                                                                    onclick="lockUnlockAccount()">Bloquear</button>
-                                                            @endif --}}
-
 
                                                             <form class="dropUser" method="POST"
                                                                 action="{{ route('admin.accounts.delete', ['user' => $user->id]) }}">
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <button type="submit"
-                                                                    class="btn btn-outline-danger btn-sm mr-1 ml-1">Eliminar</button>
+                                                                    class="btn btn-outline-danger btn-sm mr-2">Eliminar</button>
                                                             </form>
                                                             <!-- <button class="btn btn-outline-danger btn-sm mr-1 ml-1" onclick="dropAccount()">Eliminar</button> -->
                                                         </div>
@@ -115,7 +114,7 @@
                                                                 target="_blank">Perfil</a>
                                                         </div>
                                                     </td>
-                                                @endif
+                                                @endif --}}
                                                 </tr>
                                             @endif
                                         @endforeach
