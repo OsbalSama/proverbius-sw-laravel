@@ -20,7 +20,8 @@
                             @endif
                         </div>
                         <div class="d-flex justify-content-end">
-                            <a class="btn btn-success btn-lg mr-2" href="">Suscribirse</a>
+                            <a class="btn btn-secondary btn-lg mr-2" href=""><i class="fa-solid fa-thumbs-up"></i></a>
+                            <a class="btn btn-danger btn-lg mr-2" href="">Suscribirse</a>
                             @if (Auth::check())
                                 @if (Auth::user()->isAdmin())
                                     <a class="btn btn-primary btn-lg  mr-2" href="">Editar</a>

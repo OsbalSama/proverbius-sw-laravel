@@ -6,7 +6,7 @@
         <label for="">{{ $User->visible }}</label>
 
         <form class="trySubmit" autocomplete="off" method="POST"
-            action="{{ route('admin.accounts.update', ['User' => $User->id]) }}">
+            action="{{ route('admin.accounts.update', ['User' => $User]) }}">
             @csrf
             @method('PUT')
             <div class="form-row">
@@ -30,16 +30,6 @@
                     </span>
                 @enderror
             </div>
-            {{-- <div class="form-row">
-                <h5><label class="col-form-label " for="password">Password</label></h5>
-                <input value="" class="form-control @error('password') is-invalid @enderror" name="password" type="password"
-                    autocomplete="off" required>
-                @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div> --}}
             <div class="form-row">
                 <h5><label class="col-form-label" for="role">Role</label></h5>
                 <select class="form-control" class="custom-select" name="role" required>

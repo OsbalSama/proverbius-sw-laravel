@@ -38,9 +38,10 @@ class accountController extends Controller
             'password' => ['required', 'string', 'min:5'],
         ];
         request()->validate($rules);
+        $name  = request()->name;
         User::create([
-            'name' => request()->name,
-            'slug' => Str::slug(request()->name,'-') ,
+            'name' => $name ,
+            'slug' => Str::slug($name,'-'),
             'email' => request()->email,
             'password' => Hash::make(request()->password),
         ]);
@@ -61,8 +62,10 @@ class accountController extends Controller
             'email' => ['required', 'string', 'email', 'max:255'],
         ];
         request()->validate($rules);
+        $name  = request()->name;
         $User->update([
-            'name' => request()->name,
+            'name' => $name ,
+            'slug' => Str::slug($name,'-'),
             'email' => request()->email,
             'role' => request()->role,
             'visible' => request()->visible,

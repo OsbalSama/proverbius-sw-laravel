@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="card">
-            <div class="card-header">Stores</div>
+            <div class="card-header">About Us</div>
             <div class="card-body">
                 Content
             </div>

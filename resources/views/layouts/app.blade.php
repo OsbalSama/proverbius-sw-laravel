@@ -72,37 +72,21 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('global.publicProducts') }}">Productos</a>
+                            <a class="nav-link" href="{{ route('global.publicProducts') }}">Products &
+                                Services</a>
                         </li>
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('global.publicServices') }}">Servicios</a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('global.publicStores') }}">Conocenos</a>
+                            <a class="nav-link" href="{{ route('global.aboutUs') }}">Conocenos</a>
                         </li>
                         @if (Auth::check() && Auth::user()->isClient())
-                            <!-- <li class="nav-item">
-                            <a class="nav-link" href="{{ route('global.clientHistory') }}">History</a>
-                        </li> -->
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('global.JoinUs') }}">Únete a Nosotros</a>
                             </li>
                         @endif
-                        <!-- @if (Auth::check() && Auth::user()->isAdmin())
-<li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Admin Controlls
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
-                                <br>
-                                <a class="dropdown-item" href="">All Accounts</a>
-                                <a class="dropdown-item" href="">All Accounts</a>
-                                <a class="dropdown-item" href="">All Accounts</a>
-                            </div>
-                        </li>
-@endif -->
                         @if (Auth::check() && Auth::user()->isAdmin())
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -184,7 +168,7 @@
                                     <br>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                         document.getElementById('logout-form').submit();">
+                                                                                                                 document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 

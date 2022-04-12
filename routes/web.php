@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+//Client/Visitor Home
 Route::get('/', 'HomeController@index')->name('home');
 
 //General Views
@@ -36,26 +37,34 @@ Route::get('/e-commerce', 'HomeController@ECommerce')->name('global.e-commerce')
 Route::get('/other-cats', 'HomeController@otherCats')->name('global.oher-cats');
 
 Route::get('/products', 'HomeController@publicProducts')->name('global.publicProducts');
-Route::get('/services', 'HomeController@publicServices')->name('global.publicServices');
-Route::get('/stores', 'HomeController@publicStores')->name('global.publicStores');
+Route::get('/stores', 'HomeController@aboutUs')->name('global.aboutUs');
 Route::get('/join-us', 'HomeController@JoinUsInfo')->name('global.JoinUs');
 Route::get('/history', 'HomeController@clientHistory')->name('global.clientHistory');
 Route::get('/help', 'HomeController@getHelp')->name('global.getHelp');
 
 
+//view Profile
+Route::get('/profile/{User}', 'HomeController@viewProfile')->name('public.accounts.profile');
+
+//view Product by ADMIN or ROOT
+Route::get('/{product}', 'HomeController@viewProductPage')->name('public.products.view');
+
+
+
+
+//Admin/Partner Controlls
+//mis Procuctos y Servicios
+Route::get('{User}/products-and-services', 'userControlls@accountProducts')->name('account.products');
 
 //USER ACCOUNTS MANAGEMENT
-
 //index
-Route::get('/all-accounts', 'accountController@index')->name('admin.accounts.all');
+Route::get('admin/all-accounts', 'accountController@index')->name('admin.accounts.all');
 
 //create
 Route::get('/accounts/new-account', 'accountController@create')->name('admin.accounts.create');
 Route::post('/accounts/create-account', 'accountController@store')->name('admin.accounts.store');
 
 //read
-//view Profile
-Route::get('/profile/{User}', 'HomeController@viewProfile')->name('public.accounts.profile');
 
 //update
 Route::get('/account/{User}/edit', 'accountController@edit')->name('admin.accounts.edit');
@@ -79,13 +88,12 @@ Route::delete('/all-accounts/account/{user}', 'accountController@delete')->name(
 
 //PRODUCT & SERVICE MANAGEMENT
 //Index
-Route::get('/all-products', 'productController@index')->name('admin.products.all');
+Route::get('admin/all-products', 'productController@index')->name('admin.products.all');
 
 //create
 
 //read
-//view Product by ADMIN or ROOT
-Route::get('/{product}', 'HomeController@viewProductPage')->name('public.products.view');
+
 
 //update
 

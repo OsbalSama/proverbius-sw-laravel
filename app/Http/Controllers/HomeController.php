@@ -29,6 +29,8 @@ class HomeController extends Controller
         if (Auth::check()) {                        
             if (Auth::user()->role == "admin") {
                 return view('admin-controlls.admin-home');
+            } else if(Auth::user()->role == "partner"){
+                return view('partner-controlls.partner-home');
             } else {
                 return view('home');
             }            
@@ -97,14 +99,14 @@ class HomeController extends Controller
         return view('general-views.public-products');
     }
 
-    public function publicServices()
-    {
-        return view('general-views.public-services');
-    }
+    // public function publicServices()
+    // {
+    //     return view('general-views.public-services');
+    // }
 
-    public function publicStores()
+    public function aboutUs()
     {
-        return view('general-views.public-stores');
+        return view('general-views.about-us');
     }
 
     public function JoinUsInfo()
@@ -132,6 +134,13 @@ class HomeController extends Controller
     public function viewProfile(User $User)
     {
         return view('account-views.profile')->with([
+            'User' => $User
+        ]);
+    }
+
+    public function accountProducts(User $User)
+    {   
+        return view('account-views.my-products')->with([
             'User' => $User
         ]);
     }
