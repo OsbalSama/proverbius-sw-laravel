@@ -14,4 +14,12 @@ class productController extends Controller
             'products' => $products
         ]);
     }
+
+
+    public function viewProductPage(Product $product)
+    {
+        return view('account-views.view-product')->with([
+            'product' => $product
+        ]);
+    }
 }

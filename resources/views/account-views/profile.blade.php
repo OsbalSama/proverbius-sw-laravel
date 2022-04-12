@@ -1,9 +1,5 @@
 @extends('layouts.app')
 @section('content')
-    {{-- Banner --}}
-    {{-- <div class="row justify-content-center h-25">
-        <img src="{{ asset('images/advertising/advertising01.jpg') }}" alt="advertising">
-    </div> --}}
     <br>
     <div class="container">
         <div class="card">

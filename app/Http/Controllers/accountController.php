@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Str;
 
 class accountController extends Controller
 {
@@ -39,6 +40,7 @@ class accountController extends Controller
         request()->validate($rules);
         User::create([
             'name' => request()->name,
+            'slug' => Str::slug(request()->name,'-') ,
             'email' => request()->email,
             'password' => Hash::make(request()->password),
         ]);
@@ -57,13 +59,11 @@ class accountController extends Controller
         $rules = [            
             'name' => ['required', 'string', 'max:255', 'min:4'],
             'email' => ['required', 'string', 'email', 'max:255'],
-            // 'password' => ['required', 'string', 'min:5'],
         ];
         request()->validate($rules);
         $User->update([
             'name' => request()->name,
             'email' => request()->email,
-            // 'password' => Hash::make(request()->password),
             'role' => request()->role,
             'visible' => request()->visible,
             'locked' => request()->locked,

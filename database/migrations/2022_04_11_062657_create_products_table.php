@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->integer('stock')->unsigned()->nullable();
             $table->boolean('visible')->default(false);
             $table->boolean('locked')->default(false);
-            // $table->date('created')->default(date("Y-m-d H:i:s"));
+            $table->string('slug');
             $table->timestamps();
         });
     }

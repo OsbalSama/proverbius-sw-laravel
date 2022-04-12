@@ -68,15 +68,15 @@
                                                 <td>
                                                     <div class="d-flex justify-content-start">
                                                         <a class="btn btn-outline-primary btn-sm mr-2"
-                                                            href="{{ route('account.viewProfile', ['User' => $user->id]) }}"
+                                                            href="{{ route('public.accounts.profile', ['User' => $user]) }}"
                                                             target="_blank">Ver Perfil</a>
 
                                                         <a class="btn btn-outline-success btn-sm mr-2"
-                                                            href="{{ route('admin.accounts.edit', ['User' => $user->id]) }}">Actualizar</a>
+                                                            href="{{ route('admin.accounts.edit', ['User' => $user]) }}">Actualizar</a>
 
                                                         @if (Auth::user()->id != $user->id)
                                                             <form class="dropUser" method="POST"
-                                                                action="{{ route('admin.accounts.delete', ['user' => $user->id]) }}">
+                                                                action="{{ route('admin.accounts.delete', ['user' => $user]) }}">
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <button type="submit"

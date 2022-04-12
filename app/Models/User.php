@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -19,6 +20,12 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     protected $fillable = [
         'name',
         'email',
@@ -51,6 +58,7 @@ class User extends Authenticatable
     {
         User::create([
             'name' => 'root',
+            'slug' => Str::slug('root','-') ,
             'email' => 'root@root',
             // 'password' => Hash::make('x3ESKldKn#eO'),
             'password' => Hash::make('notelasabes123'),

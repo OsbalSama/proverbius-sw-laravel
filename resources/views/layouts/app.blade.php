@@ -158,7 +158,7 @@
 
                                     @if (Auth::check())
                                         <a class="dropdown-item"
-                                            href="{{ route('public.viewProfile', [Auth::user()->id]) }}">Mi Perfil</a>
+                                            href="{{ route('public.accounts.profile', [Auth::user()]) }}">Mi Perfil</a>
                                         @if (Auth::user()->isClient())
                                             <br>
                                             <a class="dropdown-item" href="">Mis Suscripciones</a>

@@ -7,7 +7,7 @@
                     <div class="w-100 p-3">
                         <div class="d-flex justify-content-between">
                             <h4>Productos y Servicios</h4>
-                            <a class="btn btn-success" href="">Nuevo Producto</a>
+                            {{-- <a class="btn btn-success" href="">Nuevo Producto</a> --}}
                         </div>
                         <br>
                         @if ($products->isEmpty())
@@ -68,11 +68,11 @@
                                                 <td>{{ $product->created_at }}</td>
                                                 <td>
                                                     <div class="d-flex justify-content-end">
-                                                        <a class="btn btn-outline-primary btn-sm mr-2" href=""
+                                                        <a class="btn btn-outline-primary btn-sm mr-2" href="{{ route('admin.products.view', ['product' => $product]) }}"
                                                             target="_blank">Ver Pagina</a>
 
-                                                        <a class="btn btn-outline-success btn-sm mr-2"
-                                                            href="">Actualizar</a>
+                                                        {{-- <a class="btn btn-outline-success btn-sm mr-2"
+                                                            href="">Actualizar</a> --}}
 
                                                         <form class="dropItem" method="POST" action="">
                                                             @csrf

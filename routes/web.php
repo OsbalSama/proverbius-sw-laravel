@@ -43,17 +43,20 @@ Route::get('/history', 'HomeController@clientHistory')->name('global.clientHisto
 Route::get('/help', 'HomeController@getHelp')->name('global.getHelp');
 
 //view Profile
-Route::get('/profile/{User}', 'HomeController@viewProfile')->name('public.viewProfile');
+Route::get('/profile/{User}', 'HomeController@viewProfile')->name('public.accounts.profile');
 
-//Account Management
+//USER ACCOUNTS MANAGEMENT
+
+//index
+Route::get('/all-accounts', 'accountController@index')->name('admin.accounts.all');
+
 //create
 Route::get('/accounts/new-account', 'accountController@create')->name('admin.accounts.create');
 Route::post('/accounts/create-account', 'accountController@store')->name('admin.accounts.store');
 
 //read
 //view Profile by ADMIN or ROOT
-Route::get('/accounts/profile/{User}', 'accountController@viewProfile')->name('account.viewProfile');
-
+// Route::get('/accounts/profile/{User}', 'accountController@viewProfile')->name('account.viewProfile');
 
 //update
 Route::get('/account/{User}/edit', 'accountController@edit')->name('admin.accounts.edit');
@@ -71,8 +74,21 @@ Route::match(['put','patch'], 'account/{User}/unlock', 'accountController@unlock
 
 
 //delete
-Route::get('/all-accounts', 'accountController@index')->name('admin.accounts.all');
 Route::delete('/all-accounts/account/{user}', 'accountController@delete')->name('admin.accounts.delete');
 
-//Product Management
+
+
+//PRODUCT & SERVICE MANAGEMENT
+//Index
 Route::get('/all-products', 'productController@index')->name('admin.all-products');
+
+//create
+
+//read
+//view Product by ADMIN or ROOT
+Route::get('/{product}', 'productController@viewProductPage')->name('admin.products.view');
+
+//update
+
+//delete
+Route::delete('/{product}/delete', 'productController@delete')->name('admin.products.delete');
