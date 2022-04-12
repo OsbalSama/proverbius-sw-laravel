@@ -42,8 +42,7 @@ Route::get('/join-us', 'HomeController@JoinUsInfo')->name('global.JoinUs');
 Route::get('/history', 'HomeController@clientHistory')->name('global.clientHistory');
 Route::get('/help', 'HomeController@getHelp')->name('global.getHelp');
 
-//view Profile
-Route::get('/profile/{User}', 'HomeController@viewProfile')->name('public.accounts.profile');
+
 
 //USER ACCOUNTS MANAGEMENT
 
@@ -55,8 +54,8 @@ Route::get('/accounts/new-account', 'accountController@create')->name('admin.acc
 Route::post('/accounts/create-account', 'accountController@store')->name('admin.accounts.store');
 
 //read
-//view Profile by ADMIN or ROOT
-// Route::get('/accounts/profile/{User}', 'accountController@viewProfile')->name('account.viewProfile');
+//view Profile
+Route::get('/profile/{User}', 'HomeController@viewProfile')->name('public.accounts.profile');
 
 //update
 Route::get('/account/{User}/edit', 'accountController@edit')->name('admin.accounts.edit');
@@ -80,13 +79,13 @@ Route::delete('/all-accounts/account/{user}', 'accountController@delete')->name(
 
 //PRODUCT & SERVICE MANAGEMENT
 //Index
-Route::get('/all-products', 'productController@index')->name('admin.all-products');
+Route::get('/all-products', 'productController@index')->name('admin.products.all');
 
 //create
 
 //read
 //view Product by ADMIN or ROOT
-Route::get('/{product}', 'productController@viewProductPage')->name('admin.products.view');
+Route::get('/{product}', 'HomeController@viewProductPage')->name('public.products.view');
 
 //update
 

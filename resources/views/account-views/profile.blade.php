@@ -15,10 +15,12 @@
                             Email: <b>{{ $User->email }}</b><br>
                             Role: <b>{{ $User->role }}</b>
                         </div>
-                        <div class="d-flex flex-row-reverse">
-                            @if (!(Auth::check() && Auth::user()->isRoot()))
-                                @if ($User->isLogged() || (Auth::check() && Auth::user()->isAdmin()))
-                                    <a class="btn btn-primary btn-sm" href="">Editar Perfil</a>
+
+                        <div class="d-flex justify-content-end">
+                            <a class="btn btn-success btn-lg mr-2" href="">Seguir</a>
+                            @if (Auth::check())
+                                @if ($User->isLogged() || Auth::user()->isAdmin())
+                                    <a class="btn btn-primary btn-lg" href="">Editar Perfil</a>
                                 @endif
                             @endif
                         </div>
@@ -26,9 +28,6 @@
                 </div>
             </div>
         </div>
-
-
-
         <br>
         <div class=" row justify-content-center">
             <div class="row">
@@ -37,13 +36,6 @@
                         <div class="card-header">Personal Data</div>
                         <div class="card-body">
                             Content
-
-                            @if (!(Auth::check() && Auth::user()->isRoot()))
-                                @if ($User->isLogged() || (Auth::check() && Auth::user()->isAdmin()))
-                                    <a class="w-100 btn btn-primary btn-sm" href="">Editar Perfil</a>
-                                @endif
-                            @endif
-
                         </div>
                     </div>
                     <br>
@@ -100,14 +92,15 @@
                             </div>
                         </div>
                     @endif
-                    <br>
+                    {{-- <br> --}}
                 </div>
-                <div class="col-9">
+                <div class="col-9 bg-light">
                     Publicaciones Recibidas
                 </div>
             </div>
         </div>
     </div>
+    <br>
 @endsection
 @section('scripts')
 @endsection

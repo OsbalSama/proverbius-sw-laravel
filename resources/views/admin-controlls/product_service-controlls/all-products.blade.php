@@ -68,13 +68,15 @@
                                                 <td>{{ $product->created_at }}</td>
                                                 <td>
                                                     <div class="d-flex justify-content-end">
-                                                        <a class="btn btn-outline-primary btn-sm mr-2" href="{{ route('admin.products.view', ['product' => $product]) }}"
+                                                        <a class="btn btn-outline-primary btn-sm mr-2"
+                                                            href="{{ route('public.products.view', ['product' => $product]) }}"
                                                             target="_blank">Ver Pagina</a>
 
                                                         {{-- <a class="btn btn-outline-success btn-sm mr-2"
                                                             href="">Actualizar</a> --}}
 
-                                                        <form class="dropItem" method="POST" action="">
+                                                        <form class="dropItem" method="POST"
+                                                            action="{{ route('admin.products.delete', ['product' => $product]) }}">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit"
@@ -139,8 +141,8 @@
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Swal.fire('Falta crear Ruta')
-                    // this.submit();
+                    // Swal.fire('Falta crear Ruta')
+                    this.submit();
                 }
             })
         });

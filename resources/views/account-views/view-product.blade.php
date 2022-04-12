@@ -21,8 +21,10 @@
                         </div>
                         <div class="d-flex justify-content-end">
                             <a class="btn btn-success btn-lg mr-2" href="">Suscribirse</a>
-                            @if (Auth::check() && Auth::user()->isRoot())
-                                <a class="btn btn-primary btn-lg  mr-2" href="">Editar</a>
+                            @if (Auth::check())
+                                @if (Auth::user()->isAdmin())
+                                    <a class="btn btn-primary btn-lg  mr-2" href="">Editar</a>
+                                @endif
                             @endif
                         </div>
                     </div>

@@ -117,7 +117,7 @@
                                     <br>
                                     <a class="dropdown-item" href="{{ route('admin.accounts.all') }}">User
                                         Accounts</a>
-                                    <a class="dropdown-item" href="{{ route('admin.all-products') }}">Products &
+                                    <a class="dropdown-item" href="{{ route('admin.products.all') }}">Products &
                                         Services</a>
                                     {{-- <a class="dropdown-item" href="{{ route('admin.all-services') }}">All
                                         Services</a>

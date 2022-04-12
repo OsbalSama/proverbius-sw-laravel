@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -121,6 +122,13 @@ class HomeController extends Controller
         return view('general-views.help');
     }
     
+    public function viewProductPage(product $product)
+    {
+        return view('account-views.view-product')->with([
+            'product' => $product
+        ]);
+    }
+
     public function viewProfile(User $User)
     {
         return view('account-views.profile')->with([

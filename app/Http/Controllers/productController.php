@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class productController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('is.admin');
+    }
+
+
     public function index()
     {
         $products = product::all();        
@@ -15,11 +22,11 @@ class productController extends Controller
         ]);
     }
 
-
-    public function viewProductPage(Product $product)
+    public function delete(Product $product)
     {
-        return view('account-views.view-product')->with([
-            'product' => $product
-        ]);
+        $product->delete();
+        return redirect()->route('admin.products.all')->with('deleted', 'ok');
     }
+
+    
 }

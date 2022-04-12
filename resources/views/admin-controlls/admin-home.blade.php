@@ -36,7 +36,7 @@
                             <div class="card-header">
                                 <div class="d-flex justify-content-between">
                                     <h4>Productos & Servicios</h4>
-                                    <a class="btn btn-success" href="{{ route('admin.all-products') }}">Productos &
+                                    <a class="btn btn-success" href="{{ route('admin.products.all') }}">Productos &
                                         Servicios</a>
                                 </div>
                             </div>
