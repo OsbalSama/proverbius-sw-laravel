@@ -100,21 +100,23 @@
 @section('scripts')
     @if (session('deleted') == 'ok')
         <script>
-            Swal.fire(
-                'Deleted!',
-                'Item deleted.',
-                'success'
-            )
+            Swal.fire({
+                icon: 'success',
+                title: 'Item Eliminado Correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            })
         </script>
     @endif
 
     @if (session('created') == 'ok')
         <script>
-            Swal.fire(
-                'Creaded!',
-                'Item Created.',
-                'success'
-            )
+            Swal.fire({
+                icon: 'success',
+                title: 'Item Creado Correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            })
         </script>
     @endif
 

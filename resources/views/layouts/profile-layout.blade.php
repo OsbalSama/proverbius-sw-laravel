@@ -15,16 +15,13 @@
                             Email: <b>{{ $User->email }}</b><br>
                             Role: <b>{{ $User->role }}</b>
                         </div>
+                        @if ($User->isLogged() == false)
+                            <div class="d-flex justify-content-end">
+                                <a class="btn btn-secondary btn-lg mr-2" href=""><i class="fa-solid fa-thumbs-up"></i></a>
+                                <a class="btn btn-danger btn-lg mr-2" href="">Seguir</a>
+                            </div>
+                        @endif
 
-                        <div class="d-flex justify-content-end">
-                            <a class="btn btn-secondary btn-lg mr-2" href=""><i class="fa-solid fa-thumbs-up"></i></a>
-                            <a class="btn btn-danger btn-lg mr-2" href="">Seguir</a>
-                            @if (Auth::check())
-                                @if ($User->isLogged() || Auth::user()->isAdmin())
-                                    <a class="btn btn-primary btn-lg" href="">Editar Perfil</a>
-                                @endif
-                            @endif
-                        </div>
                     </div>
                 </div>
             </div>

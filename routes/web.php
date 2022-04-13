@@ -49,6 +49,10 @@ Route::get('/profile/{User}', 'HomeController@accountProfile')->name('public.acc
 //Profile Info
 Route::get('profile/{User}/account-info', 'HomeController@accountInfo')->name('account.info');
 
+//Update Profile Info
+Route::get('profile/{User}/account-info/edit', 'accountController@editAccountInfo')->name('account.info.edit');
+Route::match(['put', 'patch'], 'profile/{User}/account-info/update', 'accountController@updateAccountInfo')->name('account.info.update');
+
 //Profile Items Liked
 Route::get('profile/{User}/account-likes', 'HomeController@accountLikes')->name('account.likes');
 
@@ -69,31 +73,31 @@ Route::get('/{product}', 'HomeController@viewProductPage')->name('public.product
 
 //USER ACCOUNTS MANAGEMENT
 //index
-Route::get('admin/all-accounts', 'accountController@index')->name('admin.accounts.all');
+Route::get('admin/all-accounts', 'adminControlls@index')->name('admin.accounts.all');
 
 //create
-Route::get('/accounts/new-account', 'accountController@create')->name('admin.accounts.create');
-Route::post('/accounts/create-account', 'accountController@store')->name('admin.accounts.store');
+Route::get('/accounts/new-account', 'adminControlls@createUser')->name('admin.accounts.create');
+Route::post('/accounts/create-account', 'adminControlls@storeUser')->name('admin.accounts.store');
 
 //read
 
 //update
-Route::get('/account/{User}/edit', 'accountController@edit')->name('admin.accounts.edit');
-Route::match(['put', 'patch'], '/account/{User}/update', 'accountController@update')->name('admin.accounts.update');
+Route::get('/account/{User}/edit', 'adminControlls@editUser')->name('admin.accounts.edit');
+Route::match(['put', 'patch'], '/account/{User}/update', 'adminControlls@updateUser')->name('admin.accounts.update');
 
 //show
-Route::match(['put', 'patch'], 'account/{User}/show', 'accountController@showAccount')->name('admin.accounts.show');
+Route::match(['put', 'patch'], 'account/{User}/show', 'adminControlls@showAccount')->name('admin.accounts.show');
 //hide
-Route::match(['put', 'patch'], 'account/{User}/hide', 'accountController@hideAccount')->name('admin.accounts.hide');
+Route::match(['put', 'patch'], 'account/{User}/hide', 'adminControlls@hideAccount')->name('admin.accounts.hide');
 
 //show
-Route::match(['put', 'patch'], 'account/{User}/lock', 'accountController@lockAccount')->name('admin.accounts.lock');
+Route::match(['put', 'patch'], 'account/{User}/lock', 'adminControlls@lockAccount')->name('admin.accounts.lock');
 //hide
-Route::match(['put', 'patch'], 'account/{User}/unlock', 'accountController@unlockAccount')->name('admin.accounts.unlock');
+Route::match(['put', 'patch'], 'account/{User}/unlock', 'adminControlls@unlockAccount')->name('admin.accounts.unlock');
 
 
 //delete
-Route::delete('/all-accounts/account/{user}', 'accountController@delete')->name('admin.accounts.delete');
+Route::delete('/all-accounts/account/{user}', 'adminControlls@deleteUser')->name('admin.accounts.delete');
 
 
 

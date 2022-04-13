@@ -31,6 +31,10 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'first_names',
+        'last_names',
+        'birthdate',
+        'address',
         'visible',
         'locked',
         'slug',
@@ -89,6 +93,11 @@ class User extends Authenticatable
     public function isLogged()
     {
         return (Auth::Check()) && (Auth::user()->name == $this->name) && (Auth::user()->email == $this->email);
+    }
+
+    public function hasFullInfo()
+    {
+        return ($this->first_names != null && $this->last_names != null && $this->birthdate != null && $this->address != null);
     }
 
     public function orders()

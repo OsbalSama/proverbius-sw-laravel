@@ -102,31 +102,34 @@
 @section('scripts')
     @if (session('deleted') == 'ok')
         <script>
-            Swal.fire(
-                'Deleted!',
-                'Account deleted.',
-                'success'
-            )
+            Swal.fire({
+                icon: 'success',
+                title: 'Cuenta Eliminada Correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            })
         </script>
     @endif
 
     @if (session('created') == 'ok')
         <script>
-            Swal.fire(
-                'Creaded!',
-                'Account Created.',
-                'success'
-            )
+            Swal.fire({
+                icon: 'success',
+                title: 'Cuenta Creada Correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            })
         </script>
     @endif
 
     @if (session('update') == 'ok')
         <script>
-            Swal.fire(
-                'Updated!',
-                'Account Updated.',
-                'success'
-            )
+            Swal.fire({
+                icon: 'success',
+                title: 'Cuenta Actualizada Correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            })
         </script>
     @endif
 

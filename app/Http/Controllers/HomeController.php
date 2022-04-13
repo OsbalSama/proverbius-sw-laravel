@@ -138,7 +138,8 @@ class HomeController extends Controller
     public function accountInfo(User $User)
     {
         return view('account-views.profile-info')->with([
-            'User' => $User
+            'User' => $User,
+            'update' => false,
         ]);
     }
 
