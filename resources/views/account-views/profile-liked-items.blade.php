@@ -16,7 +16,7 @@
                         <div class="card" style="width: 18rem;">
                             <div class="d-flex justify-content-center">
                                 <img style="width: 10rem" class="card-img-top"
-                                    src="{{ asset('images/assets/noProducts.png') }}" alt="Card image cap">
+                                    src="{{ asset('images/assets/noLikesIcon.png') }}" alt="Card image cap">
                             </div>
                             <div class="card-body">
                                 <div class="d-flex justify-content-center">
