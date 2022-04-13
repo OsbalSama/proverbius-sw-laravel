@@ -59,7 +59,7 @@ class User extends Authenticatable
     {
         User::create([
             'name' => 'root',
-            'slug' => Str::slug('root','-') ,
+            'slug' => Str::slug('root', '-'),
             'email' => 'root@root',
             // 'password' => Hash::make('x3ESKldKn#eO'),
             'password' => Hash::make('notelasabes123'),
@@ -89,5 +89,10 @@ class User extends Authenticatable
     public function isLogged()
     {
         return (Auth::Check()) && (Auth::user()->name == $this->name) && (Auth::user()->email == $this->email);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(product::class);
     }
 }

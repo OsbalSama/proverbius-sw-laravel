@@ -10,13 +10,13 @@ class productController extends Controller
 
     public function __construct()
     {
-        $this->middleware('is.admin');
+        $this->middleware('only.admin');
     }
 
 
     public function index()
     {
-        $products = product::all();        
+        $products = product::all();
         return view('admin-controlls.product_service-controlls.all-products')->with([
             'products' => $products
         ]);
@@ -27,6 +27,4 @@ class productController extends Controller
         $product->delete();
         return redirect()->route('admin.products.all')->with('deleted', 'ok');
     }
-
-    
 }

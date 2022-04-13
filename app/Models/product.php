@@ -9,8 +9,17 @@ class product extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'customer_id',
+    ];
+
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_account');
     }
 }

@@ -23,7 +23,10 @@ class CreateProductsTable extends Migration
             $table->boolean('visible')->default(false);
             $table->boolean('locked')->default(false);
             $table->string('slug');
+            $table->bigInteger('id_account')->unsigned();
             $table->timestamps();
+
+            $table->foreign('id_account')->references('id')->on('users');
         });
     }
 

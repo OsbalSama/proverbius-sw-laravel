@@ -14,10 +14,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
 
     /**
      * Show the application dashboard.
@@ -25,15 +21,15 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {        
-        if (Auth::check()) {                        
+    {
+        if (Auth::check()) {
             if (Auth::user()->role == "admin") {
                 return view('admin-controlls.admin-home');
-            } else if(Auth::user()->role == "partner"){
+            } else if (Auth::user()->role == "partner") {
                 return view('partner-controlls.partner-home');
             } else {
                 return view('home');
-            }            
+            }
         } else {
             return view('home');
         }
@@ -123,7 +119,7 @@ class HomeController extends Controller
     {
         return view('general-views.help');
     }
-    
+
     public function viewProductPage(product $product)
     {
         return view('account-views.view-product')->with([
@@ -131,16 +127,39 @@ class HomeController extends Controller
         ]);
     }
 
-    public function viewProfile(User $User)
+    public function accountProfile(User $User)
     {
         return view('account-views.profile')->with([
             'User' => $User
         ]);
     }
 
+
+    public function accountInfo(User $User)
+    {
+        return view('account-views.profile-info')->with([
+            'User' => $User
+        ]);
+    }
+
+    public function accountLikes(User $User)
+    {
+        return view('account-views.profile-liked-items')->with([
+            'User' => $User
+        ]);
+    }
+
+    public function accountSuscriptions(User $User)
+    {
+        return view('account-views.profile-suscriptions')->with([
+            'User' => $User
+        ]);
+    }
+
+
     public function accountProducts(User $User)
-    {   
-        return view('account-views.my-products')->with([
+    {
+        return view('account-views.profile-created-products')->with([
             'User' => $User
         ]);
     }

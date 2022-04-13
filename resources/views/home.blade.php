@@ -17,7 +17,7 @@
                             <img class="d-block w-100 opacity-50" src="{{ asset('images/slider/Imagen1.jpg') }}"
                                 alt="First slide">
                             <div class="carousel-caption d-none d-md-block">
-                                <h2>Titulo</h2>
+                                <h2>Aumenta tus Ventas</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, ullam molestias!
                                     Laboriosam, corporis animi.</p>
                             </div>
@@ -28,7 +28,7 @@
                             <img class="d-block w-100 opacity-50" src="{{ asset('images/slider/Imagen2.jpg') }}"
                                 alt="First slide">
                             <div class="carousel-caption d-none d-md-block">
-                                <h2>Titulo</h2>
+                                <h2>Métodos de Pago Seguros</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, ullam molestias!
                                     Laboriosam, corporis animi.</p>
                             </div>
@@ -39,7 +39,7 @@
                             <img class="d-block w-100 opacity-50" src="{{ asset('images/slider/Imagen3.jpg') }}"
                                 alt="First slide">
                             <div class="carousel-caption d-none d-md-block">
-                                <h2>Titulo</h2>
+                                <h2>Delivery y Negocios Digitales</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, ullam molestias!
                                     Laboriosam, corporis animi.</p>
                             </div>
@@ -50,7 +50,7 @@
                             <img class="d-block w-100 opacity-50" src="{{ asset('images/slider/Imagen4.jpg') }}"
                                 alt="First slide">
                             <div class="carousel-caption d-none d-md-block">
-                                <h2>Titulo</h2>
+                                <h2>Conoce el E-commerce</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, ullam molestias!
                                     Laboriosam, corporis animi.</p>
                             </div>
@@ -61,7 +61,7 @@
                             <img class="d-block w-100 opacity-50" src="{{ asset('images/slider/Imagen5.jpg') }}"
                                 alt="First slide">
                             <div class="carousel-caption d-none d-md-block">
-                                <h2>Titulo</h2>
+                                <h2>Soporte Técnico</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, ullam molestias!
                                     Laboriosam, corporis animi.</p>
                             </div>
