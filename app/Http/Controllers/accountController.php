@@ -17,6 +17,20 @@ class accountController extends Controller
         $this->middleware('auth');
     }
 
+    public function createProductService(User $User)
+    {
+        // if ($User->isLogged() || (Auth::User()->role == 'admin')) {
+
+
+
+        return view('account-views.profile-new-product')->with([
+            'User' => $User
+        ]);
+        // }
+        // abort(403);
+        // return view('account-views.profile-new-product');
+    }
+
     public function editAccountInfo(User $User)
     {
         if ($User->isLogged() || (Auth::User()->role == 'admin')) {
@@ -49,7 +63,5 @@ class accountController extends Controller
             'User' => $User,
             'update' => true,
         ]);
-        // return redirect()->back()->with('update', 'ok');
-        // return redirect()->route('admin.accounts.all')->with('update', 'ok');
     }
 }

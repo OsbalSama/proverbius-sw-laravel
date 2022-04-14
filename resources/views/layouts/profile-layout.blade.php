@@ -27,20 +27,63 @@
             </div>
         </div>
         <br>
-        <div class=" row justify-content-center">
+        <div class="row justify-content-center">
+            {{-- Menu de Accesos --}}
+            <div class="row justify-content-around">
+                <div class="row m-0 ">
+                    <div class="col-sm btn btn-secondary mr-1">
+                        <a class="btn btn-secondary  w-100"
+                            href="{{ route('public.accounts.profile', ['User' => $User]) }}">Publicaciones</a>
+                    </div>
+                    <div class="col-sm btn btn-secondary mr-1">
+                        <a class="btn btn-secondary  w-100"
+                            href="{{ route('account.info', ['User' => $User]) }}">Informacion</a>
+                    </div>
+                    <div class="col-sm btn btn-secondary mr-1">
+                        <a class="btn btn-secondary  w-100" href="{{ route('account.likes', ['User' => $User]) }}">Me
+                            Gusta</a>
+                    </div>
+                    <div class="col-sm btn btn-secondary mr-1">
+                        <a class="btn btn-secondary  w-100"
+                            href="{{ route('account.suscriptions', ['User' => $User]) }}">Mis Suscripciones</a>
+                    </div>
+                    @if ($User->isPartner() || $User->isAdmin())
+                        <div class="col-sm btn btn-secondary mr-1">
+                            <a class="btn btn-secondary  w-100"
+                                href="{{ route('account.products', ['User' => $User]) }}">Productos y Servicios</a>
+                        </div>
+                    @endif
+                </div>
+                <p></p>
+            </div>
+            {{-- Contenido --}}
             <div class="row">
+                {{-- Menu Lateral --}}
                 <div class="col-sm">
+                    <div class="card">
+                        <div class="card-header">Publicaciones</div>
+                        <div class="card-body">
+                            <div class="">
+                                <a class=""
+                                    href="{{ route('public.accounts.profile', ['User' => $User]) }}">Ver
+                                    Publicaciones</a>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
                     <div class="card">
                         <div class="card-header">Informacion</div>
                         <div class="card-body">
-                            <div>
-                                <p>
-                                    load Account Data
-                                </p>
-                            </div>
+                            @if (!$User->hasFullInfo())
+                                <div>
+                                    <p>
+                                        *Faltan datos importantes
+                                    </p>
+                                </div>
+                            @endif
                             <div class="">
                                 <a class="" href="{{ route('account.info', ['User' => $User]) }}">Ver
-                                    mas</a>
+                                    Información</a>
                             </div>
                         </div>
                     </div>
@@ -76,23 +119,22 @@
                     @if ($User->isPartner() || $User->isAdmin())
                         <br>
                         <div class="card">
-                            <div class="card-header">Mis Productos y Servicios</div>
+                            <div class="card-header">Productos y Servicios</div>
                             <div class="card-body">
-                                @if ($User->products != null)
-                                    <div>
-                                        Load Products & Services
-                                    </div>
+                                @if ($User->products == null)
+                                    <p>
+                                        Este usuario no tiene Productos o Servicios
+                                    </p>
                                 @else
                                     <p>
-                                        No tienes Productos o Servicios
+                                        Load 4 Products & Services
                                     </p>
-                                    <div class="">
-                                        <a class=""
-                                            href="{{ route('account.products', ['User' => $User]) }}">Ver
-                                            mas</a>
-                                    </div>
                                 @endif
-
+                                <div class="">
+                                    <a class=""
+                                        href="{{ route('account.products', ['User' => $User]) }}">Ver
+                                        mas</a>
+                                </div>
                             </div>
                         </div>
                     @endif
@@ -111,6 +153,7 @@
                         </div>
                     @endif --}}
                 </div>
+                {{-- Contenido Ventana --}}
                 <div class="col-9 bg-light">
                     @yield('profile-content')
                 </div>

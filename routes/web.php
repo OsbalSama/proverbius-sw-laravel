@@ -62,6 +62,10 @@ Route::get('profile/{User}/account-suscriptions', 'HomeController@accountSuscrip
 //Profile Procuctos y Servicios
 Route::get('profile/{User}/products-and-services', 'HomeController@accountProducts')->name('account.products');
 
+//Profile create Procuctos y Servicios
+Route::get('{User}/create-product-service', 'accountController@createProductService')->name('account.product.create');
+Route::post('{User}/sstore-product-service', 'accountController@storeProductService')->name('account.product.store');
+
 //view Product by ADMIN or ROOT
 Route::get('/{product}', 'HomeController@viewProductPage')->name('public.product.view');
 
@@ -69,7 +73,6 @@ Route::get('/{product}', 'HomeController@viewProductPage')->name('public.product
 
 
 //Admin/Partner Controlls
-
 
 //USER ACCOUNTS MANAGEMENT
 //index
