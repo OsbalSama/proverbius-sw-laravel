@@ -28,6 +28,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
+                    <img width="30" class="mr-1" src="{{ asset('images/assets/main-logo.png') }}" alt="logo">
                     {{-- <img src="favicon.ico" width="30" height="30" class="d-inline-block align-top" alt=""> --}}
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -49,11 +50,7 @@
                                 Categorías
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <!-- <a class="dropdown-item" href="{{ route('global.top-prod-servs') }}">Top Products & Services</a>
-                                <a class="dropdown-item" href="{{ route('global.top-partners') }}">Top Partners</a>
-                                <a class="dropdown-item" href="{{ route('global.best-shops') }}">Best Shops</a>
-                                <br> -->
-                                <a class="dropdown-item" href="{{ route('global.best-shops') }}">Nuestros
+                                <a class="dropdown-item" href="{{ route('global.partners') }}">Nuestros
                                     Partners</a>
                                 <br>
                                 <a class="dropdown-item" href="{{ route('global.technologies') }}">Tecnologías</a>
@@ -64,7 +61,7 @@
                                 <a class="dropdown-item" href="{{ route('global.industry') }}">Industria</a>
                                 <a class="dropdown-item" href="{{ route('global.restaurants') }}">Restaurantes y
                                     Comida Rápida</a>
-                                <a class="dropdown-item" href="{{ route('global.sightseeing') }}">Negocios</a>
+                                <a class="dropdown-item" href="{{ route('global.business') }}">Negocios</a>
                                 <a class="dropdown-item" href="{{ route('global.e-commerce') }}">E-Commerce</a>
                                 {{-- <br>
                                 <a class="dropdown-item" href="{{ route('global.oher-cats') }}">Otras Categorías</a> --}}
@@ -168,7 +165,7 @@
                                     <br>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                         document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -202,6 +199,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     @yield('scripts')
+    <br>
 </body>
 <footer class="mt-auto bg-dark text-center text-white">
     <!-- Grid container -->

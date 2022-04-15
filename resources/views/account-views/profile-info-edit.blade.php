@@ -1,7 +1,5 @@
 @extends('layouts.profile-layout')
 @section('profile-content')
-    {{-- <div class="container">
-        <div class="card"> --}}
     <div class="card-body">
         <h3>Actualizar Informacion</h3>
     </div>
@@ -114,9 +112,6 @@
             </div>
         </form>
     </div>
-    <br>
-    {{-- </div>
-    </div> --}}
 @endsection
 
 @section('scripts')

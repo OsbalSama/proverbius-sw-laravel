@@ -94,7 +94,6 @@
             <div class="card-body">
                 <div class="container">
                     <div class="row">
-
                         <!-- item -->
                         <div class="col-3">
                             <div class="card mb-2 h-100">
@@ -106,7 +105,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- item -->
                         <div class="col-3">
                             <div class="card mb-2 h-100">
@@ -119,7 +117,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- item -->
                         <div class="col-3">
                             <div class="card mb-2 h-100">
@@ -132,7 +129,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- item -->
                         <div class="col-3">
                             <div class="card mb-2 h-100">
@@ -148,15 +144,6 @@
                 </div>
             </div>
         </div>
-
-
-
-        <!-- Publicidad 2 -->
-        {{-- <br>
-        <div>
-            <img class="w-100" src="{{ asset('images/advertising/advertising02.jpg') }}" alt="advertising">
-        </div> --}}
-
         <!-- Servicios -->
         <br>
         <div class="card">
@@ -171,15 +158,11 @@
                         <li data-target="#multi-item-example" data-slide-to="2"></li>
                     </ol>
                     <!--/.Indicators-->
-
                     <!--Slides-->
                     <div class="carousel-inner" role="listbox">
-
                         <!--First slide-->
                         <div class="carousel-item active">
-
                             <div class="row">
-
                                 <!-- Item -->
                                 <div class="col-md-4">
                                     <div class="card mb-2 h-100">
@@ -280,44 +263,8 @@
                 <!--/.Carousel Wrapper-->
             </div>
         </div>
-
-        <!-- Publicidad 3 -->
-        {{-- <br>
-        <div>
-            <img class="w-100" src="{{ asset('images/advertising/advertising03.jpg') }}" alt="advertising">
-        </div> --}}
-
-        <!-- <br>
-                <div class="card">
-                    <div class="card-body">
-                        Content
-                    </div>
-                </div> -->
-
-
-
-        <!-- Redes Sociales -->
-        <!-- <br>
-                <div class="card align-middle">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-center">
-                            <h3>Siguenos en nuestras Redes Sociales</h3>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <a target="_blank" class="mr-2 btn btn-primary" style="background-color: #3b5998;" href="https://www.facebook.com/ProverbiusSoftware" role="button"><i class="fab fa-facebook me-2"></i>Facebook</a>
-                            <a target="_blank" class="mr-2 btn btn-primary" style="background-color: #0082ca;" href="https://www.linkedin.com/in/osbaldo-toledo-ramos-06b249213" role="button"><i class="fab fa-linkedin-in me-2"></i>Linked In</a>
-                            <a target="_blank" class="mr-2 btn btn-primary" style="background-color: #ed302f;" href="https://www.youtube.com/channel/UCyHUW3repfp5RBWrDSXJ4Lw/featured" role="button"><i class="fab fa-youtube me-2"></i>YouTube</a>
-                            <a target="_blank" class="mr-2 btn btn-primary" style="background-color: #25d366;" href="https://chat.whatsapp.com/G6MDE4LHIOj413q2AD4iUj" role="button"><i class="fab fa-whatsapp me-2"></i>WhatsApp</a>
-                            <a target="_blank" class="mr-2 btn btn-primary" style="background-color: #229ED9;" href="https://t.me/joinchat/MPDEYAUpXTw3MDlh" role="button"><i class="fab fa-telegram me-2"></i>Telegram</a>
-                        </div>
-                    </div>
-                </div> -->
-
-        <br>
     </div>
 @endsection
-
-
 @section('scripts')
     <script>
         // $('.carousel').carousel()

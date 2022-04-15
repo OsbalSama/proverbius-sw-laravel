@@ -22,25 +22,25 @@ Route::get('/', 'HomeController@index')->name('home');
 
 //General Views
 Route::get('/top-products-services', 'HomeController@topProdsServs')->name('global.top-prod-servs');
-Route::get('/top-partners', 'HomeController@topPartners')->name('global.top-partners');
-Route::get('/best-shops', 'HomeController@bestShops')->name('global.best-shops');
+Route::get('/our-partners', 'HomeController@ourPartners')->name('global.partners');
 
 Route::get('/technologies', 'HomeController@Technologies')->name('global.technologies');
 Route::get('/movile-apps', 'HomeController@movileApps')->name('global.movile-apps');
 Route::get('/web-services', 'HomeController@webServices')->name('global.web-services');
 
 Route::get('/industry', 'HomeController@Industry')->name('global.industry');
-Route::get('/restaurants', 'HomeController@Restaurants')->name('global.restaurants');
-Route::get('/sightseeing', 'HomeController@Sightseeing')->name('global.sightseeing');
+Route::get('/catering-and-restaurants', 'HomeController@Restaurants')->name('global.restaurants');
+// Route::get('/sightseeing', 'HomeController@Sightseeing')->name('global.sightseeing');
+Route::get('/for-business', 'HomeController@business')->name('global.business');
 Route::get('/e-commerce', 'HomeController@ECommerce')->name('global.e-commerce');
 
 Route::get('/other-cats', 'HomeController@otherCats')->name('global.oher-cats');
 
-Route::get('/products', 'HomeController@publicProducts')->name('global.publicProducts');
-Route::get('/stores', 'HomeController@aboutUs')->name('global.aboutUs');
+Route::get('/products-and-services', 'HomeController@publicProducts')->name('global.publicProducts');
+Route::get('/about-us', 'HomeController@aboutUs')->name('global.aboutUs');
 Route::get('/join-us', 'HomeController@JoinUsInfo')->name('global.JoinUs');
-Route::get('/history', 'HomeController@clientHistory')->name('global.clientHistory');
-Route::get('/help', 'HomeController@getHelp')->name('global.getHelp');
+// Route::get('/history', 'HomeController@clientHistory')->name('global.clientHistory');
+Route::get('/het-help', 'HomeController@getHelp')->name('global.getHelp');
 
 
 //view Profile

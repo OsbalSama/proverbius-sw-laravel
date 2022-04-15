@@ -135,11 +135,8 @@
                 </div>
             </div>
         </div>
-
     </div>
-    <br>
 @endsection
-
 @section('scripts')
     @if ($update == true)
         <script>

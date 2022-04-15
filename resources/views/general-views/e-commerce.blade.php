@@ -8,7 +8,7 @@
                         <img class="d-block w-100 opacity-50" src="{{ asset('images/advertising/banner08.png') }}"
                             alt="First slide">
                         <div class="carousel-caption d-none d-md-block">
-                            <h2>Aumenta tus Ventas</h2>
+                            <h2>Ábrete al E-Commerce</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, ullam molestias!
                                 Laboriosam, corporis animi.</p>
                         </div>

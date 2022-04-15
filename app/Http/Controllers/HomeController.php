@@ -45,9 +45,9 @@ class HomeController extends Controller
         return view('general-views.top-partners');
     }
 
-    public function bestShops()
+    public function ourPartners()
     {
-        return view('general-views.best-shops');
+        return view('general-views.our-partners');
     }
 
     public function Technologies()
@@ -75,9 +75,9 @@ class HomeController extends Controller
         return view('general-views.restaurants');
     }
 
-    public function Sightseeing()
+    public function business()
     {
-        return view('general-views.sightseeing');
+        return view('general-views.business');
     }
 
     public function ECommerce()
