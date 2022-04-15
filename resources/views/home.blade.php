@@ -90,53 +90,202 @@
         <!-- Productos -->
         <br>
         <div class="card">
-            <div class="card-header">Nuestros Productos</div>
-            <div class="card-body">
-                <div class="container">
+            {{-- <div class="card-header">Nuestros Productos</div> --}}
+            <div class="card-body ">
+                <p>
+                <h4>Nuestros Productos</h4>
+                </p>
+                <div class="container w-75">
+                    <div class="row mt-2 mb-2">
+                        <!-- item -->
+                        <div class="col-sm">
+                            <div class="card mb-2 w-100 h-100 bg-ligth">
+                                <img class="card-img-top p-2" src="{{ asset('images/products/ipa.jpg') }}"
+                                    alt="Card image cap">
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <h6 class="card-title">Insurance Policy Administration</h6>
+                                        {{-- <p>
+                                            Software de Manejo de Pólizas de Seguro para automóvil.
+                                        </p> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- item -->
+                        <div class="col-sm">
+                            <div class="card mb-2 w-100 h-100">
+                                <img class="card-img-top p-2" src="{{ asset('images/products/rcf.jpg') }}"
+                                    alt="Card image cap">
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <h6 class="card-title">Register Cash Free</h6>
+                                        {{-- <p>
+                                            Software de Punto de Venta para negocios con venta de
+                                            mercancía por pieza o a granel.
+                                        </p> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- item -->
+                        <div class="col-sm">
+                            <div class="card mb-2 w-100 h-100">
+                                <img class="card-img-top p-2" src="{{ asset('images/products/rcfd.jpg') }}"
+                                    alt="Card image cap">
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <h6 class="card-title">Register Cash Food</h6>
+                                        {{-- <p>
+                                            Software de Punto de Venta especializado para restaurantes y
+                                            negocios de comida rapida.
+                                        </p> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- item -->
+                        <div class="col-sm">
+                            <div class="card mb-2 w-100 h-100">
+                                <img class="card-img-top p-2" src="{{ asset('images/products/selah.jpg') }}"
+                                    alt="Card image cap">
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <h6 class="card-title">Selah Worship</h6>
+                                        {{-- <p>
+                                            PROXIMAMENTE.
+                                        </p> --}}
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <!-- item -->
-                        <div class="col-3">
-                            <div class="card mb-2 h-100">
-                                <img class="card-img-top" src="{{ asset('images/products/ipa.jpg') }}"
+                        <div class="col-sm">
+                            <div class="card mb-2 w-100 h-100">
+                                <img class="card-img-top p-2" src="{{ asset('images/products/ipa.jpg') }}"
                                     alt="Card image cap">
                                 <div class="card-body">
-                                    <h5 class="card-title">Insurance Policy Administration</h5>
-                                    <p class="card-text">Software de Manejo de Pólizas de Seguro para automóvil.</p>
+                                    <div class="text-center">
+                                        <h6 class="card-title">Insurance Policy Administration</h6>
+                                        {{-- <p>
+                                            Software de Manejo de Pólizas de Seguro para automóvil.
+                                        </p> --}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <!-- item -->
-                        <div class="col-3">
-                            <div class="card mb-2 h-100">
-                                <img class="card-img-top" src="{{ asset('images/products/rcf.jpg') }}"
+                        <div class="col-sm">
+                            <div class="card mb-2 w-100 h-100">
+                                <img class="card-img-top p-2" src="{{ asset('images/products/rcf.jpg') }}"
                                     alt="Card image cap">
                                 <div class="card-body">
-                                    <h5 class="card-title">Register Cash Free</h5>
-                                    <p class="card-text">Software de Punto de Venta para negocios con venta de
-                                        mercancía por pieza o a granel.</p>
+                                    <div class="text-center">
+                                        <h6 class="card-title">Register Cash Free</h6>
+                                        {{-- <p>
+                                            Software de Punto de Venta para negocios con venta de
+                                            mercancía por pieza o a granel.
+                                        </p> --}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <!-- item -->
-                        <div class="col-3">
-                            <div class="card mb-2 h-100">
-                                <img class="card-img-top" src="{{ asset('images/products/rcfd.jpg') }}"
+                        <div class="col-sm">
+                            <div class="card mb-2 w-100 h-100">
+                                <img class="card-img-top p-2" src="{{ asset('images/products/rcfd.jpg') }}"
                                     alt="Card image cap">
                                 <div class="card-body">
-                                    <h5 class="card-title">Register Cash Food</h5>
-                                    <p class="card-text">Software de Punto de Venta especializado para restaurantes y
-                                        negocios de comida rapida.</p>
+                                    <div class="text-center">
+                                        <h6 class="card-title">Register Cash Food</h6>
+                                        {{-- <p>
+                                            Software de Punto de Venta especializado para restaurantes y
+                                            negocios de comida rapida.
+                                        </p> --}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <!-- item -->
-                        <div class="col-3">
-                            <div class="card mb-2 h-100">
-                                <img class="card-img-top" src="{{ asset('images/products/selah.jpg') }}"
+                        <div class="col-sm">
+                            <div class="card mb-2 w-100 h-100">
+                                <img class="card-img-top p-2" src="{{ asset('images/products/selah.jpg') }}"
                                     alt="Card image cap">
                                 <div class="card-body">
-                                    <h5 class="card-title">Selah Worship</h5>
-                                    <p class="card-text">PROXIMAMENTE.</p>
+                                    <div class="text-center">
+                                        <h6 class="card-title">Selah Worship</h6>
+                                        {{-- <p>
+                                            PROXIMAMENTE.
+                                        </p> --}}
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-2">
+                        <!-- item -->
+                        <div class="col-sm">
+                            <div class="card mb-2 w-100 h-100">
+                                <img class="card-img-top p-2" src="{{ asset('images/products/ipa.jpg') }}"
+                                    alt="Card image cap">
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <h6 class="card-title">Insurance Policy Administration</h6>
+                                        {{-- <p>
+                                            Software de Manejo de Pólizas de Seguro para automóvil.
+                                        </p> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- item -->
+                        <div class="col-sm">
+                            <div class="card mb-2 w-100 h-100">
+                                <img class="card-img-top p-2" src="{{ asset('images/products/rcf.jpg') }}"
+                                    alt="Card image cap">
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <h6 class="card-title">Register Cash Free</h6>
+                                        {{-- <p>
+                                            Software de Punto de Venta para negocios con venta de
+                                            mercancía por pieza o a granel.
+                                        </p> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- item -->
+                        <div class="col-sm">
+                            <div class="card mb-2 w-100 h-100">
+                                <img class="card-img-top p-2" src="{{ asset('images/products/rcfd.jpg') }}"
+                                    alt="Card image cap">
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <h6 class="card-title">Register Cash Food</h6>
+                                        {{-- <p>
+                                            Software de Punto de Venta especializado para restaurantes y
+                                            negocios de comida rapida.
+                                        </p> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- item -->
+                        <div class="col-sm">
+                            <div class="card mb-2 w-100 h-100">
+                                <img class="card-img-top p-2" src="{{ asset('images/products/selah.jpg') }}"
+                                    alt="Card image cap">
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <h6 class="card-title">Selah Worship</h6>
+                                        {{-- <p>
+                                            PROXIMAMENTE.
+                                        </p> --}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -147,8 +296,11 @@
         <!-- Servicios -->
         <br>
         <div class="card">
-            <div class="card-header">Conoce nuestros Servicios</div>
+            {{-- <div class="card-header">Conoce nuestros Servicios</div> --}}
             <div class="card-body">
+                <p>
+                <h4>Conoce nuestros Servicios</h4>
+                </p>
                 <!--Carousel Wrapper-->
                 <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
                     <!--Indicators-->
@@ -170,7 +322,8 @@
                                             alt="Card image cap">
                                         <div class="card-body">
                                             <h4 class="card-title">Servicios Freelance</h4>
-                                            <p class="card-text">Some quick example text to build on the card title and
+                                            <p class="card-text">Some quick example text to build on the card title
+                                                and
                                                 make up the bulk of the
                                                 card's content.</p>
                                             <div class="d-flex">
@@ -189,7 +342,8 @@
                                             alt="Card image cap">
                                         <div class="card-body">
                                             <h4 class="card-title">Tienda Digital Entrada</h4>
-                                            <p class="card-text">Some quick example text to build on the card title and
+                                            <p class="card-text">Some quick example text to build on the card title
+                                                and
                                                 make up the bulk of the
                                                 card's content.</p>
                                             <div class="d-flex">
@@ -208,7 +362,8 @@
                                             alt="Card image cap">
                                         <div class="card-body">
                                             <h4 class="card-title">Blog de Cafe</h4>
-                                            <p class="card-text">Some quick example text to build on the card title and
+                                            <p class="card-text">Some quick example text to build on the card title
+                                                and
                                                 make up the bulk of the
                                                 card's content.</p>
                                             <div class="d-flex">

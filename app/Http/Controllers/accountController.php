@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,16 +20,27 @@ class accountController extends Controller
 
     public function createProductService(User $User)
     {
-        // if ($User->isLogged() || (Auth::User()->role == 'admin')) {
-
-
-
         return view('account-views.profile-new-product')->with([
             'User' => $User
         ]);
-        // }
-        // abort(403);
-        // return view('account-views.profile-new-product');
+    }
+
+    public function storeProductService(User $User, product $Product)
+    {
+        // $rules = [
+        //     'name' => ['required', 'string', 'max:255', 'unique:users', 'min:4' . request()->name],
+        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        //     'password' => ['required', 'string', 'min:5'],
+        // ];
+        // request()->validate($rules);
+        $title  = request()->title;
+        product::create([
+            'name' => $title,
+            'slug' => Str::slug($title, '-'),
+            'email' => request()->email,
+            'password' => Hash::make(request()->password),
+        ]);
+        return redirect()->route('admin.accounts.all')->with('created', 'ok');
     }
 
     public function editAccountInfo(User $User)

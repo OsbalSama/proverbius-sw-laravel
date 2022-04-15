@@ -39,7 +39,6 @@ Route::get('/other-cats', 'HomeController@otherCats')->name('global.oher-cats');
 Route::get('/products-and-services', 'HomeController@publicProducts')->name('global.publicProducts');
 Route::get('/about-us', 'HomeController@aboutUs')->name('global.aboutUs');
 Route::get('/join-us', 'HomeController@JoinUsInfo')->name('global.JoinUs');
-// Route::get('/history', 'HomeController@clientHistory')->name('global.clientHistory');
 Route::get('/het-help', 'HomeController@getHelp')->name('global.getHelp');
 
 
@@ -64,7 +63,7 @@ Route::get('profile/{User}/products-and-services', 'HomeController@accountProduc
 
 //Profile create Procuctos y Servicios
 Route::get('{User}/create-product-service', 'accountController@createProductService')->name('account.product.create');
-Route::post('{User}/sstore-product-service', 'accountController@storeProductService')->name('account.product.store');
+Route::post('{User}/store-product-service/{Product}', 'accountController@storeProductService')->name('account.product.store');
 
 //view Product by ADMIN or ROOT
 Route::get('/{product}', 'HomeController@viewProductPage')->name('public.product.view');

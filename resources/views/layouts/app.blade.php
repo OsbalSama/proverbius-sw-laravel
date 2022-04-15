@@ -29,7 +29,6 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img width="30" class="mr-1" src="{{ asset('images/assets/main-logo.png') }}" alt="logo">
-                    {{-- <img src="favicon.ico" width="30" height="30" class="d-inline-block align-top" alt=""> --}}
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -165,7 +164,7 @@
                                     <br>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
