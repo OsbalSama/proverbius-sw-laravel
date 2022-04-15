@@ -66,8 +66,8 @@
                                     Comida Rápida</a>
                                 <a class="dropdown-item" href="{{ route('global.sightseeing') }}">Negocios</a>
                                 <a class="dropdown-item" href="{{ route('global.e-commerce') }}">E-Commerce</a>
-                                <br>
-                                <a class="dropdown-item" href="{{ route('global.oher-cats') }}">Otras Categorías</a>
+                                {{-- <br>
+                                <a class="dropdown-item" href="{{ route('global.oher-cats') }}">Otras Categorías</a> --}}
                             </div>
                         </li>
 
@@ -168,7 +168,7 @@
                                     <br>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                         document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 

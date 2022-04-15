@@ -1,7 +1,5 @@
 @extends('layouts.profile-layout')
 @section('profile-content')
-    {{-- <div class="container">
-        <div class="card"> --}}
     <div class="card-body">
         <h3>Informacion</h3>
     </div>
@@ -36,7 +34,6 @@
                 @endif
             </div>
         </div>
-
         <br>
         <div class="card">
             <div class="card-header">
@@ -86,7 +83,6 @@
                 @endif
             </div>
         </div>
-
         @if ($User->isLogged() || (Auth::check() && Auth::User()->isAdmin()))
             <br>
             <div class="card">
@@ -99,15 +95,49 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <h1>Falta agregar medios de Pago</h1>
-                    <p>*Sin metodos de Pago</p>
+                    <h5>*Item</h5>
                 </div>
             </div>
         @endif
+        <br>
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between">
+                    <h4>Reces Sociales</h4>
+                    <div class="d-flex justify-content-end">
+                        <a class="btn btn-success mr-2" href="#">+</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="title">
+                        <h5>*Item</h5>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between">
+                    <h4>Medios de Contacto</h4>
+                    <div class="d-flex justify-content-end">
+                        <a class="btn btn-success mr-2" href="#">+</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="title">
+                        <h5>*Item</h5>
+                    </label>
+                </div>
+            </div>
+        </div>
+
     </div>
     <br>
-    {{-- </div>
-    </div> --}}
 @endsection
 
 @section('scripts')
@@ -121,23 +151,4 @@
             })
         </script>
     @endif
-
-    {{-- <script>
-        $('.dropUser').submit(function(e) {
-            e.preventDefault();
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    this.submit();
-                }
-            })
-        });
-    </script> --}}
 @endsection
