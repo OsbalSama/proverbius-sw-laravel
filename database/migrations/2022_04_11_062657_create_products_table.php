@@ -20,6 +20,8 @@ class CreateProductsTable extends Migration
             $table->string('type');
             $table->decimal('amount', $precision = 8, $scale = 2)->nullable();
             $table->integer('stock')->unsigned()->nullable();
+            $table->string('download_link')->nullable();
+            $table->decimal('version', $precision = 8, $scale = 2);
             $table->boolean('visible')->default(false);
             $table->boolean('locked')->default(false);
             $table->string('slug');

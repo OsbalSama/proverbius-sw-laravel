@@ -120,8 +120,10 @@ class HomeController extends Controller
 
     public function viewProductPage(product $product)
     {
+        $User = User::findOrFail($product->user_id);
         return view('account-views.view-product')->with([
-            'product' => $product
+            'product' => $product,
+            'User' => $User
         ]);
     }
 

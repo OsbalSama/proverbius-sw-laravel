@@ -9,6 +9,10 @@ class product extends Model
 {
     use HasFactory;
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     protected $fillable = [
         'title',
@@ -19,6 +23,8 @@ class product extends Model
         'visible',
         'locked',
         'slug',
+        'version',
+        'download_link',
         'user_id',
     ];
 

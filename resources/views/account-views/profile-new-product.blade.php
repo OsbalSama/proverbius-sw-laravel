@@ -79,15 +79,18 @@
                             </select>
                         </div>
                         <div class="col-sm">
-                            <label for="stock">
-                                <h5>*Visible</h5>
+                            <label for="version">
+                                <h5>*Version</h5>
                             </label>
-                            <select class="form-control" class="custom-select" name="visible" required>
-                                <option {{ old('visible') == '1' ? 'selected' : '' }} value="1" selected>Visible</option>
-                                <option {{ old('visible') == '0' ? 'selected' : '' }} value="0">Oculto</option>
-                            </select>
+                            <input min="1" type="number" class="form-control @error('version') is-invalid @enderror"
+                                name="version" placeholder="1.50" value="{{ old('version') }}" required>
+                            @error('version')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
-                        <div class="col-sm">
+                        {{-- <div class="col-sm">
                             <label for="stock">
                                 <h5>*Bloqueado</h5>
                             </label>
@@ -96,8 +99,20 @@
                                 <option {{ old('locked') == '0' ? 'selected' : '' }} value="0" selected>Desbloqueado
                                 </option>
                             </select>
-                        </div>
+                        </div> --}}
                     </div>
+                </div>
+                <div class="form-group">
+                    <label for="downloadLink">
+                        <h5>Link de Descarga</h5>
+                    </label>
+                    <input type="url" class="form-control @error('downloadLink') is-invalid @enderror" name="downloadLink"
+                        placeholder="Ignora si no tiene Link" value="{{ old('downloadLink') }}">
+                    @error('downloadLink')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
             </div>
         </div>

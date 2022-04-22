@@ -5,7 +5,6 @@
     <div class="card-body">
         <h5 class="card-title">{{ $product->title }}</h5>
         <p class="card-text">{{ $product->description }}</p>
-
     </div>
     <div class="card-footer">
         @if ($product->amount == null)

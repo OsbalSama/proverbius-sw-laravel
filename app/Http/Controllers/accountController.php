@@ -44,8 +44,10 @@ class accountController extends Controller
             'type' => request()->type,
             'amount' => request()->amount,
             'stock' => request()->stock,
-            'visible' => request()->visible,
-            'locked' => request()->locked,
+            'version' => request()->version,
+            'download_link' => request()->downloadLink,
+            // 'visible' => request()->visible,
+            // 'locked' => request()->locked,
             'user_id' => Auth::User()->id,
         ]);
         return view('account-views.profile-created-products')->with([
