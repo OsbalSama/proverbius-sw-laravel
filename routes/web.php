@@ -30,7 +30,7 @@ Route::get('/web-services', 'HomeController@webServices')->name('global.web-serv
 
 Route::get('/industry', 'HomeController@Industry')->name('global.industry');
 Route::get('/catering-and-restaurants', 'HomeController@Restaurants')->name('global.restaurants');
-// Route::get('/sightseeing', 'HomeController@Sightseeing')->name('global.sightseeing');
+
 Route::get('/for-business', 'HomeController@business')->name('global.business');
 Route::get('/e-commerce', 'HomeController@ECommerce')->name('global.e-commerce');
 
@@ -63,7 +63,8 @@ Route::get('profile/{User}/products-and-services', 'HomeController@accountProduc
 
 //Profile create Procuctos y Servicios
 Route::get('{User}/create-product-service', 'accountController@createProductService')->name('account.product.create');
-Route::post('{User}/store-product-service/{Product}', 'accountController@storeProductService')->name('account.product.store');
+Route::get('/products-and-services/store', 'accountController@storeProductService')->name('account.product.store');
+// Route::post('products-and-services/store', 'accountController@storeProductService')->name('account.product.store');
 
 //view Product by ADMIN or ROOT
 Route::get('/{product}', 'HomeController@viewProductPage')->name('public.product.view');

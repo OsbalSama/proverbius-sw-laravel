@@ -65,7 +65,6 @@ class User extends Authenticatable
             'name' => 'root',
             'slug' => Str::slug('root', '-'),
             'email' => 'root@root',
-            // 'password' => Hash::make('x3ESKldKn#eO'),
             'password' => Hash::make('notelasabes123'),
             'role' => 'admin',
         ]);
@@ -100,7 +99,7 @@ class User extends Authenticatable
         return ($this->first_names != null && $this->last_names != null && $this->birthdate != null && $this->address != null);
     }
 
-    public function orders()
+    public function Products()
     {
         return $this->hasMany(product::class);
     }

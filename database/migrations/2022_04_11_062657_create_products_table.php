@@ -18,15 +18,15 @@ class CreateProductsTable extends Migration
             $table->string('title')->unique();
             $table->longText('description');
             $table->string('type');
-            $table->decimal('amount', $precision = 8, $scale = 2)->unsigned()->nullable();
+            $table->decimal('amount', $precision = 8, $scale = 2)->nullable();
             $table->integer('stock')->unsigned()->nullable();
             $table->boolean('visible')->default(false);
             $table->boolean('locked')->default(false);
             $table->string('slug');
-            $table->bigInteger('id_account')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('id_account')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

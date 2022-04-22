@@ -11,7 +11,15 @@ class product extends Model
 
 
     protected $fillable = [
-        'customer_id',
+        'title',
+        'description',
+        'type',
+        'amount',
+        'stock',
+        'visible',
+        'locked',
+        'slug',
+        'user_id',
     ];
 
     // public function getRouteKeyName()

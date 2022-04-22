@@ -92,13 +92,11 @@ class HomeController extends Controller
 
     public function publicProducts()
     {
-        return view('general-views.public-products');
+        $products = product::all();
+        return view('general-views.public-products')->with([
+            'products' => $products
+        ]);
     }
-
-    // public function publicServices()
-    // {
-    //     return view('general-views.public-services');
-    // }
 
     public function aboutUs()
     {
@@ -161,7 +159,8 @@ class HomeController extends Controller
     public function accountProducts(User $User)
     {
         return view('account-views.profile-created-products')->with([
-            'User' => $User
+            'User' => $User,
+            'created' => false,
         ]);
     }
 }

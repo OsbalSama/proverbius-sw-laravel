@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\product;
 use App\Models\User;
+use Brick\Math\BigInteger;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -18,29 +19,39 @@ class accountController extends Controller
         $this->middleware('auth');
     }
 
+
+    //Create Product
     public function createProductService(User $User)
     {
         return view('account-views.profile-new-product')->with([
-            'User' => $User
+            'User' => $User,
         ]);
     }
 
-    public function storeProductService(User $User, product $Product)
+    //Store Product
+    public function storeProductService()
     {
-        // $rules = [
-        //     'name' => ['required', 'string', 'max:255', 'unique:users', 'min:4' . request()->name],
-        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        //     'password' => ['required', 'string', 'min:5'],
-        // ];
-        // request()->validate($rules);
+        $rules = [
+            'title' => ['required', 'string', 'max:255', 'unique:products', 'min:4'],
+            'description' => ['required', 'string', 'max:1000', 'min:4'],
+        ];
+        request()->validate($rules);
         $title  = request()->title;
         product::create([
-            'name' => $title,
+            'title' => $title,
             'slug' => Str::slug($title, '-'),
-            'email' => request()->email,
-            'password' => Hash::make(request()->password),
+            'description' => request()->description,
+            'type' => request()->type,
+            'amount' => request()->amount,
+            'stock' => request()->stock,
+            'visible' => request()->visible,
+            'locked' => request()->locked,
+            'user_id' => Auth::User()->id,
         ]);
-        return redirect()->route('admin.accounts.all')->with('created', 'ok');
+        return view('account-views.profile-created-products')->with([
+            'User' => Auth::user(),
+            'created' => true,
+        ]);
     }
 
     public function editAccountInfo(User $User)
@@ -65,7 +76,6 @@ class accountController extends Controller
             'name' => $name,
             'slug' => Str::slug($name, '-'),
             'email' => request()->email,
-
             'first_names' => request()->first_names,
             'last_names' => request()->last_names,
             'birthdate' => request()->birthdate,
