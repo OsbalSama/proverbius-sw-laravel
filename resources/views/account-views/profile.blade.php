@@ -3,7 +3,7 @@
     <div class="card-body">
         <h3>Publicaciones</h3>
     </div>
-    <div class="container">
+    {{-- <div class="container">
         <div class="card">
             <div class="card-header">Publicacion</div>
             <div class="card-body">
@@ -25,5 +25,5 @@
             </div>
         </div>
         <br>
-    </div>
+    </div> --}}
 @endsection
