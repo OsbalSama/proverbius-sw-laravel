@@ -42,7 +42,7 @@
                                         <a class="btn btn-danger btn-lg mr-2" href="">Suscribirse</a>
                                         @if (Auth::check())
                                             @if (Auth::user()->isAdmin())
-                                                <a class="btn btn-primary btn-lg  mr-2" href="">Editar</a>
+                                                <a class="btn btn-primary btn-lg  mr-2" href="{{ route('account.product.edit', ['product' => $product]) }}">Editar</a>
                                             @endif
                                         @endif
                                     </div>

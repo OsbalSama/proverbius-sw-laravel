@@ -20,6 +20,12 @@ Auth::routes();
 //Client/Visitor Home
 Route::get('/', 'HomeController@index')->name('home');
 
+//Partner Home
+Route::get('/partner-panel', 'partnerControlls@index')->name('partner.home');
+
+//Admin Home
+Route::get('/admin-panel', 'adminControlls@index')->name('admin.home');
+
 //General Views
 Route::get('/top-products-services', 'HomeController@topProdsServs')->name('global.top-prod-servs');
 Route::get('/our-partners', 'HomeController@ourPartners')->name('global.partners');
@@ -39,7 +45,7 @@ Route::get('/other-cats', 'HomeController@otherCats')->name('global.oher-cats');
 Route::get('/products-and-services', 'HomeController@publicProducts')->name('global.publicProducts');
 Route::get('/about-us', 'HomeController@aboutUs')->name('global.aboutUs');
 Route::get('/join-us', 'HomeController@JoinUsInfo')->name('global.JoinUs');
-Route::get('/het-help', 'HomeController@getHelp')->name('global.getHelp');
+Route::get('/get-help', 'HomeController@getHelp')->name('global.getHelp');
 
 
 //view Profile
@@ -64,6 +70,12 @@ Route::get('profile/{User}/products-and-services', 'HomeController@accountProduc
 //Profile create Procuctos y Servicios
 Route::get('{User}/create-product-service', 'accountController@createProductService')->name('account.product.create');
 Route::get('/products-and-services/store', 'accountController@storeProductService')->name('account.product.store');
+
+//Profile update Procuctos y Servicios
+Route::get('{product}/edit', 'accountController@editProductService')->name('account.product.edit');
+Route::match(['put', 'patch'], '{Product}/update', 'accountController@updateProductService')->name('account.product.update');
+
+
 // Route::post('products-and-services/store', 'accountController@storeProductService')->name('account.product.store');
 
 //view Product by ADMIN or ROOT
@@ -76,7 +88,7 @@ Route::get('/{product}', 'HomeController@viewProductPage')->name('public.product
 
 //USER ACCOUNTS MANAGEMENT
 //index
-Route::get('admin/all-accounts', 'adminControlls@index')->name('admin.accounts.all');
+Route::get('admin/all-accounts', 'adminControlls@allAccounts')->name('admin.accounts.all');
 
 //create
 Route::get('/accounts/new-account', 'adminControlls@createUser')->name('admin.accounts.create');

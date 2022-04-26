@@ -4,16 +4,35 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                {{-- <div class="card-header">{{ __('Register') }}</div> --}}
+                <p>
                 <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
-
                     <div class="card-body">
+
+                        <div class="row d-flex align-items-end">
+                            <div class="col-auto m-0 p-0">
+                                <img style="width: 20rem" class="card-img-top"
+                                    src="{{ asset('images/assets/wellcome.png') }}" alt="Card image cap">
+                            </div>
+                            <div class="col-sm">
+                                <div class="d-flex justify-content-center">
+                                    <div class="text-center">
+                                        <h4 class="">
+                                            ¡Hola amigo! Completa tus datos, escoge una contraseña...
+                                        </h4>
+                                        <p>
+                                        <h3> ¡Vamos a comenzar!</h3>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        {{-- </p> --}}
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
-
                             <div class="row mb-3">
                                 <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
                                         name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -78,6 +97,8 @@
                         </form>
                     </div>
                 </div>
+
+                </p>
             </div>
         </div>
     </div>

@@ -1,8 +1,6 @@
 @extends('layouts.profile-layout')
 @section('profile-content')
-    <div class="card-body">
-        <h3>Productos & Servicios de {{ $User->name }} </h3>
-    </div>
+    <h3>Productos & Servicios de {{ $User->name }} </h3>
     <div>
         <div class="d-flex justify-content-center">
             @if ($User->Products->isEmpty())
@@ -29,7 +27,7 @@
             @else
                 <div class="card w-100">
                     <div class="card-body">
-                        <h5 class="card-title ">Load Products</h5>
+                        {{-- <h5 class="card-title ">Load Products</h5> --}}
                         @foreach ($User->Products as $product)
                             @include('components.product-card')
                         @endforeach

@@ -1,8 +1,6 @@
 @extends('layouts.profile-layout')
 @section('profile-content')
-    <div class="card-body">
-        <h3>Me Gusta</h3>
-    </div>
+    <h3>Me Gusta</h3>
     <div>
         @if ($User->products != null)
             <p>

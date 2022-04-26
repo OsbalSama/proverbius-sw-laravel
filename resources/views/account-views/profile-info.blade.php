@@ -1,161 +1,171 @@
 @extends('layouts.profile-layout')
 @section('profile-content')
-    {{-- <div class="card-body">
-        <h3>Informacion</h3>
-    </div> --}}
-    <div class="container">
-        <div class="card">
-            {{-- <p> --}}
-            {{-- <div class="card-header">
-                <div class="d-flex justify-content-between">
-                    <h4>Informacion</h4>
+    {{-- <div class="container"> --}}
+    {{-- <div class="card">            
+            <div class="card-body"> --}}
+    <h3>Información</h3>
+    <p>
+    <div class="card-header">
+        <div class="d-flex justify-content-between">
+            <h5>
+                Datos de Cuenta
+            </h5>
+            @if ($User->isLogged() || (Auth::check() && Auth::User()->isAdmin()))
+                <div class="d-flex justify-content-end">
+                    @if ($User->hasFullInfo())
+                        <a class="btn btn-secondary mr-2"
+                            href="{{ route('account.info.edit', ['User' => $User]) }}">Actualizar</a>
+                    @else
+                        <a class="btn btn-info mr-2" href="{{ route('account.info.edit', ['User' => $User]) }}">Completa tu
+                            perfil</a>
+                    @endif
+                </div>
+            @endif
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md">
+                <h5>Cuenta de Usuario</h5>
+                <p> {{ $User->name }}</p>
+                <h5>Correo Electronico</h5>
+                <p> {{ $User->email }}</p>
+            </div>
+            <div class="col-auto">
+                @if ($User->isClient())
+                    <h6>Privilegios de Cliente</h6>
                     @if ($User->isLogged() || (Auth::check() && Auth::User()->isAdmin()))
                         <div class="d-flex justify-content-end">
-                            @if ($User->hasFullInfo())
-                                <a class="btn btn-secondary mr-2"
-                                    href="{{ route('account.info.edit', ['User' => $User]) }}">Actualizar</a>
-                            @else
-                                <a class="btn btn-info mr-2"
-                                    href="{{ route('account.info.edit', ['User' => $User]) }}">Completa tu
-                                    perfil</a>
-                            @endif
+                            <a class="btn btn-success mr-2" href="">Unete a Nosotros</a>
                         </div>
                     @endif
-                </div>
-            </div> --}}
-            <div class="card-body">
-                <p>
-                <div class="card-header">
-                    <div class="d-flex justify-content-between">
-                        <h5>
-                            Datos de Cuenta
-                        </h5>
-                        @if ($User->isLogged() || (Auth::check() && Auth::User()->isAdmin()))
-                            <div class="d-flex justify-content-end">
-                                @if ($User->hasFullInfo())
-                                    <a class="btn btn-secondary mr-2"
-                                        href="{{ route('account.info.edit', ['User' => $User]) }}">Actualizar</a>
-                                @else
-                                    <a class="btn btn-info mr-2"
-                                        href="{{ route('account.info.edit', ['User' => $User]) }}">Completa tu
-                                        perfil</a>
-                                @endif
-                            </div>
-                        @endif
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        {{-- <div class="col-md">
-                            alfa
-                        </div> --}}
-                        <div class="col-md">
-                            <h5>Cuenta de Usuario</h5>
-                            <p> {{ $User->name }}</p>
-                            <h5>Correo Electronico</h5>
-                            <p> {{ $User->email }}</p>
-                        </div>
-                        <div class="col-auto">
-                            @if ($User->isClient())
-                                <h6>Privilegios de Cliente</h6>
-                                @if ($User->isLogged() || (Auth::check() && Auth::User()->isAdmin()))
-                                    <div class="d-flex justify-content-end">
-                                        <a class="btn btn-success mr-2" href="">Unete a Nosotros</a>
-                                    </div>
-                                @endif
-                            @elseif ($User->isPartner())
-                                <h6>Privilegios de Asociado</h6>
-                            @elseif ($User->isAdmin())
-                                <h6>Privilegios de Administrador</h6>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-                </p>
-
-
-                {{-- </div> --}}
-                {{-- </p> --}}
-                {{-- <div class="card-body"> --}}
-                <p>
-                <div class="card-header">
-                    <h5>
-                        Datos Personales
-                    </h5>
-                </div>
-                <div class="card-body">
-                    <h5>Nombre(s)</h5>
-                    @if ($User->first_names != null)
-                        <p> {{ $User->first_names }}</p>
-                    @else
-                        <p class="font-italic">No Asignado</p>
-                    @endif
-
-                    <h5>Apellido(s)</h5>
-                    @if ($User->last_names != null)
-                        <p> {{ $User->last_names }}</p>
-                    @else
-                        <p class="font-italic">No Asignado</p>
-                    @endif
-
-                    <h5>Cumpleaños</h5>
-                    @if ($User->birthdate != null)
-                        <p> {{ $User->birthdate }}</p>
-                    @else
-                        <p class="font-italic">No Asignado</p>
-                    @endif
-
-                    <h5>Dirección</h5>
-                    @if ($User->address != null)
-                        <p> {{ $User->address }}</p>
-                    @else
-                        <p class="font-italic">No Asignado</p>
-                    @endif
-                </div>
-                </p>
-
-                <p>
-                <div class="card-header">
-                    <div class="d-flex justify-content-between">
-                        <h4>Telefono de Contacto</h4>
-                        @if ($User->isLogged() || (Auth::check() && Auth::User()->isAdmin()))
-                            <div class="d-flex justify-content-end">
-                                <button class="btn btn-success mr-2" id="btnAddPhone">+</button>
-                                {{-- <a class="btn btn-success mr-2 addPhone" href="#">+</a> --}}
-                            </div>
-                        @endif
-                    </div>
-                </div>
-                <div class="card-body">
-                    content
-                </div>
-                </p>
-
-
-                @if ($User->isLogged() || (Auth::check() && Auth::User()->isAdmin()))
-                    <p>
-                    <div class="card-header">
-                        <div class="d-flex justify-content-between">
-                            <h4>Metodos de Pago</h4>
-                            <div class="d-flex justify-content-end">
-                                <button class="btn btn-success mr-2" id="btnAddCard">+</button>
-                                {{-- <a class="btn btn-success mr-2" href="#">+</a> --}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        content
-                    </div>
-                    </p>
+                @elseif ($User->isPartner())
+                    <h6>Privilegios de Asociado</h6>
+                @elseif ($User->isAdmin())
+                    <h6>Privilegios de Administrador</h6>
                 @endif
-                <p>
+            </div>
+        </div>
+    </div>
+    </p>
+
+
+    {{-- </div> --}}
+    {{-- </p> --}}
+    {{-- <div class="card-body"> --}}
+    <p>
+    <div class="card-header">
+        <h5>
+            Datos Personales
+        </h5>
+    </div>
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-md">
+                <h5>Nombre(s)</h5>
+                @if ($User->first_names != null)
+                    <p> {{ $User->first_names }}</p>
+                @else
+                    <p class="font-italic">No Asignado</p>
+                @endif
+            </div>
+            <div class="col-md">
+                <h5>Apellido(s)</h5>
+                @if ($User->last_names != null)
+                    <p> {{ $User->last_names }}</p>
+                @else
+                    <p class="font-italic">No Asignado</p>
+                @endif
+            </div>
+        </div>
+
+        <h5>Fecha de Nacimiento</h5>
+        @if ($User->birthdate != null)
+            <p> {{ $User->birthdate }}</p>
+        @else
+            <p class="font-italic">No Asignado</p>
+        @endif
+
+
+        <p>
+        <h5>Dirección</h5>
+        @if ($User->address != null)
+            <div class="card">
+                <div class="card-body">
+                    <p> {{ $User->address }}</p>
+                </div>
+            </div>
+        @else
+            <div class="card">
+                <div class="card-body">
+                    <p class="font-italic">No Asignado</p>
+                </div>
+            </div>
+        @endif
+        </p>
+
+
+        <div class="row">
+            <div class="col-md">
+                <h5>Tel. Fijo</h5>
+                @if ($User->cel_phone != null)
+                    <p> {{ $User->cel_phone }}</p>
+                @else
+                    <p class="font-italic">No Asignado</p>
+                @endif
+            </div>
+            <div class="col-md">
+                <h5>Tel. Casa</h5>
+                @if ($User->home_phone != null)
+                    <p> {{ $User->home_phone }}</p>
+                @else
+                    <p class="font-italic">No Asignado</p>
+                @endif
+            </div>
+        </div>
+    </div>
+    </p>
+
+    {{-- <p>
+    <div class="card-header">
+        <div class="d-flex justify-content-between">
+            <h4>Telefono de Contacto</h4>
+            @if ($User->isLogged() || (Auth::check() && Auth::User()->isAdmin()))
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-success mr-2" id="btnAddPhone">+</button>                    
+                </div>
+            @endif
+        </div>
+    </div>
+    <div class="card-body">
+        content
+    </div>
+    </p> --}}
+
+
+    {{-- @if ($User->isLogged() || (Auth::check() && Auth::User()->isAdmin()))
+        <p>
+        <div class="card-header">
+            <div class="d-flex justify-content-between">
+                <h4>Metodos de Pago</h4>
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-success mr-2" id="btnAddCard">+</button>                    
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            content
+        </div>
+        </p>
+    @endif --}}
+    {{-- <p>
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
                         <h4>Reces Sociales</h4>
                         @if ($User->isLogged() || (Auth::check() && Auth::User()->isAdmin()))
                             <div class="d-flex justify-content-end">
-                                <button class="btn btn-success mr-2" id="btnAddSocialNetwork">+</button>
-                                {{-- <a class="btn btn-success mr-2" href="#">+</a> --}}
+                                <button class="btn btn-success mr-2" id="btnAddSocialNetwork">+</button>                                
                             </div>
                         @endif
                     </div>
@@ -163,19 +173,19 @@
                 <div class="card-body">
                     content
                 </div>
-                </p>
-                {{-- <div class="card-header">
+                </p> --}}
+    {{-- <div class="card-header">
                     algo
                 </div>
                 <div class="card-body">
                     content
                 </div>
                 <br> --}}
-            </div>
-        </div>
+    {{-- </div>
+        </div> --}}
 
 
-        {{-- <div class="row">
+    {{-- <div class="row">
             <div class="col-sm">
                 <input class="form-control " name="phone" type="tel" placeholder="123-456-7890"
                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
@@ -185,7 +195,7 @@
             </div>
         </div> --}}
 
-    </div>
+    {{-- </div> --}}
 @endsection
 @section('scripts')
     @if ($update == true)

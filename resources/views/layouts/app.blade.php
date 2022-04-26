@@ -21,15 +21,16 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    @livewireStyles
 </head>
 
 <body class="d-flex flex-column min-vh-100">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+        <nav style="background: #fd7e14;" class="navbar navbar-expand-md navbar-dark  shadow-sm">
+            {{-- <nav class="navbar navbar-expand-md navbar-light  shadow-sm"> --}}
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img width="30" class="mr-1" src="{{ asset('images/assets/main-logo.png') }}" alt="logo">
-                    {{ config('app.name', 'Laravel') }}
+                    <img style="width: 8rem" src="{{ asset('images/assets/appNameB.png') }}" alt="appName">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -41,12 +42,18 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">Inicio</a>
+                            <strong>
+                                <a class="nav-link " href="{{ route('home') }}">
+                                    Inicio
+                                </a>
+                            </strong>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Categorías
+                                <strong>
+                                    Categorías
+                                </strong>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('global.partners') }}">Nuestros
@@ -68,47 +75,55 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('global.publicProducts') }}">Products &
-                                Services</a>
+                            <a class="nav-link" href="{{ route('global.publicProducts') }}">
+                                <strong>
+                                    Productos y Servicios
+                                </strong>
+                            </a>
                         </li>
 
                         {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('global.publicServices') }}">Servicios</a>
                         </li> --}}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('global.aboutUs') }}">Conocenos</a>
+                            <a class="nav-link" href="{{ route('global.aboutUs') }}">
+                                <strong>
+                                    Conocenos
+                                </strong>
+                            </a>
                         </li>
                         @if (Auth::check() && Auth::user()->isClient())
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('global.JoinUs') }}">Únete a Nosotros</a>
+                                <a class="nav-link" href="{{ route('global.JoinUs') }}">
+                                    <strong>
+                                        Únete a Nosotros
+                                    </strong>
+                                </a>
                             </li>
                         @endif
-                        @if (Auth::check() && Auth::user()->isAdmin())
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Admin Controlls
+                        @if (Auth::check() && Auth::user()->isPartner())
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('partner.home') }}">
+                                    <strong>
+                                        Partner Panel
+                                    </strong>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="">Public Dashboard Sections</a>
-                                    @if (Auth::check() && Auth::user()->isRoot())
-                                        <a class="dropdown-item" href="">Admin Dashboard Sections</a>
-                                    @endif
-                                    <br>
-                                    <a class="dropdown-item" href="{{ route('admin.accounts.all') }}">User
-                                        Accounts</a>
-                                    <a class="dropdown-item" href="{{ route('admin.products.all') }}">Products &
-                                        Services</a>
-                                    {{-- <a class="dropdown-item" href="{{ route('admin.all-services') }}">All
-                                        Services</a>
-                                    <a class="dropdown-item" href="{{ route('admin.all-stores') }}">All Stores</a> --}}
-                                    {{-- <br>
-                                    <a class="dropdown-item" href="">Site Settings</a> --}}
-                                </div>
+                            </li>
+                        @elseif(Auth::check() && Auth::user()->isAdmin())
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.home') }}">
+                                    <strong>
+                                        Admin Panel
+                                    </strong>
+                                </a>
                             </li>
                         @endif
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('global.getHelp') }}">Ayuda</a>
+                            <a class="nav-link" href="{{ route('global.getHelp') }}">
+                                <strong>
+                                    Ayuda
+                                </strong>
+                            </a>
                         </li>
                     </ul>
 
@@ -118,20 +133,30 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">
+                                        <strong>
+                                            {{ __('Login') }}
+                                        </strong>
+                                    </a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">
+                                        <strong>
+                                            {{ __('Register') }}
+                                        </strong>
+                                    </a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    <strong>
+                                        {{ Auth::user()->name }}
+                                    </strong>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -141,30 +166,44 @@
                                             href="{{ route('public.accounts.profile', [Auth::user()]) }}">Mi Perfil</a>
                                         @if (Auth::user()->isClient())
                                             <br>
-                                            <a class="dropdown-item" href="">Mis Suscripciones</a>
-                                            <a class="dropdown-item" href="">Mis Compras</a>
+                                            <a class="dropdown-item"
+                                                href="{{ route('account.info', ['User' => Auth::user()]) }}">Mi
+                                                Informacion</a>
+                                            <a class="dropdown-item"
+                                                href="{{ route('account.suscriptions', ['User' => Auth::user()]) }}">Mis
+                                                Suscripciones</a>
+                                            <a class="dropdown-item"
+                                                href="{{ route('account.likes', ['User' => Auth::user()]) }}">Mis Me
+                                                Gusta</a>
                                             <a class="dropdown-item" href="{{ route('global.JoinUs') }}">Vender en la
                                                 Tienda</a>
                                         @endif
 
                                         @if (Auth::user()->isPartner() || Auth::user()->isAdmin())
                                             <br>
-                                            <a class="dropdown-item" href="">Mis Suscripciones</a>
-                                            <a class="dropdown-item" href="">Mis Compras</a>
-                                            <a class="dropdown-item" href="">Mis Productos & Servicios</a>
-                                            {{-- <a class="dropdown-item" href="{{ route('global.JoinUs') }}">Vender en la
-                                                Tienda</a> --}}
+                                            <a class="dropdown-item"
+                                                href="{{ route('account.info', ['User' => Auth::user()]) }}">Mi
+                                                Informacion</a>
+                                            <a class="dropdown-item"
+                                                href="{{ route('account.suscriptions', ['User' => Auth::user()]) }}">Mis
+                                                Suscripciones</a>
+                                            <a class="dropdown-item"
+                                                href="{{ route('account.likes', ['User' => Auth::user()]) }}">Mis Me
+                                                Gusta</a>
+                                            <a class="dropdown-item"
+                                                href="{{ route('account.products', ['User' => Auth::user()]) }}">Mis
+                                                Productos & Servicios</a>
                                         @endif
                                     @endif
                                     <br>
-                                    <a class="dropdown-item" href="">Preguntas y Sugerencias</a>
-                                    <a class="dropdown-item" href="">Seguridad</a>
-                                    <a class="dropdown-item" href="">Privacidad</a>
-                                    <a class="dropdown-item" href="">Sobre Nosotros</a>
+                                    <a class="dropdown-item" href="{{ route('global.getHelp') }}">Preguntas y Sugerencias</a>
+                                    {{-- <a class="dropdown-item" href="">Seguridad</a>
+                                    <a class="dropdown-item" href="">Privacidad</a> --}}
+                                    <a class="dropdown-item" href="{{ route('global.aboutUs') }}">Sobre Nosotros</a>
                                     <br>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -197,6 +236,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
+    @livewireScripts
     @yield('scripts')
     <br>
 </body>
@@ -210,9 +250,9 @@
                 href="https://www.facebook.com/ProverbiusSoftware" role="button"><i class="fab fa-facebook-f"></i></a>
 
             <!-- Twitter -->
-            <a target="_blank" class="btn btn-outline-light btn-floating m-1"
+            {{-- <a target="_blank" class="btn btn-outline-light btn-floating m-1"
                 href="https://www.linkedin.com/in/osbaldo-toledo-ramos-06b249213" role="button"><i
-                    class="fab fa-linkedin-in"></i></a>
+                    class="fab fa-linkedin-in"></i></a> --}}
 
             <!-- Google -->
             <a target="_blank" class="btn btn-outline-light btn-floating m-1"

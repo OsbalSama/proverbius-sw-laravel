@@ -12,4 +12,10 @@ class partnerControlls extends Controller
     {
         $this->middleware('only.partners');
     }
+
+
+    public function index()
+    {
+        return view('partner-controlls.partner-home');
+    }
 }

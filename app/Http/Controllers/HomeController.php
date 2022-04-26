@@ -22,17 +22,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (Auth::check()) {
-            if (Auth::user()->role == "admin") {
-                return view('admin-controlls.admin-home');
-            } else if (Auth::user()->role == "partner") {
-                return view('partner-controlls.partner-home');
-            } else {
-                return view('home');
-            }
-        } else {
-            return view('home');
-        }
+        return view('home');
     }
 
     public function topProdsServs()
@@ -118,11 +108,11 @@ class HomeController extends Controller
         return view('general-views.help');
     }
 
-    public function viewProductPage(product $product)
+    public function viewProductPage(product $Product)
     {
-        $User = User::findOrFail($product->user_id);
+        $User = User::findOrFail($Product->user_id);
         return view('account-views.view-product')->with([
-            'product' => $product,
+            'product' => $Product,
             'User' => $User
         ]);
     }

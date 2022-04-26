@@ -69,6 +69,24 @@ class User extends Authenticatable
             'role' => 'admin',
         ]);
     }
+
+    public static function createAdmin()
+    {
+        User::create([
+            'name' => 'Osbal095',
+            'slug' => Str::slug('Osbal095', '-'),
+            'email' => 'osbaldo.toledoramos1995@gmail.com',
+            'password' => Hash::make('Osbal095'),
+            'role' => 'admin',
+            'first_names' => 'Osbaldo',
+            'last_names' => 'Toledo Ramos',
+            'address' => 'Felipe pescador #23 Interior C, Colonia El Pinal, Teziutlán, Puebla. ',
+            'birthdate' => '1995-08-27',
+            'cel_phone' => '231-174-1481',
+            'home_phone' => '231 313-0113',
+        ]);
+    }
+
     public function isClient()
     {
         return $this->role == 'client';

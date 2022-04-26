@@ -90,16 +90,6 @@
                                 </span>
                             @enderror
                         </div>
-                        {{-- <div class="col-sm">
-                            <label for="stock">
-                                <h5>*Bloqueado</h5>
-                            </label>
-                            <select class="form-control" class="custom-select" name="locked" required>
-                                <option {{ old('locked') == '1' ? 'selected' : '' }} value="1">Bloqueado</option>
-                                <option {{ old('locked') == '0' ? 'selected' : '' }} value="0" selected>Desbloqueado
-                                </option>
-                            </select>
-                        </div> --}}
                     </div>
                 </div>
                 <div class="form-group">
@@ -181,8 +171,7 @@
         $('.trySubmit').submit(function(e) {
             e.preventDefault();
             Swal.fire({
-                title: 'Crear Nuevo Producto?',
-                // text: "Crear nuevo Producto?",
+                title: 'Crear Nuevo Producto?',                
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

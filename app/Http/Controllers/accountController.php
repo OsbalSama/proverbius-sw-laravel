@@ -20,7 +20,7 @@ class accountController extends Controller
     }
 
 
-    //Create Product
+    //Create & Store Product
     public function createProductService(User $User)
     {
         return view('account-views.profile-new-product')->with([
@@ -28,7 +28,6 @@ class accountController extends Controller
         ]);
     }
 
-    //Store Product
     public function storeProductService()
     {
         $rules = [
@@ -46,14 +45,47 @@ class accountController extends Controller
             'stock' => request()->stock,
             'version' => request()->version,
             'download_link' => request()->downloadLink,
-            // 'visible' => request()->visible,
-            // 'locked' => request()->locked,
             'user_id' => Auth::User()->id,
         ]);
         return view('account-views.profile-created-products')->with([
             'User' => Auth::user(),
             'created' => true,
         ]);
+    }
+
+
+    // Edit & Update Products
+    public function editProductService(product $Product)
+    {
+        if ((Auth::User()->role == 'admin')) {
+            return view('account-views.profile-edit-product')->with([
+                'User' => Auth::User(),
+                'Product' => $Product
+            ]);
+        }
+        abort(403);
+    }
+
+    public function updateProductService(product $Product)
+    {
+        $rules = [
+            'title' => ['required', 'string', 'max:255', 'min:4'],
+            'description' => ['required', 'string', 'max:1000', 'min:4'],
+        ];
+        request()->validate($rules);
+        $title  = request()->title;
+
+        $Product->update([
+            'title' => $title,
+            'slug' => Str::slug($title, '-'),
+            'description' => request()->description,
+            'type' => request()->type,
+            'amount' => request()->amount,
+            'stock' => request()->stock,
+            'version' => request()->version,
+            'download_link' => request()->downloadLink,
+        ]);
+        return redirect()->route('public.product.view', ['product' => $Product]);
     }
 
     public function editAccountInfo(User $User)

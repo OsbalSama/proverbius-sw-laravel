@@ -69,7 +69,7 @@
                                                 <td>
                                                     <div class="d-flex justify-content-end">
                                                         <a class="btn btn-outline-primary btn-sm mr-2"
-                                                            href="{{ route('public.products.view', ['product' => $product]) }}"
+                                                            href="{{ route('public.product.view', ['product' => $product]) }}"
                                                             target="_blank">Ver Pagina</a>
 
                                                         {{-- <a class="btn btn-outline-success btn-sm mr-2"

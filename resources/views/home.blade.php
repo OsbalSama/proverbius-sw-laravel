@@ -105,11 +105,9 @@
                                 <div class="card-body">
                                     <div class="text-center">
                                         <h6 class="card-title">Insurance Policy Administration</h6>
-                                        {{-- <p>
-                                            Software de Manejo de Pólizas de Seguro para automóvil.
-                                        </p> --}}
                                     </div>
                                 </div>
+                                <a href="#" class="stretched-link"></a>
                             </div>
                         </div>
                         <!-- item -->
@@ -120,12 +118,9 @@
                                 <div class="card-body">
                                     <div class="text-center">
                                         <h6 class="card-title">Register Cash Free</h6>
-                                        {{-- <p>
-                                            Software de Punto de Venta para negocios con venta de
-                                            mercancía por pieza o a granel.
-                                        </p> --}}
                                     </div>
                                 </div>
+                                <a href="http://proverbius-sw.test/register-cash-free" class="stretched-link"></a>
                             </div>
                         </div>
                         <!-- item -->
@@ -136,160 +131,25 @@
                                 <div class="card-body">
                                     <div class="text-center">
                                         <h6 class="card-title">Register Cash Food</h6>
-                                        {{-- <p>
-                                            Software de Punto de Venta especializado para restaurantes y
-                                            negocios de comida rapida.
-                                        </p> --}}
+                                        <a href="#" class="stretched-link"></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- item -->
-                        <div class="col-sm">
+                        {{-- <div class="col-sm">
                             <div class="card mb-2 w-100 h-100">
                                 <img class="card-img-top p-2" src="{{ asset('images/products/selah.jpg') }}"
                                     alt="Card image cap">
                                 <div class="card-body">
                                     <div class="text-center">
-                                        <h6 class="card-title">Selah Worship</h6>
-                                        {{-- <p>
-                                            PROXIMAMENTE.
-                                        </p> --}}
+                                        <h6 class="card-title">Selah Worship</h6>                                        
                                     </div>
+                                </div>
+                            </div>
+                        </div> --}}
+                    </div>
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <!-- item -->
-                        <div class="col-sm">
-                            <div class="card mb-2 w-100 h-100">
-                                <img class="card-img-top p-2" src="{{ asset('images/products/ipa.jpg') }}"
-                                    alt="Card image cap">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <h6 class="card-title">Insurance Policy Administration</h6>
-                                        {{-- <p>
-                                            Software de Manejo de Pólizas de Seguro para automóvil.
-                                        </p> --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- item -->
-                        <div class="col-sm">
-                            <div class="card mb-2 w-100 h-100">
-                                <img class="card-img-top p-2" src="{{ asset('images/products/rcf.jpg') }}"
-                                    alt="Card image cap">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <h6 class="card-title">Register Cash Free</h6>
-                                        {{-- <p>
-                                            Software de Punto de Venta para negocios con venta de
-                                            mercancía por pieza o a granel.
-                                        </p> --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- item -->
-                        <div class="col-sm">
-                            <div class="card mb-2 w-100 h-100">
-                                <img class="card-img-top p-2" src="{{ asset('images/products/rcfd.jpg') }}"
-                                    alt="Card image cap">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <h6 class="card-title">Register Cash Food</h6>
-                                        {{-- <p>
-                                            Software de Punto de Venta especializado para restaurantes y
-                                            negocios de comida rapida.
-                                        </p> --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- item -->
-                        <div class="col-sm">
-                            <div class="card mb-2 w-100 h-100">
-                                <img class="card-img-top p-2" src="{{ asset('images/products/selah.jpg') }}"
-                                    alt="Card image cap">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <h6 class="card-title">Selah Worship</h6>
-                                        {{-- <p>
-                                            PROXIMAMENTE.
-                                        </p> --}}
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt-2 mb-2">
-                        <!-- item -->
-                        <div class="col-sm">
-                            <div class="card mb-2 w-100 h-100">
-                                <img class="card-img-top p-2" src="{{ asset('images/products/ipa.jpg') }}"
-                                    alt="Card image cap">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <h6 class="card-title">Insurance Policy Administration</h6>
-                                        {{-- <p>
-                                            Software de Manejo de Pólizas de Seguro para automóvil.
-                                        </p> --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- item -->
-                        <div class="col-sm">
-                            <div class="card mb-2 w-100 h-100">
-                                <img class="card-img-top p-2" src="{{ asset('images/products/rcf.jpg') }}"
-                                    alt="Card image cap">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <h6 class="card-title">Register Cash Free</h6>
-                                        {{-- <p>
-                                            Software de Punto de Venta para negocios con venta de
-                                            mercancía por pieza o a granel.
-                                        </p> --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- item -->
-                        <div class="col-sm">
-                            <div class="card mb-2 w-100 h-100">
-                                <img class="card-img-top p-2" src="{{ asset('images/products/rcfd.jpg') }}"
-                                    alt="Card image cap">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <h6 class="card-title">Register Cash Food</h6>
-                                        {{-- <p>
-                                            Software de Punto de Venta especializado para restaurantes y
-                                            negocios de comida rapida.
-                                        </p> --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- item -->
-                        <div class="col-sm">
-                            <div class="card mb-2 w-100 h-100">
-                                <img class="card-img-top p-2" src="{{ asset('images/products/selah.jpg') }}"
-                                    alt="Card image cap">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <h6 class="card-title">Selah Worship</h6>
-                                        {{-- <p>
-                                            PROXIMAMENTE.
-                                        </p> --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

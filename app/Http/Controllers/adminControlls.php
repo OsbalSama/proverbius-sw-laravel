@@ -16,6 +16,11 @@ class adminControlls extends Controller
 
     public function index()
     {
+        return view('admin-controlls.admin-home');
+    }
+
+    public function allAccounts()
+    {
         $users = User::all();
         return view('admin-controlls.account-controlls.all-accounts')->with([
             'users' => $users
