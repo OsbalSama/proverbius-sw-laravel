@@ -2,7 +2,6 @@
 @section('content')
     <div class="container">
         <h1>Productos y Servicios</h1>
-
         @if ($products->isEmpty())
             <div class="row">
                 <div class="col-lg">
@@ -23,7 +22,7 @@
             </div>
         @else
             <div class="row ">
-                @foreach ($products as $product)
+                @foreach ($products as $Product)
                     <div class="col-auto m-2 ">
                         @include('components.product-card-b')
                     </div>

@@ -112,7 +112,7 @@ class HomeController extends Controller
     {
         $User = User::findOrFail($Product->user_id);
         return view('account-views.view-product')->with([
-            'product' => $Product,
+            'Product' => $Product,
             'User' => $User
         ]);
     }

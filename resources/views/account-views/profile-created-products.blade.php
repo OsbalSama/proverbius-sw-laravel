@@ -13,7 +13,6 @@
                         <div class="d-flex justify-content-center">
                             <h5 class="card-title ">Sin Productos o Servicios</h5>
                         </div>
-                        {{-- @if (Auth::check()) --}}
                         @if ($User->isLogged())
                             <div class="d-flex justify-content-center">
                                 <a class="btn btn-primary"
@@ -21,14 +20,13 @@
                                     Producto</a>
                             </div>
                         @endif
-                        {{-- @endif --}}
                     </div>
                 </div>
             @else
                 <div class="card w-100">
                     <div class="card-body">
                         {{-- <h5 class="card-title ">Load Products</h5> --}}
-                        @foreach ($User->Products as $product)
+                        @foreach ($User->Products as $Product)
                             @include('components.product-card')
                         @endforeach
                         @if ($User->isLogged())

@@ -85,7 +85,7 @@ class accountController extends Controller
             'version' => request()->version,
             'download_link' => request()->downloadLink,
         ]);
-        return redirect()->route('public.product.view', ['product' => $Product]);
+        return redirect()->route('public.product.view', ['Product' => $Product]);
     }
 
     public function editAccountInfo(User $User)

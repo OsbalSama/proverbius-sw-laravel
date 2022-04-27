@@ -7,17 +7,31 @@
                     alt="Card image cap">
             </div>
             <div class="col-lg">
-                <h4>{{ $product->title }}</h4>
-                <p>{{ $product->description }} </p>
-                <p> Type: {{ $product->type }} </p>
-                @if ($product->amount != null)
-                    <p>${{ $product->amount }}-MXN </p>
-                @else
-                    <p>Amount: FREE </p>
-                @endif
+                <p>
+                <div class="row">
+                    <div class="col-lg">
+                        <h4>{{ $Product->title }}</h4>
+                        @if ($Product->type == 'product')
+                            Licencia de Software
+                        @else
+                            Licencia Tipo Servicio
+                        @endif
+                    </div>
+                    <div class="col-auto ">
+                        <div class="h-100">
+                            @if ($Product->amount != null)
+                                <b>Coste: ${{ $Product->amount }}-MXN</b>
+                            @else
+                                <b>GRATUITO</b>
+                            @endif
+                        </div>
+
+                    </div>
+                </div>
+                </p>
             </div>
         </div>
-        <a href="{{ route('public.product.view', ['product' => $product]) }} " class="stretched-link"></a>
+        <a href="{{ route('public.product.view', ['Product' => $Product]) }} " class="stretched-link"></a>
     </div>
 </div>
 </p>

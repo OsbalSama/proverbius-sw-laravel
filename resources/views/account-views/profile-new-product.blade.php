@@ -82,7 +82,7 @@
                             <label for="version">
                                 <h5>*Version</h5>
                             </label>
-                            <input min="1" type="number" class="form-control @error('version') is-invalid @enderror"
+                            <input min="0.00" type="number" class="form-control @error('version') is-invalid @enderror"
                                 name="version" placeholder="1.50" value="{{ old('version') }}" required>
                             @error('version')
                                 <span class="invalid-feedback" role="alert">
@@ -106,64 +106,11 @@
                 </div>
             </div>
         </div>
-        <br>
-        <div class="card">
-            <div class="card-header">
-                <div class="d-flex justify-content-between">
-                    Terminos del Servicio
-                    <div class="d-flex justify-content-end">
-                        <a class="btn btn-success mr-2" href="#">+</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="form-group">
-                    <label for="title">
-                        <h5>*Item</h5>
-                    </label>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="card">
-            <div class="card-header">
-                <div class="d-flex justify-content-between">
-                    Requisitos Minimos
-                    <div class="d-flex justify-content-end">
-                        <a class="btn btn-success mr-2" href="#">+</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="form-group">
-                    <label for="title">
-                        <h5>*Item</h5>
-                    </label>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="card">
-            <div class="card-header">
-                <div class="d-flex justify-content-between">
-                    Requisitos Recomendados
-                    <div class="d-flex justify-content-end">
-                        <a class="btn btn-success mr-2" href="#">+</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="form-group">
-                    <label for="title">
-                        <h5>*Item</h5>
-                    </label>
-                </div>
-            </div>
-        </div>
-        <br>
+        <p>
         <div class="d-flex justify-content-end">
             <button class="btn btn-success mr-2" type="submit">Guardar</button>
         </div>
+        </p>
     </form>
 @endsection
 @section('scripts')
@@ -171,7 +118,7 @@
         $('.trySubmit').submit(function(e) {
             e.preventDefault();
             Swal.fire({
-                title: 'Crear Nuevo Producto?',                
+                title: 'Crear Nuevo Producto?',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

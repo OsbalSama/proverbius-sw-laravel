@@ -79,7 +79,7 @@ Route::match(['put', 'patch'], '{Product}/update', 'accountController@updateProd
 // Route::post('products-and-services/store', 'accountController@storeProductService')->name('account.product.store');
 
 //view Product by ADMIN or ROOT
-Route::get('/{product}', 'HomeController@viewProductPage')->name('public.product.view');
+Route::get('/{Product}', 'HomeController@viewProductPage')->name('public.product.view');
 
 
 
