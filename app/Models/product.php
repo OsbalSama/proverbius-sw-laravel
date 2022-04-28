@@ -35,6 +35,11 @@ class product extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'id_account');
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function TermsRequirement()
+    {
+        return $this->hasMany(TermRequirement::class);
     }
 }

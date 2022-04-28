@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\TermRequirement;
 use App\Http\Requests\StoreTermRequirementRequest;
 use App\Http\Requests\UpdateTermRequirementRequest;
+use App\Models\product;
+use Illuminate\Support\Facades\Auth;
 
 class TermRequirementController extends Controller
 {
@@ -56,9 +58,16 @@ class TermRequirementController extends Controller
      * @param  \App\Models\TermRequirement  $termRequirement
      * @return \Illuminate\Http\Response
      */
-    public function edit(TermRequirement $termRequirement)
+    public function edit(product $Product)
     {
-        return 'Open View Edit Terms & Requirements';
+        $items = $Product->TermsRequirement();
+        dd($Product->TermsRequirement());
+        return view('account-views.product-views.edit-terms-reqs')->with([
+            'User' => Auth::user(),
+            'Product' => $Product,
+            'items' => $items,
+        ]);
+        // return 'Open View Edit Terms & Requirements';
     }
 
     /**

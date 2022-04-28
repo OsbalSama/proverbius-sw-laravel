@@ -15,7 +15,12 @@ class CreateTermRequirementsTable extends Migration
     {
         Schema::create('term_requirements', function (Blueprint $table) {
             $table->id();
+            $table->longText('content')->unique();
+            $table->string('group');
+            $table->bigInteger('product_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 

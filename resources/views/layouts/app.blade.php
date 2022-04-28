@@ -48,7 +48,7 @@
                                 </a>
                             </strong>
                         </li>
-                        <li class="nav-item dropdown">
+                        {{-- <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <strong>
@@ -69,10 +69,8 @@
                                     Comida Rápida</a>
                                 <a class="dropdown-item" href="{{ route('global.business') }}">Negocios</a>
                                 <a class="dropdown-item" href="{{ route('global.e-commerce') }}">E-Commerce</a>
-                                {{-- <br>
-                                <a class="dropdown-item" href="{{ route('global.oher-cats') }}">Otras Categorías</a> --}}
                             </div>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('global.publicProducts') }}">
@@ -196,14 +194,15 @@
                                         @endif
                                     @endif
                                     <br>
-                                    <a class="dropdown-item" href="{{ route('global.getHelp') }}">Preguntas y Sugerencias</a>
+                                    <a class="dropdown-item" href="{{ route('global.getHelp') }}">Preguntas y
+                                        Sugerencias</a>
                                     {{-- <a class="dropdown-item" href="">Seguridad</a>
                                     <a class="dropdown-item" href="">Privacidad</a> --}}
                                     <a class="dropdown-item" href="{{ route('global.aboutUs') }}">Sobre Nosotros</a>
                                     <br>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 

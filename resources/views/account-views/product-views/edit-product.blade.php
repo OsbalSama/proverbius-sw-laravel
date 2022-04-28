@@ -111,7 +111,7 @@
                 <div class="d-flex justify-content-between">
                     Terminos del Servicio
                     <div class="d-flex justify-content-end">
-                        <a class="btn btn-success mr-2" href="#">+</a>
+                        <a class="btn btn-success mr-2" href="{{ route('account.product.edit-terms', ['Product'=> $Product]) }}">+</a>
                     </div>
                 </div>
             </div>

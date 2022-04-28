@@ -76,8 +76,8 @@ Route::get('{product}/edit', 'accountController@editProductService')->name('acco
 Route::match(['put', 'patch'], '{Product}/update', 'accountController@updateProductService')->name('account.product.update');
 
 //Edit Terms
-Route::get('{product}/edit-terms', 'accountController@editTermsAndRequirements')->name('account.product.edit-terms-requirements');
-Route::match(['put', 'patch'], '{Product}/edit-terms', 'accountController@updateProductService')->name('account.product.update-terms-requirements');
+Route::get('{Product}/edit-terms', 'TermRequirementController@edit')->name('account.product.edit-terms');
+// Route::match(['put', 'patch'], '{Product}/update-terms', 'accountController@updateProductService')->name('account.product.update-terms-requirements');
 
 
 //view Product by ADMIN or ROOT
