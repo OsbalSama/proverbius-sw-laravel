@@ -18,4 +18,6 @@ class partnerControlls extends Controller
     {
         return view('partner-controlls.partner-home');
     }
+
+    
 }

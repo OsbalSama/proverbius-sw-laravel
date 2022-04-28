@@ -19,11 +19,10 @@ class accountController extends Controller
         $this->middleware('auth');
     }
 
-
     //Create & Store Product
     public function createProductService(User $User)
     {
-        return view('account-views.profile-new-product')->with([
+        return view('account-views.product-views.new-product')->with([
             'User' => $User,
         ]);
     }
@@ -58,7 +57,7 @@ class accountController extends Controller
     public function editProductService(product $Product)
     {
         if ((Auth::User()->role == 'admin')) {
-            return view('account-views.profile-edit-product')->with([
+            return view('account-views.product-views.edit-product')->with([
                 'User' => Auth::User(),
                 'Product' => $Product
             ]);

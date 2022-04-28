@@ -75,8 +75,10 @@ Route::get('/products-and-services/store', 'accountController@storeProductServic
 Route::get('{product}/edit', 'accountController@editProductService')->name('account.product.edit');
 Route::match(['put', 'patch'], '{Product}/update', 'accountController@updateProductService')->name('account.product.update');
 
+//Edit Terms
+Route::get('{product}/edit-terms', 'accountController@editTermsAndRequirements')->name('account.product.edit-terms-requirements');
+Route::match(['put', 'patch'], '{Product}/edit-terms', 'accountController@updateProductService')->name('account.product.update-terms-requirements');
 
-// Route::post('products-and-services/store', 'accountController@storeProductService')->name('account.product.store');
 
 //view Product by ADMIN or ROOT
 Route::get('/{Product}', 'HomeController@viewProductPage')->name('public.product.view');
