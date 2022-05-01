@@ -79,6 +79,12 @@ Route::match(['put', 'patch'], '{Product}/update', 'accountController@updateProd
 Route::get('{Product}/edit-terms', 'TermRequirementController@edit')->name('account.product.edit-terms');
 // Route::match(['put', 'patch'], '{Product}/update-terms', 'accountController@updateProductService')->name('account.product.update-terms-requirements');
 
+// store new term
+Route::post('{Product}/store-term', 'TermRequirementController@store')->name('account.term-req.store');
+
+//delete term
+Route::delete('terms/{Registro}/destroy', 'TermRequirementController@destroy')->name('account.term-req.destroy');
+
 
 //view Product by ADMIN or ROOT
 Route::get('/{Product}', 'HomeController@viewProductPage')->name('public.product.view');

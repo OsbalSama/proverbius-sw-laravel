@@ -28,7 +28,6 @@
                                         <col>
                                         <col>
                                         <col style="width: 15%;">
-
                                     </colgroup>
                                     <thead class="thead-ligth">
                                         <tr>
@@ -45,7 +44,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
                                         @foreach ($products as $product)
                                             <tr>
                                                 <td>{{ $product->id }}</td>

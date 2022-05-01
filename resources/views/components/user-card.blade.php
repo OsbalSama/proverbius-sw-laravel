@@ -1,5 +1,5 @@
-<div class="card w-auto">
-    <div class="card-header">
+<div class="card w-auto m-0 p-0">
+    <div class="card-header m-1 p-1">
         <div class="row">
             <div class="col-auto">
                 <div class="d-flex justify-content-center">

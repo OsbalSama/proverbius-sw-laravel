@@ -15,6 +15,12 @@ class TermRequirementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('only.partners');
+    }
+
     public function index()
     {
         return 'Open View Edit Terms & Requirements';
@@ -27,7 +33,6 @@ class TermRequirementController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -36,9 +41,18 @@ class TermRequirementController extends Controller
      * @param  \App\Http\Requests\StoreTermRequirementRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTermRequirementRequest $request)
+    public function store(product $Product)
     {
-        return 'store Terms & Requirements';
+        $rules = [
+            'content' => ['string', 'max:1000', 'min:4'],
+        ];
+        request()->validate($rules);
+        TermRequirement::create([
+            'content' => request()->content,
+            'group' => request()->group,
+            'product_id' => $Product->id,
+        ]);
+        return redirect(action('TermRequirementController@edit', $Product));
     }
 
     /**
@@ -60,12 +74,10 @@ class TermRequirementController extends Controller
      */
     public function edit(product $Product)
     {
-        $items = $Product->TermsRequirement();
-        dd($Product->TermsRequirement());
+        // $items = $Product->TermsRequirement->all();
         return view('account-views.product-views.edit-terms-reqs')->with([
             'User' => Auth::user(),
             'Product' => $Product,
-            'items' => $items,
         ]);
         // return 'Open View Edit Terms & Requirements';
     }
@@ -88,8 +100,10 @@ class TermRequirementController extends Controller
      * @param  \App\Models\TermRequirement  $termRequirement
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TermRequirement $termRequirement)
+    public function destroy(TermRequirement $Registro)
     {
-        return 'destroy Terms & Requirements';
+        $Product = $Registro->product;
+        $Registro->delete();
+        return redirect(action('TermRequirementController@edit', $Product));
     }
 }

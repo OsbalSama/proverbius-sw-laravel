@@ -56,7 +56,7 @@ class accountController extends Controller
     // Edit & Update Products
     public function editProductService(product $Product)
     {
-        if ((Auth::User()->role == 'admin')) {
+        if (($Product->user->isLogged())||(Auth::User()->role == 'admin')) {
             return view('account-views.product-views.edit-product')->with([
                 'User' => Auth::User(),
                 'Product' => $Product

@@ -42,4 +42,25 @@ class product extends Model
     {
         return $this->hasMany(TermRequirement::class);
     }
+
+    public function getAllMinReq()
+    {
+        return $this->TermsRequirement->filter(function($Reg) {
+            return $Reg->group == 'req_min';
+        });
+    }
+
+    public function getAllMedReq()
+    {
+        return $this->TermsRequirement->filter(function($Reg) {
+            return $Reg->group == 'req_med';
+        });
+    }
+
+    public function getAllTerms()
+    {
+        return $this->TermsRequirement->filter(function($Reg) {
+            return $Reg->group == 'term';
+        });
+    }
 }

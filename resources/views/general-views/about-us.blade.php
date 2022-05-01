@@ -94,7 +94,7 @@
 
             <div class="row align-items-center shadow p-3 mb-5 bg-white rounded">
                 <div class="col-md">
-                    <img class="img-thumbnail w-100" src="{{ asset('images\assets\ceo.png') }}" alt="Image">
+                    <img class="img-thumbnail w-100" src="{{ asset('images\assets\Imagen2.png') }}" alt="Image">
                 </div>
                 <div class="col-md m-0 p-0 h-100 w-100">
                     <div class="card w-100 h-100">

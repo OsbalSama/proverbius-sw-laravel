@@ -2,21 +2,38 @@
 @section('product-content')
     @if ($Product->download_link != null)
         <p>
-        <div class="card shadow p-3 mb-5 bg-white rounded">
-            <div class="card-body">
-                <H4>
-                    Link de Descarga v{{ $Product->version }}
-                </H4>
-                <p class="text-center">
-                    {{ $Product->description }}
-                </p>
+
+        <div class="row h-auto mh-25">
+            <div class="col-md h-auto">
+                <div class="card shadow p-3 mb-5 bg-white rounded h-100">
+                    <div class="card-body">
+                        <H4>
+                            Link de Descarga v{{ $Product->version }}
+                        </H4>
+                        <div class="overflow-auto">
+                            <p class="text-center">
+                                {{ $Product->description }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-center">
+                            <a class="btn btn-lg btn-success" href="{{ $Product->download_link }}" target="_blank">
+                                DESCARGA AQUI
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="card-footer">
-                <a class="btn btn-success w-100" href="{{ $Product->download_link }}" target="_blank">
-                    DESCARGA AQUI
-                </a>
-            </div>
+            {{-- <div class="col-md-5 h-auto">
+                <div class="card shadow p-3 mb-5 bg-white rounded h-100">
+                    <h4>
+                        Archivos Adjuntos
+                    </h4>
+            </div> --}}
         </div>
+
+
         </p>
     @endif
     <p>
@@ -109,72 +126,80 @@
                     </div>
                 </div>
             </div>
-            </p>            
+            </p>
         </div>
     </div>
     </p>
-    <p>
+    {{-- <p>
     <div class="card shadow p-3 mb-5 bg-white rounded">
         <div class="card-body">
-            <h4>
-                Archivos Adjuntos
-            </h4>
-            <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action">
-                    Archivo Adjunto 1
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    Archivo Adjunto 2
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    Archivo Adjunto 3
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    Archivo Adjunto 4
-                </a>
-            </div>
-            {{-- <ul class="p-0 m-0">                
-                <li class="list-group-item">item 2</li>
-                <li class="list-group-item">item 3</li>
-                <li class="list-group-item">item 4</li>
-                <li class="list-group-item">item 5</li>
-            </ul> --}}
+            
         </div>
     </div>
-    </p>
+    </p> --}}
 @section('product-content-b')
     <div class="card-body d-flex justify-content-center">
         <div class="row w-100">
             <div class="col-auto w-100 p-0 m-0">
+                {{-- @if (!$Product->getAllMedReq()->isEmpty()) --}}
                 <p>
                 <ul class="p-0 m-0">
-                    <li class="list-group-item list-group-item-warning">Requisitos Minimos</li>
-                    <li class="list-group-item">item 2</li>
-                    <li class="list-group-item">item 3</li>
-                    <li class="list-group-item">item 4</li>
-                    <li class="list-group-item">item 5</li>
+                    <li class="list-group-item list-group-item-primary text-center"><b>Requisitos Minimos</b></li>
+                    @if ($Product->getAllMinReq()->isEmpty())
+                        <li class="list-group-item">Sin Requisitos</li>
+                    @else
+                        @foreach ($Product->getAllMinReq() as $item)
+                            <li class="list-group-item">{{ $item->content }}</li>
+                        @endforeach
+                    @endif
                 </ul>
                 </p>
+                {{-- @endif --}}
+
+                @if (!$Product->getAllMedReq()->isEmpty())
+                    <p>
+                    <ul class="p-0 m-0">
+                        <li class="list-group-item list-group-item-primary text-center"><b>Requisitos Recomendados</b></li>
+                        @if ($Product->getAllMedReq()->isEmpty())
+                            <li class="list-group-item">Sin Requisitos</li>
+                        @else
+                            @foreach ($Product->getAllMedReq() as $item)
+                                <li class="list-group-item">{{ $item->content }}</li>
+                            @endforeach
+                        @endif
+                    </ul>
+                    </p>
+                @endif
+
+                @if (!$Product->getAllTerms()->isEmpty())
+                    <p>
+                    <ul class="p-0 m-0">
+                        <li class="list-group-item list-group-item-primary text-center"><b>Terminos y Condiciones del
+                                Servicio</b></li>
+                        @if ($Product->getAllTerms()->isEmpty())
+                            <li class="list-group-item">Sin Terminos</li>
+                        @else
+                            @foreach ($Product->getAllTerms() as $item)
+                                <li class="list-group-item">{{ $item->content }}</li>
+                            @endforeach
+                        @endif
+                    </ul>
+                    </p>
+                @endif
 
                 <p>
                 <ul class="p-0 m-0">
-                    <li class="list-group-item list-group-item-warning">Requisitos Recomendados</li>
-                    <li class="list-group-item">item 2</li>
-                    <li class="list-group-item">item 3</li>
-                    <li class="list-group-item">item 4</li>
-                    <li class="list-group-item">item 5</li>
+                    <li class="list-group-item list-group-item-primary text-center"><b>Archivos Adjuntos</b></li>
+                    @if ($Product->getAllTerms()->isEmpty())
+                        <li class="list-group-item">Sin Archivos</li>
+                    @else
+                        @foreach ($Product->getAllTerms() as $item)
+                            <li class="list-group-item">{{ $item->content }}</li>
+                        @endforeach
+                    @endif
                 </ul>
                 </p>
 
-                <p>
-                <ul class="p-0 m-0">
-                    <li class="list-group-item list-group-item-warning">Terminos del Servicio</li>
-                    <li class="list-group-item">item 2</li>
-                    <li class="list-group-item">item 3</li>
-                    <li class="list-group-item">item 4</li>
-                    <li class="list-group-item">item 5</li>
-                </ul>
-                </p>
             </div>
         </div>
     </div>
