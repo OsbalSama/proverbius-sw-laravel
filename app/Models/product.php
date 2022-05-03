@@ -33,11 +33,13 @@ class product extends Model
     //     return 'slug';
     // }
 
+    //User Accounts Relations
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    //Terms and Requirements Relations
     public function TermsRequirement()
     {
         return $this->hasMany(TermRequirement::class);
@@ -62,5 +64,17 @@ class product extends Model
         return $this->TermsRequirement->filter(function($Reg) {
             return $Reg->group == 'term';
         });
+    }
+
+    //Other Files Relations
+    public function getOtherFiles()
+    {
+        return $this->hasMany(OtherFiles::class);
+    }
+
+    //Playlists Relations
+    public function getPlaylists()
+    {
+        return $this->hasMany(Playlist::class);
     }
 }

@@ -5,12 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Playlist extends Model
+class OtherFiles extends Model
 {
     protected $fillable = [
-        'title',
-        'doc_type',
-        'otherfile_link',
+        'title',        
         'product_id',
     ];
 

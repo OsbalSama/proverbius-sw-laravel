@@ -2,18 +2,19 @@
 @section('product-content')
     @if ($Product->download_link != null)
         <p>
-
-        <div class="row h-auto mh-25">
-            <div class="col-md h-auto">
-                <div class="card shadow p-3 mb-5 bg-white rounded h-100">
+        <div class="row">
+            <div class="col-md">
+                <div class="card shadow p-3 mb-5 bg-white rounded">
                     <div class="card-body">
                         <H4>
                             Link de Descarga v{{ $Product->version }}
                         </H4>
-                        <div class="overflow-auto">
-                            <p class="text-center">
-                                {{ $Product->description }}
-                            </p>
+                        <div class="d-flex justify-content-center">
+                            <div class="col-sm-10">
+                                <p class="card-text text-center">
+                                    {{ $Product->description }}
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div class="card-footer">
@@ -25,183 +26,153 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="col-md-5 h-auto">
-                <div class="card shadow p-3 mb-5 bg-white rounded h-100">
-                    <h4>
-                        Archivos Adjuntos
-                    </h4>
-            </div> --}}
         </div>
-
-
         </p>
     @endif
-    <p>
-    <div class="card shadow p-3 mb-5 bg-white rounded">
-        <div class="card-body">
-            <h4>
-                Listas de Reproduccion
-            </h4>
-
-            <p>
-            <div class="card">
-                <div class="card-body">
-                    <h5>
-                        Playlist 1
-                    </h5>
-                    <div class="row">
-                        <div class="card m-1 p-0" style="width: 10rem;">
-                            <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
-                            <div class="card-body">
-                                <b>Card title</b>
+    @if (!$Product->getPlaylists->isEmpty())        
+        <p>
+        <div class="card shadow p-3 mb-5 bg-white rounded">
+            <div class="card-body">
+                <h4>
+                    Listas de Reproduccion
+                </h4>
+                <h6>
+                    Load Playlists
+                </h6>
+                <p>
+                <div class="card">
+                    <div class="card-body">
+                        <h5>
+                            Playlist 1
+                        </h5>
+                        <div class="row">
+                            <div class="card m-1 p-0" style="width: 8rem;">
+                                <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
+                                <div class="card-footer h-100">
+                                    Card title
+                                </div>
                             </div>
-                        </div>
-                        <div class="card m-1 p-0" style="width: 10rem;">
-                            <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
-                            <div class="card-body">
-                                <b>Card title</b>
+                            <div class="card m-1 p-0" style="width: 8rem;">
+                                <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
+                                <div class="card-footer h-100">
+                                    Card title
+                                </div>
                             </div>
-                        </div>
-                        <div class="card m-1 p-0" style="width: 10rem;">
-                            <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
-                            <div class="card-body">
-                                <b>Card title</b>
+                            <div class="card m-1 p-0" style="width: 8rem;">
+                                <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
+                                <div class="card-footer h-100">
+                                    Card title
+                                </div>
                             </div>
-                        </div>
-                        <div class="card m-1 p-0" style="width: 10rem;">
-                            <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
-                            <div class="card-body">
-                                <b>Card title</b>
+                            <div class="card m-1 p-0" style="width: 8rem;">
+                                <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
+                                <div class="card-footer h-100">
+                                    Card title
+                                </div>
                             </div>
-                        </div>
-                        <div class="card m-1 p-0" style="width: 10rem;">
-                            <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
-                            <div class="card-body">
-                                <b>Card title</b>
+                            <div class="card m-1 p-0" style="width: 8rem;">
+                                <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
+                                <div class="card-footer h-100">
+                                    Card title
+                                </div>
                             </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            </p>
-
-            <p>
-            <div class="card">
-                <div class="card-body">
-                    <h5>
-                        Playlist 2
-                    </h5>
-                    <div class="row">
-                        <div class="card m-1 p-0" style="width: 10rem;">
-                            <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
-                            <div class="card-body">
-                                <b>Card title</b>
-                            </div>
-                        </div>
-                        <div class="card m-1 p-0" style="width: 10rem;">
-                            <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
-                            <div class="card-body">
-                                <b>Card title</b>
-                            </div>
-                        </div>
-                        <div class="card m-1 p-0" style="width: 10rem;">
-                            <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
-                            <div class="card-body">
-                                <b>Card title</b>
-                            </div>
-                        </div>
-                        <div class="card m-1 p-0" style="width: 10rem;">
-                            <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
-                            <div class="card-body">
-                                <b>Card title</b>
-                            </div>
-                        </div>
-                        <div class="card m-1 p-0" style="width: 10rem;">
-                            <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
-                            <div class="card-body">
-                                <b>Card title</b>
-                            </div>
+    
                         </div>
                     </div>
                 </div>
+                </p>
+    
+                {{-- <p>
+                <div class="card">
+                    <div class="card-body">
+                        <h5>
+                            Playlist 2
+                        </h5>
+                        <div class="row">
+                            <div class="card m-1 p-0" style="width: 10rem;">
+                                <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
+                                <div class="card-body">
+                                    <b>Card title</b>
+                                </div>
+                            </div>
+                            <div class="card m-1 p-0" style="width: 10rem;">
+                                <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
+                                <div class="card-body">
+                                    <b>Card title</b>
+                                </div>
+                            </div>
+                            <div class="card m-1 p-0" style="width: 10rem;">
+                                <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
+                                <div class="card-body">
+                                    <b>Card title</b>
+                                </div>
+                            </div>
+                            <div class="card m-1 p-0" style="width: 10rem;">
+                                <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
+                                <div class="card-body">
+                                    <b>Card title</b>
+                                </div>
+                            </div>
+                            <div class="card m-1 p-0" style="width: 10rem;">
+                                <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
+                                <div class="card-body">
+                                    <b>Card title</b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </p> --}}
             </div>
-            </p>
         </div>
-    </div>
-    </p>
-    {{-- <p>
-    <div class="card shadow p-3 mb-5 bg-white rounded">
-        <div class="card-body">
-            
-        </div>
-    </div>
-    </p> --}}
+        </p>
+    @endif
 @section('product-content-b')
-    <div class="card-body d-flex justify-content-center">
-        <div class="row w-100">
-            <div class="col-auto w-100 p-0 m-0">
-                {{-- @if (!$Product->getAllMedReq()->isEmpty()) --}}
-                <p>
-                <ul class="p-0 m-0">
-                    <li class="list-group-item list-group-item-primary text-center"><b>Requisitos Minimos</b></li>
-                    @if ($Product->getAllMinReq()->isEmpty())
-                        <li class="list-group-item">Sin Requisitos</li>
-                    @else
-                        @foreach ($Product->getAllMinReq() as $item)
-                            <li class="list-group-item">{{ $item->content }}</li>
-                        @endforeach
-                    @endif
-                </ul>
-                </p>
-                {{-- @endif --}}
-
-                @if (!$Product->getAllMedReq()->isEmpty())
-                    <p>
-                    <ul class="p-0 m-0">
-                        <li class="list-group-item list-group-item-primary text-center"><b>Requisitos Recomendados</b></li>
-                        @if ($Product->getAllMedReq()->isEmpty())
-                            <li class="list-group-item">Sin Requisitos</li>
-                        @else
-                            @foreach ($Product->getAllMedReq() as $item)
-                                <li class="list-group-item">{{ $item->content }}</li>
-                            @endforeach
-                        @endif
-                    </ul>
-                    </p>
-                @endif
-
-                @if (!$Product->getAllTerms()->isEmpty())
-                    <p>
-                    <ul class="p-0 m-0">
-                        <li class="list-group-item list-group-item-primary text-center"><b>Terminos y Condiciones del
-                                Servicio</b></li>
-                        @if ($Product->getAllTerms()->isEmpty())
-                            <li class="list-group-item">Sin Terminos</li>
-                        @else
-                            @foreach ($Product->getAllTerms() as $item)
-                                <li class="list-group-item">{{ $item->content }}</li>
-                            @endforeach
-                        @endif
-                    </ul>
-                    </p>
-                @endif
-
-                <p>
-                <ul class="p-0 m-0">
-                    <li class="list-group-item list-group-item-primary text-center"><b>Archivos Adjuntos</b></li>
-                    @if ($Product->getAllTerms()->isEmpty())
-                        <li class="list-group-item">Sin Archivos</li>
-                    @else
-                        @foreach ($Product->getAllTerms() as $item)
-                            <li class="list-group-item">{{ $item->content }}</li>
-                        @endforeach
-                    @endif
-                </ul>
-                </p>
-
-            </div>
+    <div class="card-body">
+        <div class="card w-100">
+            <li class="list-group-item list-group-item-primary text-center"><b>Requisitos Minimos</b></li>
+            @if ($Product->getAllMinReq()->isEmpty())
+                <li class="list-group-item">Sin Requisitos</li>
+            @else
+                @foreach ($Product->getAllMinReq() as $item)
+                    <li class="list-group-item">{{ $item->content }}</li>
+                @endforeach
+            @endif
         </div>
+
+        @if (!$Product->getAllMedReq()->isEmpty())
+            <p>
+            <div class="card w-100">
+                <li class="list-group-item list-group-item-primary text-center"><b>Requisitos Recomendados</b></li>
+                @foreach ($Product->getAllMedReq() as $item)
+                    <li class="list-group-item">{{ $item->content }}</li>
+                @endforeach
+            </div>
+            </p>
+        @endif
+
+        @if (!$Product->getAllTerms()->isEmpty())
+            <p>
+            <div class="card w-100">
+                <li class="list-group-item list-group-item-primary text-center"><b>Terminos y Condiciones del Servicios</b>
+                </li>
+                @foreach ($Product->getAllTerms() as $item)
+                    <li class="list-group-item">{{ $item->content }}</li>
+                @endforeach
+            </div>
+            </p>
+        @endif
+
+        @if (!$Product->getOtherFiles->isEmpty())
+            <p>
+            <div class="card w-100">
+                <li class="list-group-item list-group-item-primary text-center"><b>Archivos Adjuntos</b></li>
+                @foreach ($Product->getOtherFiles->all() as $item)
+                    @include('components.other-file')
+                @endforeach
+            </div>
+            </p>
+        @endif
     </div>
 @endsection
 @endsection

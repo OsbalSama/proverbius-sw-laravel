@@ -75,24 +75,33 @@ Route::get('/products-and-services/store', 'accountController@storeProductServic
 Route::get('{product}/edit', 'accountController@editProductService')->name('account.product.edit');
 Route::match(['put', 'patch'], '{Product}/update', 'accountController@updateProductService')->name('account.product.update');
 
+// TERMINOS Y REQUISITOS
 //Edit Terms
-Route::get('{Product}/edit-terms', 'TermRequirementController@edit')->name('account.product.edit-terms');
-// Route::match(['put', 'patch'], '{Product}/update-terms', 'accountController@updateProductService')->name('account.product.update-terms-requirements');
+Route::get('{Product}/edit-terms', 'TermRequirementController@edit')->name('account.term-req.edit');
 
-// store new term
+//store new term
 Route::post('{Product}/store-term', 'TermRequirementController@store')->name('account.term-req.store');
 
 //delete term
 Route::delete('terms/{Registro}/destroy', 'TermRequirementController@destroy')->name('account.term-req.destroy');
 
 
-//view Product by ADMIN or ROOT
-Route::get('/{Product}', 'HomeController@viewProductPage')->name('public.product.view');
+//ARCHIVOS ADJUNTOS
+//Edit other-files
+Route::get('{Product}/edit-other-files', 'OtherFilesController@edit')->name('account.product.otherfiles.edit');
 
+//store new other-file
+Route::post('{Product}/store-other-file', 'OtherFilesController@store')->name('account.otherfiles.store');
+
+//delete other-files
+Route::delete('other-file/{Registro}/destroy', 'OtherFilesController@destroy')->name('account.otherfiles.destroy');
 
 
 
 //Admin/Partner Controlls
+
+//view Product by ADMIN or ROOT
+Route::get('/{Product}', 'HomeController@viewProductPage')->name('public.product.view');
 
 //USER ACCOUNTS MANAGEMENT
 //index
