@@ -8,8 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class OtherFiles extends Model
 {
     protected $fillable = [
-        'title',        
+        'title',
+        'doc_type',
+        'otherfile_link',
         'product_id',
+
     ];
 
     public function product()

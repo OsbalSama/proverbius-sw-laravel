@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Playlist;
 use App\Http\Requests\StorePlaylistRequest;
 use App\Http\Requests\UpdatePlaylistRequest;
+use App\Models\product;
+use Illuminate\Support\Facades\Auth;
 
 class PlaylistController extends Controller
 {
@@ -15,7 +17,6 @@ class PlaylistController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -23,9 +24,17 @@ class PlaylistController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(product $Product)
     {
-        //
+        $newPlaylist = Playlist::make([
+            'product_id' => $Product->id,
+        ]);
+
+        return view('account-views.playlist-views.playlist-create')->with([
+            'User' => Auth::user(),
+            'Product' => $Product,
+            'newPlaylist' => $newPlaylist,
+        ]);
     }
 
     /**
@@ -34,9 +43,19 @@ class PlaylistController extends Controller
      * @param  \App\Http\Requests\StorePlaylistRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePlaylistRequest $request)
+    public function store(product $Product)
     {
-        //
+        $rules = [
+            'title' => ['required', 'string', 'max:255', 'unique:products', 'min:4'],
+        ];
+        request()->validate($rules);
+        // dd($Product);
+        Playlist::create([
+            'title' => request()->title,
+            'product_id' => $Product->id,
+        ]);
+
+        return redirect(route('account.product.edit', ['product' => $Product]));
     }
 
     /**
@@ -81,6 +100,8 @@ class PlaylistController extends Controller
      */
     public function destroy(Playlist $playlist)
     {
-        //
+        $Product = $playlist->product;
+        $playlist->delete();
+        return redirect(route('account.product.edit', ['product' => $Product]));
     }
 }

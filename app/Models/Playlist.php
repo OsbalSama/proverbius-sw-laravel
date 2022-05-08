@@ -9,13 +9,16 @@ class Playlist extends Model
 {
     protected $fillable = [
         'title',
-        'doc_type',
-        'otherfile_link',
         'product_id',
     ];
 
     public function product()
     {
         return $this->belongsTo(product::class, 'product_id');
+    }
+
+    public function getPlaylistsItems()
+    {
+        return $this->hasMany(PlaylistResource::class);
     }
 }

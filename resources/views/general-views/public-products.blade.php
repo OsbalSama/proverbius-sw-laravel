@@ -21,12 +21,14 @@
                 </div>
             </div>
         @else
-            <div class="row ">
-                @foreach ($products as $Product)
-                    <div class="col-auto m-2 ">
-                        @include('components.product-card-b')
-                    </div>
-                @endforeach
+            <div class="row">
+                <div class="d-flex justify-content-center">
+                    @foreach ($products as $Product)
+                        <div class="col-auto m-2 ">
+                            @include('components.product-card-b')
+                        </div>
+                    @endforeach
+                </div>
             </div>
         @endif
         {{-- @empty($products)

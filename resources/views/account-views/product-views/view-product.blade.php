@@ -29,100 +29,49 @@
         </div>
         </p>
     @endif
-    @if (!$Product->getPlaylists->isEmpty())        
+    @if (!$Product->getPlaylists->isEmpty())
         <p>
         <div class="card shadow p-3 mb-5 bg-white rounded">
             <div class="card-body">
                 <h4>
                     Listas de Reproduccion
                 </h4>
-                <h6>
-                    Load Playlists
-                </h6>
-                <p>
-                <div class="card">
-                    <div class="card-body">
-                        <h5>
-                            Playlist 1
-                        </h5>
-                        <div class="row">
-                            <div class="card m-1 p-0" style="width: 8rem;">
-                                <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
-                                <div class="card-footer h-100">
-                                    Card title
+                @foreach ($Product->getPlaylists as $Playlist)
+                    <p>
+                    <div class="card">
+                        {{-- <div class="card-header"> --}}
+                        {{-- </div> --}}
+                        <div class="card-body">
+                            {{-- <p> --}}
+                            <h5>
+                                {{ $Playlist->title }}
+                            </h5>
+                            {{-- <b>
+
+                                    {{ $Playlist->title }}
+                                </b> --}}
+                            {{-- </p> --}}
+                            @if ($Playlist->getPlaylistsItems->isEmpty())
+                                <div class="p-4">
+                                    *Lista de Reproducción Vacía
                                 </div>
-                            </div>
-                            <div class="card m-1 p-0" style="width: 8rem;">
-                                <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
-                                <div class="card-footer h-100">
-                                    Card title
+                            @else
+                                <div class="row d-flex justify-content-start">
+                                    @include('components.p-item')
+                                    @include('components.p-item')
+                                    @include('components.p-item')
+                                    @include('components.p-item')
+                                    @include('components.p-item')
+                                    @include('components.p-item')
+                                    @include('components.p-item')
+                                    @include('components.p-item')
                                 </div>
-                            </div>
-                            <div class="card m-1 p-0" style="width: 8rem;">
-                                <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
-                                <div class="card-footer h-100">
-                                    Card title
-                                </div>
-                            </div>
-                            <div class="card m-1 p-0" style="width: 8rem;">
-                                <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
-                                <div class="card-footer h-100">
-                                    Card title
-                                </div>
-                            </div>
-                            <div class="card m-1 p-0" style="width: 8rem;">
-                                <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
-                                <div class="card-footer h-100">
-                                    Card title
-                                </div>
-                            </div>
-    
+                                Load Playlist Items
+                            @endif
                         </div>
                     </div>
-                </div>
-                </p>
-    
-                {{-- <p>
-                <div class="card">
-                    <div class="card-body">
-                        <h5>
-                            Playlist 2
-                        </h5>
-                        <div class="row">
-                            <div class="card m-1 p-0" style="width: 10rem;">
-                                <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
-                                <div class="card-body">
-                                    <b>Card title</b>
-                                </div>
-                            </div>
-                            <div class="card m-1 p-0" style="width: 10rem;">
-                                <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
-                                <div class="card-body">
-                                    <b>Card title</b>
-                                </div>
-                            </div>
-                            <div class="card m-1 p-0" style="width: 10rem;">
-                                <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
-                                <div class="card-body">
-                                    <b>Card title</b>
-                                </div>
-                            </div>
-                            <div class="card m-1 p-0" style="width: 10rem;">
-                                <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
-                                <div class="card-body">
-                                    <b>Card title</b>
-                                </div>
-                            </div>
-                            <div class="card m-1 p-0" style="width: 10rem;">
-                                <img class="w-100" src="{{ asset('images/assets/video.png') }}" alt="video.png">
-                                <div class="card-body">
-                                    <b>Card title</b>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </p> --}}
+                    </p>
+                @endforeach
             </div>
         </div>
         </p>

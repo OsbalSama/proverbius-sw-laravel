@@ -97,6 +97,13 @@ Route::post('{Product}/store-other-file', 'OtherFilesController@store')->name('a
 Route::delete('other-file/{Registro}/destroy', 'OtherFilesController@destroy')->name('account.otherfiles.destroy');
 
 
+//PLAYLISTS
+//Create
+Route::get('{Product}/new-playlist', 'PlaylistController@create')->name('product.playlist.create');
+Route::get('{Product}/playlist/store', 'PlaylistController@store')->name('product.playlist.store');
+
+// destroy
+Route::delete('{playlist}/destroy', 'PlaylistController@destroy')->name('product.playlist.destroy');
 
 //Admin/Partner Controlls
 

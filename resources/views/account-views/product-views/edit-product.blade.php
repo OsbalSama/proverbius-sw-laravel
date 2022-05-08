@@ -50,17 +50,17 @@
                     @csrf
                     @method('PUT')
                     <p>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                            <h3>Editar Producto</h3>
-                            <button class="btn btn-success mr-2" type="submit">Guardar</button>
-                        </div>
+                    <div class="d-flex justify-content-between">
+                        <h3>Editar Producto</h3>
+                        <button class="btn btn-success mr-2" type="submit">Guardar</button>
                     </div>
-                    <div class="card">
+                    </p>
+                    <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+                        <h5>Datos Generales</h5>
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="title">
-                                    <h5>*Nombre o Titulo</h5>
+                                    *Nombre o Titulo
                                 </label>
                                 <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
                                     placeholder="Register Cash Free" value="{{ $Product->title }}" required>
@@ -72,7 +72,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="description">
-                                    <h5>*Descripcion</h5>
+                                    *Descripcion
                                 </label>
                                 <textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="3"
                                     placeholder="Software Punto de Venta"
@@ -87,7 +87,7 @@
                                 <div class="row">
                                     <div class="col-sm">
                                         <label for="amount">
-                                            <h5>*Precio o Coste</h5>
+                                            *Precio o Coste
                                         </label>
                                         <input min="1" type="number"
                                             class="form-control @error('amount') is-invalid @enderror" name="amount"
@@ -100,7 +100,7 @@
                                     </div>
                                     <div class="col-sm">
                                         <label for="stock">
-                                            <h5>*Inventario</h5>
+                                            Inventario
                                         </label>
                                         <input min="1" type="number"
                                             class="form-control @error('stock') is-invalid @enderror" name="stock"
@@ -117,7 +117,7 @@
                                 <div class="row">
                                     <div class="col-sm">
                                         <label for="type">
-                                            <h5>*Tipo de Soporte</h5>
+                                            *Tipo de Soporte
                                         </label>
                                         <select class="form-control" class="custom-select" name="type" required>
                                             <option {{ $Product->type == 'product' ? 'selected' : '' }} value="product">
@@ -130,7 +130,7 @@
                                     </div>
                                     <div class="col-sm">
                                         <label for="version">
-                                            <h5>*Version</h5>
+                                            *Version de Producto
                                         </label>
                                         <input min="1" type="number"
                                             class="form-control @error('version') is-invalid @enderror" name="version"
@@ -145,7 +145,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="downloadLink">
-                                    <h5>Link de Descarga</h5>
+                                    Link de Descarga
                                 </label>
                                 <input type="url" class="form-control @error('downloadLink') is-invalid @enderror"
                                     name="downloadLink" placeholder="Ignora si no tiene Link"
@@ -158,32 +158,47 @@
                             </div>
                         </div>
                     </div>
-                    </p>
+                    <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+                        <div class="d-flex justify-content-between">
+                            <h5>
+                                Listas de Reproduccion
+                            </h5>
+                            <a class="btn btn-sm btn-success mr-2"
+                                href="{{ route('product.playlist.create', ['Product' => $Product]) }} ">+</a>
+                        </div>
+                        <div class="card-body w-100">
+                            @if ($Product->getPlaylists->isEmpty())
+                                <b>*Sin Listas de Reproducción</b>
+                            @else
+                                @foreach ($Product->getPlaylists as $Playlist)
+                                    @include('components.playlist-card')
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
 
                     @if (Auth::user()->isAdmin())
-                        <p>
-                        <div class="card">
-                            <div class="card-header">
+                        <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+                            <h5>
                                 Admin Controlls
-                            </div>
+                            </h5>
                             <div class="card-body">
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm">
                                             <label for="">
-                                                <h5>Visible</h5>
+                                                Visible
                                             </label>
                                         </div>
                                         <div class="col-sm">
                                             <label for="">
-                                                <h5>Bloqueado</h5>
+                                                Bloqueado
                                             </label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        </p>
                     @endif
                 </form>
             </div>
@@ -192,7 +207,9 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="d-flex justify-content-between">
-                            Requisitos Minimos
+                            <h6>
+                                Requisitos Minimos
+                            </h6>
                             <a class="btn btn-sm btn-success mr-2"
                                 href="{{ route('account.term-req.edit', ['Product' => $Product]) }}">+</a>
                         </div>
@@ -213,7 +230,9 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="d-flex justify-content-between">
-                            Requisitos Recomendados
+                            <h6>
+                                Requisitos Recomendados
+                            </h6>
                             <a class="btn btn-sm btn-success mr-2"
                                 href="{{ route('account.term-req.edit', ['Product' => $Product]) }}">+</a>
                         </div>
@@ -233,7 +252,9 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="d-flex justify-content-between">
-                            Terminos del Servicio
+                            <h6>
+                                Terminos del Servicio
+                            </h6>
                             <a class="btn btn-sm btn-success mr-2"
                                 href="{{ route('account.term-req.edit', ['Product' => $Product]) }}">+</a>
                         </div>
@@ -250,24 +271,26 @@
                 </div>
                 </p>
                 <p>
-                <div class="card">
+                <div class="card ">
                     <div class="card-header">
                         <div class="d-flex justify-content-between">
-                            Archivos Adjuntos
+                            <h6>Archivos Adjuntos</h6>
                             <a class="btn btn-sm btn-success mr-2"
                                 href="{{ route('account.product.otherfiles.edit', ['Product' => $Product]) }}">+</a>
                         </div>
                     </div>
-                    @if ($Product->getOtherFiles->isEmpty())
-                        <tr>
-                            <li class="list-group-item">Sin Archivos Adjuntos</li>
-                        </tr>
-                    @else
-                        @foreach ($Product->getOtherFiles->all() as $item)
-                            @include('components.other-file')
-                            {{-- <li class="list-group-item">{{ $item->title }}</li> --}}
-                        @endforeach
-                    @endif
+                    <div class="card-body">
+                        @if ($Product->getOtherFiles->isEmpty())
+                            <tr>
+                                <li class="list-group-item">Sin Archivos Adjuntos</li>
+                            </tr>
+                        @else
+                            @foreach ($Product->getOtherFiles->all() as $item)
+                                @include('components.other-file')
+                            @endforeach
+                        @endif
+
+                    </div>
                 </div>
                 </p>
             </div>
@@ -286,6 +309,23 @@
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Guardar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.submit();
+                }
+            })
+        });
+
+        $('.droPlaylist').submit(function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Eliminar Playlist?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Eliminar',
                 cancelButtonText: 'Cancelar'
             }).then((result) => {
                 if (result.isConfirmed) {

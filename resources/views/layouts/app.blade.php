@@ -26,8 +26,8 @@
 
 <body class="d-flex flex-column min-vh-100">
     <div id="app">
-        <nav style="background: #fd7e14;" class="navbar navbar-expand-md navbar-dark  shadow-sm">
-            {{-- <nav class="navbar navbar-expand-md navbar-light  shadow-sm"> --}}
+        {{-- <nav style="background: #fd7e14;" class="navbar navbar-expand-md navbar-dark  shadow-sm"> --}}
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark  shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img style="width: 8rem" src="{{ asset('images/assets/appNameB.png') }}" alt="appName">
@@ -48,7 +48,7 @@
                                 </a>
                             </strong>
                         </li>
-                        {{-- <li class="nav-item dropdown">
+                        <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <strong>
@@ -70,7 +70,7 @@
                                 <a class="dropdown-item" href="{{ route('global.business') }}">Negocios</a>
                                 <a class="dropdown-item" href="{{ route('global.e-commerce') }}">E-Commerce</a>
                             </div>
-                        </li> --}}
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('global.publicProducts') }}">
@@ -79,10 +79,6 @@
                                 </strong>
                             </a>
                         </li>
-
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="{{ route('global.publicServices') }}">Servicios</a>
-                        </li> --}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('global.aboutUs') }}">
                                 <strong>
@@ -202,7 +198,7 @@
                                     <br>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -248,27 +244,19 @@
             <a target="_blank" class="btn btn-outline-light btn-floating m-1"
                 href="https://www.facebook.com/ProverbiusSoftware" role="button"><i class="fab fa-facebook-f"></i></a>
 
-            <!-- Twitter -->
-            {{-- <a target="_blank" class="btn btn-outline-light btn-floating m-1"
-                href="https://www.linkedin.com/in/osbaldo-toledo-ramos-06b249213" role="button"><i
-                    class="fab fa-linkedin-in"></i></a> --}}
-
-            <!-- Google -->
+            <!-- YouTube -->
             <a target="_blank" class="btn btn-outline-light btn-floating m-1"
                 href="https://www.youtube.com/channel/UCyHUW3repfp5RBWrDSXJ4Lw/featured" role="button"><i
                     class="fab fa-youtube"></i></a>
 
-            <!-- Instagram -->
+            <!-- WhatsApp -->
             <a target="_blank" class="btn btn-outline-light btn-floating m-1"
                 href="https://chat.whatsapp.com/G6MDE4LHIOj413q2AD4iUj" role="button"><i
                     class="fab fa-whatsapp"></i></a>
 
-            <!-- Linkedin -->
+            <!-- Telegram -->
             <a target="_blank" class="btn btn-outline-light btn-floating m-1"
                 href="https://t.me/joinchat/MPDEYAUpXTw3MDlh" role="button"><i class="fab fa-telegram"></i></a>
-
-            <!-- Github -->
-            <!-- <a target="_blank" class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a> -->
         </section>
         <!-- Section: Social media -->
     </div>
@@ -277,7 +265,8 @@
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
         © 2020 Copyright:
-        <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        <a href="#" class="text-white">Todos los Derechos Reservados</a>
+        {{-- <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a> --}}
     </div>
     <!-- Copyright -->
 </footer>
