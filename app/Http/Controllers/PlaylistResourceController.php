@@ -35,9 +35,21 @@ class PlaylistResourceController extends Controller
      * @param  \App\Http\Requests\StorePlaylistResourceRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePlaylistResourceRequest $request)
+    public function store(Playlist $Playlist)
     {
-        //
+        $rules = [
+            'resource_title' => ['required', 'string', 'max:255', 'min:4'],
+            'resource_link' => ['required', 'string', 'max:255', 'min:4'],
+        ];
+        request()->validate($rules);
+        PlaylistResource::create([
+            'title' => request()->resource_title,
+            'resource_type' => request()->resource_type,
+            'resource_link' => request()->resource_link,
+            'playlist_id' => $Playlist->id,
+        ]);
+        
+        return redirect(route('product.playlist.edit', ['Product'=>$Playlist->product, 'playlist'=>$Playlist]));
     }
 
     /**
@@ -82,6 +94,10 @@ class PlaylistResourceController extends Controller
      */
     public function destroy(PlaylistResource $playlistResource)
     {
-        //
+        $Playlist = $playlistResource->playlist;
+        // dd($Playlist);
+        $playlistResource->delete();
+        return redirect(route('product.playlist.edit', ['Product'=>$Playlist->product, 'playlist'=>$Playlist]));
+        // return 'Destroy Resource';
     }
 }

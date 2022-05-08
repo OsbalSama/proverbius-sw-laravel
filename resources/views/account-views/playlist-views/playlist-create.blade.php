@@ -37,13 +37,9 @@
         <!-- end Product Card -->
     </div>
     <!-- Content -->
-    <div class="container">
-        Playlist Belongs To: {{ $newPlaylist->product->title }}
-        <br>
-        Product = {{$Product->title}}
+    <div class="container">        
         <div class="card shadow p-3 mb-5 bg-white rounded">
-            <form action="{{ route('product.playlist.store', ['Product' => $Product]) }} "
-                class="trySubmit">
+            <form action="{{ route('product.playlist.store', ['Product' => $Product]) }} " class="trySubmit">
                 @csrf
                 <div class="d-flex justify-content-between d-flex align-items-center">
                     <h3>Crear Lista de Reproduccion</h3>

@@ -1,22 +1,22 @@
 @extends('layouts.product-layout')
 @section('product-content')
-    @if ($Product->download_link != null)
-        <p>
-        <div class="row">
-            <div class="col-md">
-                <div class="card shadow p-3 mb-5 bg-white rounded">
-                    <div class="card-body">
-                        <H4>
-                            Link de Descarga v{{ $Product->version }}
-                        </H4>
-                        <div class="d-flex justify-content-center">
-                            <div class="col-sm-10">
-                                <p class="card-text text-center">
-                                    {{ $Product->description }}
-                                </p>
-                            </div>
+    <p>
+    <div class="row">
+        <div class="col-md">
+            <div class="card shadow p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                    <H4>
+                        Descripcion de Producto v{{ $Product->version }}
+                    </H4>
+                    <div class="d-flex justify-content-center">
+                        <div class="col-sm-10">
+                            <p class="card-text text-center">
+                                {{ $Product->description }}
+                            </p>
                         </div>
                     </div>
+                </div>
+                @if ($Product->download_link != null)
                     <div class="card-footer">
                         <div class="d-flex justify-content-center">
                             <a class="btn btn-lg btn-success" href="{{ $Product->download_link }}" target="_blank">
@@ -24,11 +24,11 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
-        </p>
-    @endif
+    </div>
+    </p>
     @if (!$Product->getPlaylists->isEmpty())
         <p>
         <div class="card shadow p-3 mb-5 bg-white rounded">
@@ -39,34 +39,20 @@
                 @foreach ($Product->getPlaylists as $Playlist)
                     <p>
                     <div class="card">
-                        {{-- <div class="card-header"> --}}
-                        {{-- </div> --}}
                         <div class="card-body">
-                            {{-- <p> --}}
                             <h5>
                                 {{ $Playlist->title }}
                             </h5>
-                            {{-- <b>
-
-                                    {{ $Playlist->title }}
-                                </b> --}}
-                            {{-- </p> --}}
                             @if ($Playlist->getPlaylistsItems->isEmpty())
                                 <div class="p-4">
                                     *Lista de Reproducción Vacía
                                 </div>
                             @else
                                 <div class="row d-flex justify-content-start">
-                                    @include('components.p-item')
-                                    @include('components.p-item')
-                                    @include('components.p-item')
-                                    @include('components.p-item')
-                                    @include('components.p-item')
-                                    @include('components.p-item')
-                                    @include('components.p-item')
-                                    @include('components.p-item')
+                                    @foreach ($Playlist->getPlaylistsItems->all() as $item)
+                                        @include('components.p-item')
+                                    @endforeach
                                 </div>
-                                Load Playlist Items
                             @endif
                         </div>
                     </div>

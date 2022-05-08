@@ -74,12 +74,10 @@ class TermRequirementController extends Controller
      */
     public function edit(product $Product)
     {
-        // $items = $Product->TermsRequirement->all();
         return view('account-views.product-views.edit-terms-reqs')->with([
             'User' => Auth::user(),
             'Product' => $Product,
         ]);
-        // return 'Open View Edit Terms & Requirements';
     }
 
     /**

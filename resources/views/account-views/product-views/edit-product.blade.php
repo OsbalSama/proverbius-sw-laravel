@@ -156,52 +156,73 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
-                    </div>
-                    <div class="card shadow-sm p-3 mb-5 bg-white rounded">
-                        <div class="d-flex justify-content-between">
-                            <h5>
-                                Listas de Reproduccion
-                            </h5>
-                            <a class="btn btn-sm btn-success mr-2"
-                                href="{{ route('product.playlist.create', ['Product' => $Product]) }} ">+</a>
-                        </div>
-                        <div class="card-body w-100">
-                            @if ($Product->getPlaylists->isEmpty())
-                                <b>*Sin Listas de Reproducción</b>
-                            @else
-                                @foreach ($Product->getPlaylists as $Playlist)
-                                    @include('components.playlist-card')
-                                @endforeach
-                            @endif
-                        </div>
-                    </div>
-
-                    @if (Auth::user()->isAdmin())
-                        <div class="card shadow-sm p-3 mb-5 bg-white rounded">
-                            <h5>
-                                Admin Controlls
-                            </h5>
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-sm">
-                                            <label for="">
-                                                Visible
-                                            </label>
-                                        </div>
-                                        <div class="col-sm">
-                                            <label for="">
-                                                Bloqueado
-                                            </label>
+                            @if (Auth::user()->isAdmin())
+                                <h5>
+                                    Admin Controlls
+                                </h5>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <label for="">
+                                                    Visible
+                                                </label>
+                                            </div>
+                                            <div class="col-sm">
+                                                <label for="">
+                                                    Bloqueado
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                            @endif
+
+
+                        </div>
+                    </div>
+                </form>
+
+                <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+                    <form action="{{ route('product.playlist.store', ['Product' => $Product]) }} "
+                        class="createPlaylist">
+                        @csrf
+                        <div class="d-flex justify-content-between d-flex align-items-center">
+                            <h5>
+                                Listas de Reproduccion
+                            </h5>
+                        </div>
+                        <div class="form-group">
+                            {{-- <label for="title">Nombre de la Playlist</label> --}}
+                            <div class="d-flex justify-content-between">
+                                <div class="w-100 mr-2">
+                                    <input type="text" class="form-control @error('title') is-invalid @enderror"
+                                        name="title" placeholder="Nombre de la Playlist" value="{{ old('title') }}"
+                                        required>
+                                    @error('title')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <button class="btn btn-success " type="submit">+</button>
                             </div>
                         </div>
-                    @endif
-                </form>
+                    </form>
+
+                    <div class="card-body w-100">                        
+                        @if ($Product->getPlaylists->isEmpty())
+                            <b>*Sin Listas de Reproducción</b>
+                        @else
+                            @foreach ($Product->getPlaylists as $Playlist)
+                                @include('components.playlist-card')
+                            @endforeach
+                        @endif
+                    </div>
+                </div>
             </div>
+
+
             <div class="col-sm-3 m-0 p-0">
                 <p>
                 <div class="card">
@@ -304,6 +325,24 @@
             e.preventDefault();
             Swal.fire({
                 title: 'Actualizar Producto?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Guardar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.submit();
+                }
+            })
+        });
+
+
+        $('.createPlaylist').submit(function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Crear Playlist?',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

@@ -102,11 +102,22 @@ Route::delete('other-file/{Registro}/destroy', 'OtherFilesController@destroy')->
 Route::get('{Product}/new-playlist', 'PlaylistController@create')->name('product.playlist.create');
 Route::get('{Product}/playlist/store', 'PlaylistController@store')->name('product.playlist.store');
 
+//edit
+Route::get('{Product}/{playlist}/edit', 'PlaylistController@edit')->name('product.playlist.edit');
+Route::match(['put', 'patch'], 'playlist/{Playlist}/update', 'PlaylistController@update')->name('product.playlist.update');
+
 // destroy
 Route::delete('{playlist}/destroy', 'PlaylistController@destroy')->name('product.playlist.destroy');
 
-//Admin/Partner Controlls
+// PLAYLIST ITEM
+// create
+Route::get('resource/{Playlist}/store', 'PlaylistResourceController@store')->name('playlist.resource.store');
 
+// store
+Route::delete('resource/{playlistResource}/destroy', 'PlaylistResourceController@destroy')->name('playlist.resource.destroy');
+
+
+//Admin/Partner Controlls
 //view Product by ADMIN or ROOT
 Route::get('/{Product}', 'HomeController@viewProductPage')->name('public.product.view');
 

@@ -18,8 +18,8 @@
         @endif
     </div>
     <div class="card-footer">
-        <div class="d-flex justify-content-end">
-            <a class="btn btn-success mr-2" href="">Editar</a>
+        <div class="d-flex justify-content-end">        
+            <a class="btn btn-success mr-2" href=" {{ route('product.playlist.edit', ['Product'=>$Playlist->product, 'playlist'=>$Playlist]) }} ">Editar</a>            
             <form class="droPlaylist" method="POST"
                 action="{{ route('product.playlist.destroy', ['playlist' => $Playlist]) }}">
                 @csrf

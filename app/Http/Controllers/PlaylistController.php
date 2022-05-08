@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Playlist;
 use App\Http\Requests\StorePlaylistRequest;
 use App\Http\Requests\UpdatePlaylistRequest;
+use App\Models\PlaylistResource;
 use App\Models\product;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,6 +38,8 @@ class PlaylistController extends Controller
         ]);
     }
 
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -49,13 +52,27 @@ class PlaylistController extends Controller
             'title' => ['required', 'string', 'max:255', 'unique:products', 'min:4'],
         ];
         request()->validate($rules);
-        // dd($Product);
         Playlist::create([
             'title' => request()->title,
             'product_id' => $Product->id,
         ]);
 
         return redirect(route('account.product.edit', ['product' => $Product]));
+    }
+
+    public function addPlaylistItem(Playlist $playlist)
+    {
+        $resource = PlaylistResource::make([
+            'title' => Auth::user(),
+            'resource_type' => Auth::user(),
+            'resource_link' => Auth::user(),
+        ]);
+
+        return view('account-views.playlist-views.playlist-create')->with([
+            'User' => Auth::user(),
+            'Product' => $playlist->product,
+            'newPlaylist' => $playlist,
+        ]);
     }
 
     /**
@@ -75,9 +92,14 @@ class PlaylistController extends Controller
      * @param  \App\Models\Playlist  $playlist
      * @return \Illuminate\Http\Response
      */
-    public function edit(Playlist $playlist)
+    public function edit(product $Product, Playlist $playlist)
     {
-        //
+
+        return view('account-views.playlist-views.playlist-edit')->with([
+            'User' => Auth::user(),
+            'Product' => $Product,
+            'Playlist' => $playlist,
+        ]);
     }
 
     /**
@@ -87,9 +109,17 @@ class PlaylistController extends Controller
      * @param  \App\Models\Playlist  $playlist
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePlaylistRequest $request, Playlist $playlist)
+    public function update(Playlist $Playlist)
     {
-        //
+        $rules = [
+            'title' => ['required', 'string', 'max:255', 'unique:products', 'min:4'],
+        ];
+        request()->validate($rules);
+        $Playlist->update([
+            'title' => request()->title,
+        ]);
+        $product = $Playlist->product;
+        return redirect()->route('account.product.edit', ['product' => $product]);
     }
 
     /**
